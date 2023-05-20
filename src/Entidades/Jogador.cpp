@@ -1,5 +1,6 @@
 //Cabeçalhos Próprios:
 #include"../../include/Entidades/Jogador.h"
+//#include "Jogador.h"
 
 namespace Entidades{
     Jogador::Jogador(float VIDA, float DANO, Vector2f VEL, int X, int Y, Vector2f TAM, Vector2f POS, Texture TEXT, Sprite SPRT, int ID): 
@@ -34,4 +35,5 @@ namespace Entidades{
     const Vector2f Jogador::getVel() const{
         return vel;
     }
+
 };

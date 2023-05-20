@@ -81,7 +81,10 @@ class Gerenciador_de_Eventos{
 */
 int main(){
     Principal objPrincipal;
-    /*sf::RenderWindow window(sf::VideoMode(600, 500), "SFML works!");
+    
+}
+
+/*sf::RenderWindow window(sf::VideoMode(600, 500), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     Texture txt, tchao, tfundo;
@@ -108,5 +111,3 @@ int main(){
         gf.gerenciar_input();
     }
 */
-    return 0;
-}

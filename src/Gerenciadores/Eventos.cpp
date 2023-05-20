@@ -1,11 +1,13 @@
 #include"../../include/Gerenciadores/Eventos.h"
 
 namespace Gerenciadores{
-    Eventos::Eventos(Jogador* JOG, Vector2f POS, Vector2f VEL):
-        jog(JOG), pos(POS), vel(VEL)
+
+    Eventos::Eventos(Jogador *JOG, Vector2f POS, Vector2f VEL) : jog(JOG), pos(POS), vel(VEL)
     {
-        pos=jog->getPos();
-        vel=jog->getVel();
+        if(jog){
+            pos=jog->getPos();
+            vel=jog->getVel();
+        }
     }
 
     Eventos::~Eventos()
@@ -13,22 +15,34 @@ namespace Gerenciadores{
         jog=NULL;
     }
 
-    void Eventos::gerenciarInput(){
-        if(Keyboard::isKeyPressed(Keyboard::A)){
-            pos.x -= vel.x; 
-            jog->setcord(Vector2f(pos));
+    void Eventos::gerenciarInput(sf::Event evento){
+        if(jog){
+            if(Keyboard::isKeyPressed(Keyboard::A)){
+                pos.x -= vel.x; 
+                jog->setPos(Vector2f(pos));
+            }
+            else if(Keyboard::isKeyPressed(Keyboard::D)){
+                pos.x += vel.x; 
+                jog->setPos(pos);
+            }
+            else if(Keyboard::isKeyPressed(Keyboard::S)){
+                pos.y += vel.y; 
+                jog->setPos(pos);
+            }
+            else if(Keyboard::isKeyPressed(Keyboard::W)){
+                pos.y -= vel.y; 
+                jog->setPos(pos);
+            }
         }
-        else if(Keyboard::isKeyPressed(Keyboard::D)){
-            pos.x += vel.x; 
-            jog->setcord(pos);
+        if(Pjanela){
+            if(Pjanela->isOpen()){}
+                if (evento.type == sf::Event::Closed)
+                    Pjanela->close();
+                if (evento.type == sf::Event::Resized)
+                    std::cout << evento.size.width << evento.size.height << std::endl;
         }
-        else if(Keyboard::isKeyPressed(Keyboard::S)){
-            pos.y += vel.y; 
-            jog->setcord(pos);
-        }
-        else if(Keyboard::isKeyPressed(Keyboard::W)){
-            pos.y -= vel.y; 
-            jog->setcord(pos);
-        }
+    }
+    void Eventos::setWindow(Window* jnl){
+        Pjanela = jnl;
     }
 };
