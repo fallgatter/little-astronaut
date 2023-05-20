@@ -1,10 +1,11 @@
 #include<iostream>
 #include<SFML/Graphics.hpp>
+#include"include\Principal.h"
 
 using namespace sf;
 using namespace std;
 
-class Entidade{
+/*class Entidade{
     protected:
         Vector2f cordenada, tamanho;
         Texture textura;
@@ -77,9 +78,10 @@ class Gerenciador_de_Eventos{
             }
         }
 };
-
+*/
 int main(){
-    sf::RenderWindow window(sf::VideoMode(600, 500), "SFML works!");
+    Principal objPrincipal;
+    /*sf::RenderWindow window(sf::VideoMode(600, 500), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     Texture txt, tchao, tfundo;
@@ -105,6 +107,6 @@ int main(){
         window.display();
         gf.gerenciar_input();
     }
-
+*/
     return 0;
 }
