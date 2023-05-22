@@ -27,7 +27,7 @@ namespace Gerenciadores{
             void display();
             void clear();
             void closeWindow();
-            void show();
+            void drawn(Sprite sprtaux);
             void updateTime();
             float getDt();
             void render(Sprite* body);

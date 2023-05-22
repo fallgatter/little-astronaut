@@ -50,4 +50,7 @@ namespace Gerenciadores{
     void Grafico::setWindow(RenderWindow* wnd){
         window = wnd;
     }
+    void Grafico::drawn(Sprite sprtaux){
+        window->draw(sprtaux);
+    }
 }using namespace Gerenciadores;

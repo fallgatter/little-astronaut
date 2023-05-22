@@ -12,13 +12,25 @@ Principal::~Principal(){
 }
 
 void Principal::executar(){
+    Texture txt;
+    txt.loadFromFile("default.png");
+    Sprite sprt;
+    sprt.setTexture(txt);
+    jogador.setSprite(sprt);
+    //jogador.setPos(Vector2f(100.f,100.f));
     while(janela.isOpen()){
         sf::Event event;
         while (janela.pollEvent(event))
         {
             Ge->gerenciarInput(&event);
         }
+        Keyboard tecl;
+        jogador.interacao(&tecl);
+        jogador.desacelerar();
+        jogador.mover_se();
+        Ga.drawn(jogador.getSprite());
         Ga.display();
+        Ga.clear();
     }
 }
 

@@ -35,5 +35,16 @@ namespace Entidades{
     const Vector2f Jogador::getVel() const{
         return vel;
     }
-
+    void Jogador::interacao(Keyboard* tecla){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+            vel_instantanea.y += -0.00003;
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+            vel_instantanea.x += 0.00002;
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+            vel_instantanea.x -= 0.00002;
+        }
+        
+    }
 };
