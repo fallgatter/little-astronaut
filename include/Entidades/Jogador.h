@@ -17,5 +17,6 @@ namespace Entidades{
             float getVida() const;
             float getDano() const;
             const Vector2f getVel() const;
+            void interacao(Keyboard* tecla);
     };
 }using namespace Entidades;

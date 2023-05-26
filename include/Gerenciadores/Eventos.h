@@ -12,12 +12,12 @@ namespace Gerenciadores{
         private:
             Jogador* jog;
             Vector2f pos, vel;
-            Window* Pjanela;
+            RenderWindow* Pjanela;
         public:
             //Eventos();
             Eventos(Jogador* JOG=NULL, Vector2f POS=Vector2f(0.0f, 0.0f), Vector2f VEL=Vector2f(0.0f, 0.0f));
             ~Eventos();
-            void gerenciarInput(sf::Event evento);
-            void setWindow(Window* wnd);
+            void gerenciarInput(sf::Event* evento);
+            void setWindow(RenderWindow* wnd);
     };
 }using namespace Gerenciadores;

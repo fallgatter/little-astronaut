@@ -15,7 +15,7 @@ namespace Gerenciadores{
         jog=NULL;
     }
 
-    void Eventos::gerenciarInput(sf::Event evento){
+    void Eventos::gerenciarInput(sf::Event* evento){
         if(jog){
             if(Keyboard::isKeyPressed(Keyboard::A)){
                 pos.x -= vel.x; 
@@ -36,13 +36,13 @@ namespace Gerenciadores{
         }
         if(Pjanela){
             if(Pjanela->isOpen()){}
-                if (evento.type == sf::Event::Closed)
+                if (evento->type == sf::Event::Closed)
                     Pjanela->close();
-                if (evento.type == sf::Event::Resized)
-                    std::cout << evento.size.width << evento.size.height << std::endl;
+                if (evento->type == sf::Event::Resized)
+                    std::cout << evento->size.width << evento->size.height << std::endl;
         }
     }
-    void Eventos::setWindow(Window* jnl){
+    void Eventos::setWindow(RenderWindow* jnl){
         Pjanela = jnl;
     }
 };
