@@ -10,19 +10,22 @@ using namespace sf;
 namespace Entidades{
     class Entidade: public Ente{
         protected:
-            int x, y;
-            Vector2f tam, pos, vel_instantanea;
+            Vector2f tam, pos, vel, acel;
             Texture text;
             Sprite sprt;
         public:
-            Entidade(int X=0, int Y=0, Vector2f TAM=Vector2f(3.f, 3.f), Vector2f POS=Vector2f(0.f, 0.f), Texture TEXT=Texture(), Sprite SPRT=Sprite(), int ID=0);
+            Entidade(Vector2f TAM=Vector2f(3.f, 3.f), Vector2f POS=Vector2f(0.f, 0.f), Vector2f VEL=Vector2f(0.f, 0.f), Vector2f ACEL=Vector2f(0.f, 0.f), Texture TEXT=Texture(), Sprite SPRT=Sprite(), int ID=0);
             ~Entidade();
+            void setSprite(Sprite sprtaux);
             void setTam(Vector2f TAM);
             void setPos(Vector2f POS);
+            void setVel(Vector2f VEL);
+            void setAcel(Vector2f ACEL);
+            Sprite getSprite() const;
             Vector2f getTam() const;
             Vector2f getPos() const;
-            Sprite getSprite() const;
-            void setSprite(Sprite sprtaux);
+            const Vector2f getVel() const;
+            const Vector2f getAcel() const;
             void desacelerar();
             void gravidade();
             void mover_se();

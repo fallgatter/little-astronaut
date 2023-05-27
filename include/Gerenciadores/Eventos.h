@@ -5,7 +5,7 @@
 using namespace sf;
 
 //Cabeçalhos Próprios:
-#include"../Entidades/Jogador.h"
+#include"../Entidades/Personagens/Jogador.h"
 
 namespace Gerenciadores{
     class Eventos{

@@ -2,8 +2,8 @@
 #include"../../include/Entidades/Entidade.h"
 
 namespace Entidades{
-    Entidade::Entidade(int X, int Y, Vector2f TAM, Vector2f POS, Texture TEXT, Sprite SPRT, int ID): 
-        Ente(ID), x(X), y(Y), tam(TAM), pos(POS), text(TEXT), sprt(SPRT), vel_instantanea(Vector2f(0.f,0.f))
+    Entidade::Entidade(Vector2f TAM, Vector2f POS, Vector2f VEL, Vector2f ACEL, Texture TEXT, Sprite SPRT, int ID): 
+        Ente(ID), tam(TAM), pos(POS), text(TEXT), sprt(SPRT), vel(VEL), acel(ACEL)
     {
         sprt.setTexture(text);
         sprt.setPosition(pos);
@@ -11,6 +11,12 @@ namespace Entidades{
     }
 
     Entidade::~Entidade(){
+    }
+
+    void Entidade::setSprite(Sprite sprtaux){
+        sprt = sprtaux;
+        sprt.setTextureRect(IntRect(0,0,16,16));
+        sprt.setScale(Vector2f(3.0f,3.0f));
     }
 
     void Entidade::setTam(Vector2f TAM)
@@ -23,6 +29,14 @@ namespace Entidades{
         sprt.setPosition(pos);
     }
 
+    void Entidade::setVel(Vector2f VEL){
+        vel=VEL;
+    }
+
+    void Entidade::setAcel(Vector2f ACEL){
+        acel=ACEL;
+    }
+
     Vector2f Entidade::getTam() const{
         return tam;
     }
@@ -31,26 +45,30 @@ namespace Entidades{
         return pos;
     }
 
+    const Vector2f Entidade::getVel() const{
+        return vel;
+    }
+
+    const Vector2f Entidade::getAcel() const{
+        return acel;
+    }
+
     Sprite Entidade::getSprite() const{
         return sprt;
     }
-    void Entidade::setSprite(Sprite sprtaux){
-        sprt = sprtaux;
-        sprt.setTextureRect(IntRect(0,0,16,16));
-        sprt.setScale(Vector2f(3.0f,3.0f));
-    }
+    
     void Entidade::desacelerar(){
-        if(vel_instantanea.x != 0){
-            if(vel_instantanea.x < 0){
-                vel_instantanea.x += 0.00001;
+        if(vel.x != 0){
+            if(vel.x < 0){
+                vel.x += 0.00001;
             }
             else{
-                vel_instantanea.x -= 0.00001;
+                vel.x -= 0.00001;
             }
         }
         if(pos.y >= 400){
-            if(vel_instantanea.y>0)
-                vel_instantanea.y = 0;
+            if(vel.y>0)
+                vel.y = 0;
         }
         else{
             gravidade();
@@ -58,11 +76,11 @@ namespace Entidades{
         printf("%f\n",pos.y);
     }
     void Entidade::gravidade(){
-        vel_instantanea.y += 0.00001;
+        vel.y += 0.00001;
     }
     void Entidade::mover_se(){
-        pos.x += vel_instantanea.x;
-        pos.y += vel_instantanea.y;
+        pos.x += vel.x;
+        pos.y += vel.y;
         setPos(pos);
     }
 };
