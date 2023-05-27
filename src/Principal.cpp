@@ -26,8 +26,11 @@ void Principal::executar(){
     inimigo.setSprite(sprt2);
     inimigo.setPos(Vector2f(500.0f, 0.0f));
     inimigo.setTam(Vector2f(40.0f, 48.0f));
-
+    ent.EL.push(inimigo);
+    ent.EL.push(jogador);
     //jogador.setPos(Vector2f(100.f,100.f));
+    printf("funcionaprintf\n");
+    int i=ent.EL.get_size();
     while(janela.isOpen()){
         sf::Event event;
         while (janela.pollEvent(event))
@@ -43,7 +46,14 @@ void Principal::executar(){
         inimigo.mover_se();
         inimigo.desacelerar();
         if(fabs(jogador.getPos().x-inimigo.getPos().x)<fabs(jogador.getTam().x/2+inimigo.getTam().x/2) && fabs(jogador.getPos().y-inimigo.getPos().y)<fabs(jogador.getTam().y/2+inimigo.getTam().y/2)){
-            jogador.setPos(jogador.getPos()-Vector2f(10,10));
+            //jogador.setPos(jogador.getPos()-Vector2f(10,10));
+            Vector2f vaux = jogador.getVel();
+            vaux.x = -vaux.x/2 + 0.0001;
+            vaux.y = -vaux.y/2 + 0.0001;
+            jogador.setVel(vaux);
+            vaux.x = -vaux.x - 0.0001;
+            vaux.y = -vaux.y - 0.0001;
+            inimigo.setVel(vaux);
         }
         
         Ga.display();
