@@ -26,8 +26,8 @@ void Principal::executar(){
     inimigo.setSprite(sprt2);
     inimigo.setPos(Vector2f(500.0f, 0.0f));
     inimigo.setTam(Vector2f(40.0f, 48.0f));
-    ent.EL.push(inimigo);
-    ent.EL.push(jogador);
+    ent.EL.push(&inimigo);
+    ent.EL.push(&jogador);
     //jogador.setPos(Vector2f(100.f,100.f));
     printf("funcionaprintf\n");
     int i=ent.EL.get_size();
@@ -40,7 +40,7 @@ void Principal::executar(){
         Keyboard tecl;
         jogador.interacao(&tecl);
         jogador.desacelerar();
-        jogador.mover_se();
+        ent.EL[0]->mover_se();  //teste para ver se a lista esta funcionando
         Ga.drawn(jogador.getSprite());
         Ga.drawn(inimigo.getSprite());
         inimigo.mover_se();

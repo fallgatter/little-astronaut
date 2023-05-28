@@ -9,7 +9,7 @@
 namespace Lists{
     class Entity_List{
         public:
-            List<Entidade> EL;
+            List<Entidade*> EL;
             Entity_List() : EL(){}
 };
 

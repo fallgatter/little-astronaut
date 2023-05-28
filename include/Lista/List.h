@@ -57,5 +57,18 @@ public:
         }
         return i;
     }
+    T operator[] (int idx){
+      if(idx < get_size()){
+        int i=0;
+        Node<T> *temp = head;
+        while(i < idx){
+          temp = temp->next;
+          i++;
+        }
+        return temp->data;
+      }
+      else  
+        exit;
+    } 
 };
 } using namespace Lists;
