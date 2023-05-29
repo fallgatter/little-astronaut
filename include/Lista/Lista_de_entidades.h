@@ -7,10 +7,11 @@
 #include"../Entidades/Entidade.h"
 
 namespace Lists{
-    class Entity_List{
+    class Lista_Entidades{
         public:
             List<Entidade*> EL;
-            Entity_List() : EL(){}
+            Lista_Entidades() : EL(){}
+            void incluir(Entidade* ent);
 };
 
 } using namespace Lists;

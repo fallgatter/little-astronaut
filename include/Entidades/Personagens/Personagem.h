@@ -19,6 +19,7 @@ namespace Entidades{
                 void setDano(float DANO);
                 float getVida() const;
                 float getDano() const;
+                virtual void colidir(Entidade* outro);
         };
     }using namespace Personagens;
 }using namespace Entidades;

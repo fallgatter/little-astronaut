@@ -19,8 +19,9 @@ void Principal::executar(){
     sprt.setTexture(txt);
     jogador.setSprite(sprt);
     jogador.setTam(Vector2f(40.0f, 48.0f));
-
+    jogador.setId('j');
     Inimigo inimigo;
+    inimigo.setId('i');
     txt2.loadFromFile("textures\\Enemies\\green_alien.png");
     sprt2.setTexture(txt2);
     inimigo.setSprite(sprt2);
@@ -29,6 +30,7 @@ void Principal::executar(){
     ent.EL.push(&inimigo);
     ent.EL.push(&jogador);
     //jogador.setPos(Vector2f(100.f,100.f));
+    GC.setList(&ent);
     printf("funcionaprintf\n");
     int i=ent.EL.get_size();
     while(janela.isOpen()){
@@ -45,7 +47,7 @@ void Principal::executar(){
         Ga.drawn(inimigo.getSprite());
         inimigo.mover_se();
         inimigo.desacelerar();
-        if(fabs(jogador.getPos().x-inimigo.getPos().x)<fabs(jogador.getTam().x/2+inimigo.getTam().x/2) && fabs(jogador.getPos().y-inimigo.getPos().y)<fabs(jogador.getTam().y/2+inimigo.getTam().y/2)){
+        /*if(fabs(jogador.getPos().x-inimigo.getPos().x)<fabs(jogador.getTam().x/2+inimigo.getTam().x/2) && fabs(jogador.getPos().y-inimigo.getPos().y)<fabs(jogador.getTam().y/2+inimigo.getTam().y/2)){
             //jogador.setPos(jogador.getPos()-Vector2f(10,10));
             Vector2f vaux = jogador.getVel();
             vaux.x = -vaux.x/2 + 0.0001;
@@ -54,8 +56,8 @@ void Principal::executar(){
             vaux.x = -vaux.x - 0.0001;
             vaux.y = -vaux.y - 0.0001;
             inimigo.setVel(vaux);
-        }
-        
+        }*/
+        GC.gerenciar();
         Ga.display();
         Ga.clear();
     }

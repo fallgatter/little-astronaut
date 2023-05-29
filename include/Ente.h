@@ -7,4 +7,5 @@ class Ente{
         Ente(int ID);
         ~Ente();
         int getId() const;
+        void setId(int idaux);
 };

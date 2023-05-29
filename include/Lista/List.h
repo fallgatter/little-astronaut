@@ -67,7 +67,7 @@ public:
         }
         return temp->data;
       }
-      else  
+      else 
         exit;
     } 
 };
