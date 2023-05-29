@@ -68,7 +68,6 @@ public:
         return temp->data;
       }
       else{
-        exit;
         return NULL;
       } 
     } 

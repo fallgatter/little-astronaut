@@ -25,7 +25,7 @@ namespace Entidades{
                 vaux.y = -vaux.y - 0.0001;
                 outro->setVel(vaux);
                 outro->setPos(Vector2f(voutropos.x + vaux.x*100,voutropos.y + vaux.y*100));
-                vpos.x = getPos().x + (getPos().x -  outro->getPos().x)/5;
+                vpos.x = getPos().x + (getPos().x -  outro->getPos().x)/10;
                 vpos.y = getPos().y;
                 setPos(vpos);
             }

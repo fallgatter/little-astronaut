@@ -36,7 +36,7 @@ namespace Entidades{
                 vaux.x = -vaux.x - 0.0001;
                 vaux.y = -vaux.y - 0.0001;
                 outro->setVel(vaux);
-                vpos.x = getPos().x + (getPos().x -  outro->getPos().x)/5; //calculo de knockback
+                vpos.x = getPos().x + (getPos().x -  outro->getPos().x)/10; //calculo de knockback
                 vpos.y = getPos().y;
                 setPos(vpos);
             }

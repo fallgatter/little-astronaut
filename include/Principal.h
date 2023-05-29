@@ -6,6 +6,7 @@
 #include"../include/Entidades/Personagens/Inimigo.h"
 #include"../include/Lista/Lista_de_entidades.h"
 #include"../include/Gerenciadores/Colisoes.h"
+#include"../include/Entidades/Obstaculos/Obstaculo.h"
 
 class Principal{
     private:
