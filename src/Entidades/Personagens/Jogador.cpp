@@ -29,13 +29,16 @@ namespace Entidades{
             }
             else if(outro->getId()=='i'){//inimigo
                 
-                Vector2f vaux = getVel();
+                Vector2f vaux = getVel(), vpos;
                 vaux.x = -vaux.x/2 + 0.0001;
                 vaux.y = -vaux.y/2 + 0.0001;
                 setVel(vaux);
                 vaux.x = -vaux.x - 0.0001;
                 vaux.y = -vaux.y - 0.0001;
                 outro->setVel(vaux);
+                vpos.x = getPos().x + (getPos().x -  outro->getPos().x)/5; //calculo de knockback
+                vpos.y = getPos().y;
+                setPos(vpos);
             }
             else if(outro->getId()=='j'){//jogador
 

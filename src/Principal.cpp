@@ -57,6 +57,7 @@ void Principal::executar(){
             vaux.y = -vaux.y - 0.0001;
             inimigo.setVel(vaux);
         }*/
+        inimigo.testemov();
         GC.gerenciar();
         Ga.display();
         Ga.clear();
