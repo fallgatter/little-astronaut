@@ -30,7 +30,7 @@ void Principal::executar(){
     ent.EL.push(&inimigo);
     ent.EL.push(&jogador);
     //jogador.setPos(Vector2f(100.f,100.f));
-    GC.setList(&ent);
+    GC.setList(ent);
     printf("funcionaprintf\n");
     int i=ent.EL.get_size();
     while(janela.isOpen()){

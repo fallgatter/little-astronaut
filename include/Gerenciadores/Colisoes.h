@@ -9,6 +9,6 @@ namespace Gerenciadores{
             Colisoes();
             ~Colisoes();
             void gerenciar();
-            void setList(Lista_Entidades* listAux);
+            void setList(Lista_Entidades listAux);
     };
 }using namespace Gerenciadores; 

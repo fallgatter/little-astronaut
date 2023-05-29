@@ -21,4 +21,7 @@ namespace Gerenciadores{
                 }
         }
     }
+    void Colisoes::setList(Lista_Entidades listAux){
+        LE=listAux;
+    }
 } using namespace Gerenciadores;
