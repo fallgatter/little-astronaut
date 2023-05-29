@@ -67,8 +67,10 @@ public:
         }
         return temp->data;
       }
-      else 
+      else{
+        exit;
         return NULL;
+      } 
     } 
 };
 } using namespace Lists;
