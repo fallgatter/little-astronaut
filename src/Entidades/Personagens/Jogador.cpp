@@ -23,22 +23,41 @@ namespace Entidades{
             }
         }
 
-        void Jogador::colidir(Entidade* outro){
+        void Jogador::colidir(Entidade* outro, Vector2f ds){
             if(outro->getId()=='o'){//objeto
                 
             }
             else if(outro->getId()=='i'){//inimigo
-                
-                Vector2f vaux = getVel(), vpos;
-                vaux.x = -vaux.x/2 + 0.0001;
-                vaux.y = -vaux.y/2 + 0.0001;
-                setVel(vaux);
-                vaux.x = -vaux.x - 0.0001;
-                vaux.y = -vaux.y - 0.0001;
-                outro->setVel(vaux);
-                vpos.x = getPos().x + (getPos().x -  outro->getPos().x)/10; //calculo de knockback
-                vpos.y = getPos().y;
-                setPos(vpos);
+                Vector2f vjog = outro->getVel(), voutro=getVel(), posAux=getPos(), posAux_outro=outro->getPos();
+                /*vjog.x = -vjog.x/2 + 0.0001;
+                vjog.y = -vjog.y/2 + 0.0001;
+                setVel(vjog);
+                vjog.x = -vjog.x - 0.0001;
+                vjog.y = -vjog.y - 0.0001;
+                outro->setVel(vjog);*/
+
+                if(ds.x>ds.y){
+                    if(outro->getPos().x<getPos().x){
+                        vjog.x+=0.0001;
+                        voutro.x-=0.0001;
+                    }
+                    else{
+                        vjog.x-=0.0001;
+                        voutro.x+=0.0001;
+                    }
+                }
+                else{
+                    if(outro->getPos().y<getPos().y){
+                        vjog.y+=0.0001;
+                        voutro.y-=0.0001;
+                    }
+                    else{
+                        vjog.y-=0.0001;
+                        voutro.y+=0.0001;
+                    } 
+                }
+                setVel(vjog);
+                outro->setVel(voutro);
             }
             else if(outro->getId()=='j'){//jogador
 

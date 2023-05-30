@@ -15,25 +15,29 @@ Principal::~Principal(){
 void Principal::executar(){
     Texture txt, txt2, txt3;
     txt.loadFromFile("textures\\Player\\default.png");
-    txt3.loadFromFile("textures\\Enemies\\ufo.png");
+    txt3.loadFromFile("textures\\World\\moon_ground.png");
     Sprite sprt, sprt2, sprt3;
     sprt3.setTexture(txt3);
     sprt.setTexture(txt);
+    sprt.setTextureRect(IntRect(0,0,16,16));
     jogador.setSprite(sprt);
     jogador.setTam(Vector2f(40.0f, 48.0f));
     jogador.setId('j');
     Inimigo inimigo, inimigo2;
     Obstaculo obs;
-    obs.setTam(Vector2f(100.0f, 100.0f));
+    sprt3.setTextureRect(IntRect(0,0,96,16));
     obs.setSprite(sprt3);
+    obs.setTam(Vector2f(288.0f, 40.0f));
     inimigo.setId('i');
     inimigo.setId('i');
     txt2.loadFromFile("textures\\Enemies\\green_alien.png");
     sprt2.setTexture(txt2);
+    sprt2.setTextureRect(IntRect(0,0,16,16));
     inimigo.setSprite(sprt2);
     inimigo2.setSprite(sprt2);
-    inimigo.setPos(Vector2f(300.0f, 0.0f));
+    inimigo.setPos(Vector2f(300.0f, 400.0f));
     inimigo.setTam(Vector2f(40.0f, 48.0f));
+    inimigo.setVel(Vector2f(.01f, 0.f));
     inimigo2.setPos(Vector2f(400.0f, 0.0f));
     inimigo2.setTam(Vector2f(40.0f, 48.0f));
     ent.EL.push(&inimigo);
@@ -55,12 +59,12 @@ void Principal::executar(){
         jogador.interacao(&tecl);
         jogador.desacelerar();
         jogador.mover_se();  //teste para ver se a lista esta funcionando
+        Ga.drawn(obs.getSprite());
         Ga.drawn(jogador.getSprite());
         Ga.drawn(inimigo.getSprite());
-        Ga.drawn(obs.getSprite());
         Ga.drawn(inimigo2.getSprite());
         inimigo.mover_se();
-        inimigo.desacelerar();
+        //inimigo.desacelerar();
         inimigo2.mover_se();
         inimigo2.desacelerar();
         /*if(fabs(jogador.getPos().x-inimigo.getPos().x)<fabs(jogador.getTam().x/2+inimigo.getTam().x/2) && fabs(jogador.getPos().y-inimigo.getPos().y)<fabs(jogador.getTam().y/2+inimigo.getTam().y/2)){

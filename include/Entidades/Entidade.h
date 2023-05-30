@@ -29,6 +29,6 @@ namespace Entidades{
             void desacelerar();
             void gravidade();
             void mover_se();
-            virtual void colidir(Entidade* outro)=0;
+            virtual void colidir(Entidade* outro, Vector2f ds)=0;
     };
 }using namespace Entidades;

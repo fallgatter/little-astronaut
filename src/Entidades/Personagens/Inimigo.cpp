@@ -10,26 +10,44 @@ namespace Entidades{
 
         Inimigo::~Inimigo(){
         }
-        void Inimigo::colidir(Entidade* outro){
+        void Inimigo::colidir(Entidade* outro, Vector2f ds){
             if(outro->getId()=='o'){//objeto
                 
             }
-            else if(outro->getId()=='j'){//inimigo
+            else if(outro->getId()=='j'){//jogador
+                Vector2f vjog = getVel(), voutro=outro->getVel();
                 
-                Vector2f vaux = getVel(), vpos = getPos(), voutropos = outro->getPos();
-                vaux.x = -vaux.x/2 + 0.0001;
-                vaux.y = -vaux.y/2 + 0.0001;
-                setPos(Vector2f(getPos().x + vaux.x*1,getPos().y + vaux.y*1));
-                setVel(vaux);
-                vaux.x = -vaux.x - 0.0001;
-                vaux.y = -vaux.y - 0.0001;
-                outro->setVel(vaux);
-                outro->setPos(Vector2f(voutropos.x + vaux.x*100,voutropos.y + vaux.y*100));
-                vpos.x = getPos().x + (getPos().x -  outro->getPos().x)/10;
-                vpos.y = getPos().y;
-                setPos(vpos);
+                /*vjog.x = vjog.x/2 + 0.0001;
+                vjog.y = vjog.y/2 + 0.0001;
+                setVel(vjog);
+                vjog.x = -vjog.x - 0.0001;
+                vjog.y = -vjog.y - 0.0001;
+                outro->setVel(vjog);*/
+
+                if(ds.x>ds.y){
+                    if(outro->getPos().x<getPos().x){
+                        vjog.x-=0.0001;
+                        voutro.x+=0.0001;
+                    }
+                    else{
+                        vjog.x+=0.0001;
+                        voutro.x-=0.0001;
+                    }
+                }
+                else{
+                    if(outro->getPos().y<getPos().y){
+                        vjog.y-=0.0001;
+                        voutro.y+=0.0001;
+                    }
+                    else{
+                        vjog.y+=0.0001;
+                        voutro.y-=0.0001;
+                    } 
+                }
+                setVel(voutro);
+                outro->setVel(vjog);
             }
-            else if(outro->getId()=='i'){//jogador
+            else if(outro->getId()=='i'){//inimigo
 
             }
         }
