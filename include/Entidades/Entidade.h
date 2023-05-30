@@ -30,5 +30,6 @@ namespace Entidades{
             void gravidade();
             void mover_se();
             virtual void colidir(Entidade* outro, Vector2f ds)=0;
+            void setscale(Vector2f scale);
     };
 }using namespace Entidades;

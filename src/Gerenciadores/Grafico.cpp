@@ -29,7 +29,7 @@ namespace Gerenciadores{
     }
 
     View Grafico::getView() const{
-        return view;
+        return *view;
     }
 
     void Grafico::updateTime(){
@@ -52,5 +52,13 @@ namespace Gerenciadores{
     }
     void Grafico::drawn(Sprite sprtaux){
         window->draw(sprtaux);
+    }
+    void Grafico::setView(View* VW){
+        view = VW;
+        window->setView(*view);
+    }
+    void Grafico::setViewPos(Vector2f POS){
+        view->setCenter(POS);
+        window->setView(*view);
     }
 }using namespace Gerenciadores;

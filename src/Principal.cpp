@@ -2,9 +2,12 @@
 #include<math.h>
 
 Principal::Principal() : janela(sf::VideoMode(800.0f, 600.0f), "little astronaut"){
+    Vw = new sf::View(sf::FloatRect(200.f, 200.f, 800.f, 800.f));
+    //janela.setView(*Vw);
     Ge = new Gerenciadores::Eventos();
     Ge->setWindow(&janela);
     Ga.setWindow(&janela);
+    Ga.setView(Vw);
     executar();
 }
 
@@ -17,6 +20,7 @@ void Principal::executar(){
     txt.loadFromFile("textures\\Player\\default.png");
     txt3.loadFromFile("textures\\World\\moon_ground.png");
     Sprite sprt, sprt2, sprt3;
+    Vector2f scl(Vector2f(2.f,2.f));
     sprt3.setTexture(txt3);
     sprt.setTexture(txt);
     sprt.setTextureRect(IntRect(0,0,16,16));
@@ -27,7 +31,7 @@ void Principal::executar(){
     Obstaculo obs;
     sprt3.setTextureRect(IntRect(0,0,96,16));
     obs.setSprite(sprt3);
-    obs.setTam(Vector2f(288.0f, 40.0f));
+    obs.setTam(Vector2f(566.0f, 10.0f));
     inimigo.setId('i');
     inimigo.setId('i');
     txt2.loadFromFile("textures\\Enemies\\green_alien.png");
@@ -40,6 +44,7 @@ void Principal::executar(){
     inimigo.setVel(Vector2f(.01f, 0.f));
     inimigo2.setPos(Vector2f(400.0f, 0.0f));
     inimigo2.setTam(Vector2f(40.0f, 48.0f));
+    //obs.setscale(scl);
     ent.EL.push(&inimigo);
     ent.EL.push(&jogador);
     ent.EL.push(&inimigo2);
@@ -47,6 +52,7 @@ void Principal::executar(){
     ent.EL.push(&obs);
     jogador.setPos(Vector2f(200.f,200.f));
     GC.setList(ent);
+    obs.setscale(Vector2f(6.f,5.f));
     printf("funcionaprintf\n");
     int i=ent.EL.get_size();
     while(janela.isOpen()){
@@ -67,6 +73,7 @@ void Principal::executar(){
         //inimigo.desacelerar();
         inimigo2.mover_se();
         inimigo2.desacelerar();
+        Ga.setViewPos(Vector2f(jogador.getPos().x+200, jogador.getPos().y-200));
         /*if(fabs(jogador.getPos().x-inimigo.getPos().x)<fabs(jogador.getTam().x/2+inimigo.getTam().x/2) && fabs(jogador.getPos().y-inimigo.getPos().y)<fabs(jogador.getTam().y/2+inimigo.getTam().y/2)){
             //jogador.setPos(jogador.getPos()-Vector2f(10,10));
             Vector2f vaux = jogador.getVel();

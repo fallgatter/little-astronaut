@@ -83,4 +83,7 @@ namespace Entidades{
         pos.y += vel.y;
         setPos(pos);
     }
+    void Entidade::setscale(Vector2f SCL){
+        sprt.setScale(SCL);
+    }
 };

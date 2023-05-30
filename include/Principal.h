@@ -11,6 +11,7 @@
 class Principal{
     private:
         sf::RenderWindow janela;
+        sf::View *Vw;
         Eventos* Ge;
         Grafico Ga;
         Jogador jogador;
