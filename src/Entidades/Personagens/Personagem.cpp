@@ -4,14 +4,21 @@
 
 namespace Entidades{
     namespace Personagens{
-        Personagem::Personagem(float VIDA, float DANO, Vector2f TAM, Vector2f POS, Vector2f VEL, Vector2f ACEL, Texture TEXT, Sprite SPRT, int ID): 
-            Entidade(TAM, POS, VEL, ACEL, TEXT, SPRT, ID), vida(VIDA), dano(DANO)
+        Personagem::Personagem(float Vida, float Dano, Vector2f Tam, Vector2f Pos, Vector2f Vel, Vector2f Acel, Texture Text, Sprite Sprt, int id): 
+            Entidade(Tam, Pos, Vel, Acel, Text, Sprt, id), vida(Vida), dano(Dano)
         {
         }
 
         Personagem::~Personagem(){
         }
-
+        Personagem::Personagem(Vector2f Pos) {
+            Vector2f TAM =(Vector2f(30.f,30.f)), VEL = Vector2f(0.f,0.f), ACEL = Vector2f(0.f,0.f);
+            pos = Pos;
+            tam = TAM;
+            vel = VEL;
+            text =Texture();
+            sprt = Sprite();
+        }
         void Personagem::setVida(float VIDA)
         {
             vida=VIDA;

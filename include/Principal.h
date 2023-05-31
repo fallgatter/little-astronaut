@@ -14,7 +14,7 @@ class Principal{
         sf::View *Vw;
         Eventos* Ge;
         Grafico Ga;
-        Jogador jogador;
+        Jogador* jogador;
         Lista_Entidades ent;
         Colisoes GC;
     public:

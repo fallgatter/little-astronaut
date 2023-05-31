@@ -1,8 +1,10 @@
 #include"..\include\Principal.h"
 #include<math.h>
+#include<vector>
+
 
 Principal::Principal() : janela(sf::VideoMode(800.0f, 600.0f), "little astronaut"){
-    Vw = new sf::View(sf::FloatRect(200.f, 200.f, 800.f, 800.f));
+    Vw = new sf::View(sf::FloatRect(0.f, 0.f, 1000.f, 1000.f));
     //janela.setView(*Vw);
     Ge = new Gerenciadores::Eventos();
     Ge->setWindow(&janela);
@@ -16,46 +18,28 @@ Principal::~Principal(){
 }
 
 void Principal::executar(){
-    Texture txt, txt2, txt3;
+    jogador = new Jogador(Vector2f(100.f,100.f));
+    Texture txt, txt2;
+    Sprite spr, spr2;
+    vector<Inimigo*> inim;
+    float i, quant = 4;
+    Lista_Entidades listaux;
+    Inimigo* enem;
     txt.loadFromFile("assets\\textures\\Player\\default.png");
-    txt3.loadFromFile("assets\\textures\\World\\moon_ground1.png");
-    Sprite sprt, sprt2, sprt3;
-    //Vector2f scl(Vector2f(2.f,2.f));
-    sprt3.setTexture(txt3);
-    sprt.setTexture(txt);
-    sprt.setTextureRect(IntRect(0,0,16,16));
-    jogador.setSprite(sprt);
-    jogador.setTam(Vector2f(40.0f, 48.0f));
-    jogador.setId('j');
-    Inimigo inimigo, inimigo2;
-    Obstaculo obs;
-    sprt3.setTextureRect(IntRect(0,0,16,16));
-    obs.setSprite(sprt3);
-    obs.setTam(Vector2f(48.f, 48.0f));
-    inimigo.setId('i');
-    inimigo.setId('i');
-    txt2.loadFromFile("assets\\textures\\Enemies\\green_alien.png");
-    sprt2.setTexture(txt2);
-    sprt2.setTextureRect(IntRect(0,0,16,16));
-    inimigo.setSprite(sprt2);
-    inimigo2.setSprite(sprt2);
-    inimigo.setPos(Vector2f(300.0f, 400.0f));
-    inimigo.setTam(Vector2f(40.0f, 48.0f));
-    inimigo.setVel(Vector2f(.01f, 0.f));
-    inimigo2.setPos(Vector2f(400.0f, 0.0f));
-    inimigo2.setTam(Vector2f(40.0f, 48.0f));
-    //obs.setscale(scl);
-    ent.EL.push(&inimigo);
-    ent.EL.push(&jogador);
-    ent.EL.push(&inimigo2);
-    
-    ent.EL.push(&obs);
-    jogador.setPos(Vector2f(200.f,200.f));
+    txt2.loadFromFile("assets\\textures\\Others\\gato.png");
+    spr.setTexture(txt);
+    spr2.setTexture(txt2);
+    //for(i=0;i<quant;i++){
+        enem = new Inimigo(100.f * i, 100.f);
+        ent.EL.push(enem);
+        ent.EL.push(jogador);
+        enem->setSprite(spr2);
+    //}
+    //Obstaculo* obs = new Obstaculo(Vector2f(300.f,300.f));
+    jogador->setSprite(spr);
+    //obs->setSprite(spr2);
+    //ent.incluir(jogador); isso aqui está dando erro n sei porque
     GC.setList(ent);
-    //obs.setscale(Vector2f(6.f,5.f));
-    obs.setPos(Vector2f(0.0f,400.0f));
-    printf("funcionaprintf\n");
-    int i=ent.EL.get_size();
     while(janela.isOpen()){
         sf::Event event;
         while (janela.pollEvent(event))
@@ -63,18 +47,15 @@ void Principal::executar(){
             Ge->gerenciarInput(&event);
         }
         Keyboard tecl;
-        jogador.interacao(&tecl);
-        jogador.desacelerar();
-        jogador.mover_se();  //teste para ver se a lista esta funcionando
-        Ga.drawn(obs.getSprite());
-        Ga.drawn(jogador.getSprite());
-        Ga.drawn(inimigo.getSprite());
-        Ga.drawn(inimigo2.getSprite());
-        inimigo.mover_se();
-        //inimigo.desacelerar();
-        inimigo2.mover_se();
-        inimigo2.desacelerar();
-        Ga.setViewPos(Vector2f(jogador.getPos().x+200, jogador.getPos().y-200));
+        jogador->interacao(&tecl);
+        jogador->desacelerar();
+        jogador->mover_se();  //teste para ver se a lista esta funcionando
+        Ga.drawn(enem->getSprite());
+        Ga.setViewPos(Vector2f(jogador->getPos().x+200, 100));
+        Ga.drawn(jogador->getSprite());
+        enem->desacelerar();
+        enem->mover_se();
+        //Ga.drawn(obs->getSprite());
         /*if(fabs(jogador.getPos().x-inimigo.getPos().x)<fabs(jogador.getTam().x/2+inimigo.getTam().x/2) && fabs(jogador.getPos().y-inimigo.getPos().y)<fabs(jogador.getTam().y/2+inimigo.getTam().y/2)){
             //jogador.setPos(jogador.getPos()-Vector2f(10,10));
             Vector2f vaux = jogador.getVel();
@@ -85,7 +66,6 @@ void Principal::executar(){
             vaux.y = -vaux.y - 0.0001;
             inimigo.setVel(vaux);
         }*/
-        inimigo.testemov();
         GC.gerenciar();
         Ga.display();
         Ga.clear();
@@ -105,4 +85,41 @@ void Principal::executar(){
                 std::cout << event.size.width << event.size.height << std::endl;
         }
         janela.display();
+    }
+    aqui
+    jogador = new Jogador(Vector2f(0.f,0.f));
+    Texture txt;
+    Sprite spr;
+    txt.loadFromFile("textures\\Player\\default.png");
+    spr.setTexture(txt);
+    jogador->setSprite(spr);
+    GC.setList(ent);
+    while(janela.isOpen()){
+        sf::Event event;
+        while (janela.pollEvent(event))
+        {
+            Ge->gerenciarInput(&event);
+        }
+        Keyboard tecl;
+        jogador->interacao(&tecl);
+        jogador->desacelerar();
+        jogador->mover_se();  //teste para ver se a lista esta funcionando
+        Ga.setViewPos(Vector2f(jogador->getPos().x+200, jogador->getPos().y-200));
+        Ga.drawn(spr);
+        janela.draw(spr);
+        /*if(fabs(jogador.getPos().x-inimigo.getPos().x)<fabs(jogador.getTam().x/2+inimigo.getTam().x/2) && fabs(jogador.getPos().y-inimigo.getPos().y)<fabs(jogador.getTam().y/2+inimigo.getTam().y/2)){
+            //jogador.setPos(jogador.getPos()-Vector2f(10,10));
+            Vector2f vaux = jogador.getVel();
+            vaux.x = -vaux.x/2 + 0.0001;
+            vaux.y = -vaux.y/2 + 0.0001;
+            jogador.setVel(vaux);
+            vaux.x = -vaux.x - 0.0001;
+            vaux.y = -vaux.y - 0.0001;
+            inimigo.setVel(vaux);
+        }
+        GC.gerenciar();
+        Ga.display();
+        Ga.clear();
     }*/
+    
+    

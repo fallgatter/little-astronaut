@@ -10,6 +10,14 @@ namespace Entidades{
 
         Inimigo::~Inimigo(){
         }
+        Inimigo::Inimigo(Vector2f POs) : Personagem(POs){
+            Texture txt;
+            Sprite spr;
+            txt.loadFromFile("assets\\textures\\Player\\gato.png");
+            spr.setTexture(txt);
+            setSprite(spr);
+            id = 'i';
+        }
         void Inimigo::colidir(Entidade* outro, Vector2f ds){
             if(outro->getId()=='o'){//objeto
                 

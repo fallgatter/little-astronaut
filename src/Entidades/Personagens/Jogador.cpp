@@ -10,7 +10,14 @@ namespace Entidades{
 
         Jogador::~Jogador(){
         }
-
+        Jogador::Jogador(Vector2f POs) : Personagem(POs){
+            Texture txt;
+            Sprite spr;
+            txt.loadFromFile("assets\\textures\\Player\\default.png");
+            spr.setTexture(txt);
+            setSprite(spr);
+            id = 'j';
+        }
         void Jogador::interacao(Keyboard* tecla){
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
                 vel.y += -0.00003;
