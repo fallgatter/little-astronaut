@@ -6,8 +6,8 @@ namespace Entidades{
         Ente(ID), tam(TAM), pos(POS), text(TEXT), sprt(SPRT), vel(VEL), acel(ACEL)
     {
         sprt.setTexture(text);
-        sprt.setPosition(pos);
-        sprt.setScale(tam);
+        //sprt.setPosition(pos);
+        //sprt.setScale(tam);
     }
 
     Entidade::~Entidade(){
@@ -15,7 +15,7 @@ namespace Entidades{
 
     void Entidade::setSprite(Sprite sprtaux){
         sprt = sprtaux;
-        //sprt.setTextureRect(IntRect(0,0,16,16));
+        sprt.setTextureRect(IntRect(0,0,16,16));
         sprt.setScale(Vector2f(3.0f,3.0f));
     }
 

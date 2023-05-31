@@ -17,10 +17,10 @@ Principal::~Principal(){
 
 void Principal::executar(){
     Texture txt, txt2, txt3;
-    txt.loadFromFile("textures\\Player\\default.png");
-    txt3.loadFromFile("textures\\World\\moon_ground.png");
+    txt.loadFromFile("assets\\textures\\Player\\default.png");
+    txt3.loadFromFile("assets\\textures\\World\\moon_ground1.png");
     Sprite sprt, sprt2, sprt3;
-    Vector2f scl(Vector2f(2.f,2.f));
+    //Vector2f scl(Vector2f(2.f,2.f));
     sprt3.setTexture(txt3);
     sprt.setTexture(txt);
     sprt.setTextureRect(IntRect(0,0,16,16));
@@ -29,12 +29,12 @@ void Principal::executar(){
     jogador.setId('j');
     Inimigo inimigo, inimigo2;
     Obstaculo obs;
-    sprt3.setTextureRect(IntRect(0,0,96,16));
+    sprt3.setTextureRect(IntRect(0,0,16,16));
     obs.setSprite(sprt3);
-    obs.setTam(Vector2f(566.0f, 10.0f));
+    obs.setTam(Vector2f(48.f, 48.0f));
     inimigo.setId('i');
     inimigo.setId('i');
-    txt2.loadFromFile("textures\\Enemies\\green_alien.png");
+    txt2.loadFromFile("assets\\textures\\Enemies\\green_alien.png");
     sprt2.setTexture(txt2);
     sprt2.setTextureRect(IntRect(0,0,16,16));
     inimigo.setSprite(sprt2);
@@ -48,11 +48,12 @@ void Principal::executar(){
     ent.EL.push(&inimigo);
     ent.EL.push(&jogador);
     ent.EL.push(&inimigo2);
-    obs.setPos(Vector2f(0.0f,400.0f));
+    
     ent.EL.push(&obs);
     jogador.setPos(Vector2f(200.f,200.f));
     GC.setList(ent);
-    obs.setscale(Vector2f(6.f,5.f));
+    //obs.setscale(Vector2f(6.f,5.f));
+    obs.setPos(Vector2f(0.0f,400.0f));
     printf("funcionaprintf\n");
     int i=ent.EL.get_size();
     while(janela.isOpen()){
