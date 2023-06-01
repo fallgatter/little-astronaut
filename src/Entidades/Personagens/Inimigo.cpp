@@ -8,21 +8,25 @@ namespace Entidades{
         {
         }
 
-        Inimigo::~Inimigo(){
-        }
         Inimigo::Inimigo(Vector2f POs) : Personagem(POs){
-            Texture txt;
             Sprite spr;
-            txt.loadFromFile("assets\\textures\\Player\\gato.png");
-            spr.setTexture(txt);
+            text.loadFromFile("assets\\textures\\Enemies\\green_alien.png");
+            spr.setTexture(text);
+           /*if(!text.loadFromFile("assets\\textures\\Others\\gato.png"))
+                exit(1);*/
             setSprite(spr);
             id = 'i';
         }
+        
+        Inimigo::~Inimigo(){
+        }
+        
         void Inimigo::colidir(Entidade* outro, Vector2f ds){
             if(outro->getId()=='o'){//objeto
                 
             }
             else if(outro->getId()=='j'){//jogador
+                cout<<"COLISAOi->j"<<endl;
                 Vector2f vjog = getVel(), voutro=outro->getVel();
                 
                 /*vjog.x = vjog.x/2 + 0.0001;

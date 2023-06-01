@@ -8,16 +8,19 @@ namespace Entidades{
         {
         }
 
-        Jogador::~Jogador(){
-        }
-        Jogador::Jogador(Vector2f POs) : Personagem(POs){
-            Texture txt;
+        Jogador::Jogador(Vector2f POS) : Personagem(POS){
             Sprite spr;
-            txt.loadFromFile("assets\\textures\\Player\\default.png");
-            spr.setTexture(txt);
+            text.loadFromFile("assets\\textures\\Player\\default.png");
+            spr.setTexture(text);
+           /*if(!text.loadFromFile("assets\\textures\\Others\\gato.png"))
+                exit(1);*/
             setSprite(spr);
             id = 'j';
         }
+
+        Jogador::~Jogador(){
+        }
+        
         void Jogador::interacao(Keyboard* tecla){
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
                 vel.y += -0.00003;
@@ -35,6 +38,7 @@ namespace Entidades{
                 
             }
             else if(outro->getId()=='i'){//inimigo
+                cout<<"COLISAO"<<endl;
                 Vector2f vjog = outro->getVel(), voutro=getVel(), posAux=getPos(), posAux_outro=outro->getPos();
                 /*vjog.x = -vjog.x/2 + 0.0001;
                 vjog.y = -vjog.y/2 + 0.0001;

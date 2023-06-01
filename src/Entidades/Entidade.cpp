@@ -66,14 +66,14 @@ namespace Entidades{
                 vel.x -= 0.00001;
             }
         }
-        if(pos.y >= 400){
+        /*if(pos.y >= 400){
             if(vel.y>0)
                 vel.y = 0;
         }
-        else{
+        else{*/
             gravidade();
-        }
-        printf("%f\n",pos.y);
+        //}
+        //printf("%f\n",pos.y);
     }
     void Entidade::gravidade(){
         vel.y += 0.00001;

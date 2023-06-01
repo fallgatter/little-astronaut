@@ -13,6 +13,7 @@ namespace Obstaculos{
             id = 'o';
     }
     void Obstaculo::colidir(Entidade* outro, Vector2f ds){
+        cout<<"COLISAO OBS"<<endl;
         if(outro->getId()!='o'){
             Vector2f posAux=outro->getPos();  
             if(ds.x>ds.y){
