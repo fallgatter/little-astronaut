@@ -14,6 +14,7 @@ namespace Fases{
             Lista_Entidades LE;
             Colisoes* Pco;
             RenderWindow* janela;
+            Grafico* pga;
         public:
             Fase(int ID=0);
             ~Fase();

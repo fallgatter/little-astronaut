@@ -3,7 +3,7 @@
 namespace Gerenciadores{
     Grafico* Grafico::P = NULL;
 
-    Grafico::Grafico(){
+    Grafico::Grafico(): window(NULL){
     }
 
     Grafico::~Grafico(){
@@ -52,7 +52,9 @@ namespace Gerenciadores{
         return dt;
     }
     bool Grafico::isopen(){
-        return window->isOpen();
+        if(window)
+            return window->isOpen();
+        return 0;
     }
     void Grafico::setWindow(RenderWindow* wnd){
         window = wnd;

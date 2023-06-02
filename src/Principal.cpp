@@ -21,9 +21,8 @@ Principal::~Principal(){
 void Principal::executar(){
     srand(time(NULL));
     moon.criarMapa();
-    moon.criarEntidade();
-    moon.executar();
     moon.setGrafico(Ga);
+    moon.executar();
     }
     //Personagem:
     /*jogador = new Jogador(Vector2f(0.f,100.f));

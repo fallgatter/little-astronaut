@@ -2,7 +2,7 @@
 
 
 namespace Fases{
-    Fase::Fase(int ID): Ente(ID){
+    Fase::Fase(int ID): Ente(ID), pga(NULL){
 
     }
 
@@ -16,10 +16,11 @@ namespace Fases{
         cout<<'a'<<letra<<endl;
         switch(letra){
             case('i')://inimigo 
-                LE.EL.push(new Inimigo(Vector2f(base)));
+                //LE.EL.push(new Inimigo(Vector2f(base)));
                 break;
             case('j')://jogador
-                LE.EL.push(new Jogador(Vector2f(base)));
+                cout<<letra<<endl;
+                //LE.EL.push(new Jogador(Vector2f(base)));
                 break;
             case('o')://obstaculo
 
@@ -29,16 +30,20 @@ namespace Fases{
 
     void Fase::executar(){
         int i,j=0;
-        while(pga->isopen()){
-            for(i = 0;i<LE.EL.get_size();i++){
-                pga->drawn(LE.EL[i]->getSprite());
+        if(pga==NULL)
+            exit(1);
+        else{
+            while(pga->isopen()){
+                for(i = 0;i<LE.EL.get_size();i++){
+                    //pga->drawn(LE.EL[i]->getSprite());
+                }
+                pga->display();
+                pga->clear();
             }
-            pga->display();
-            pga->clear();
         }
     }
 
-    void Fases::Fase::setGrafico(Grafico *Pg)
+    void Fase::setGrafico(Grafico* Pg)
     {
         pga = Pg;
     }
