@@ -16,11 +16,13 @@ namespace Gerenciadores{
             RenderWindow* window;
             View* view;
             //list <Texture*> texturas; por enquanto conhecimento do player
-             Clock clock;
+            Clock clock;
+            static Grafico* P;
             float dt;
-        public:
             Grafico();
+        public:
             ~Grafico();
+            static Grafico* Singleton();
             RenderWindow* getWindow() const;
             View getView() const;
             //void loadTexture();

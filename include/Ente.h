@@ -8,7 +8,7 @@ using namespace std;
 class Ente{
     protected:
         int id;
-
+        Grafico* pga;
     public:
         Ente(int ID);
         ~Ente();

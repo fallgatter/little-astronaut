@@ -14,7 +14,7 @@ class Principal{
         sf::RenderWindow janela;
         sf::View *Vw;
         Eventos* Ge;
-        Grafico Ga;
+        Grafico* Ga;
         Jogador* jogador;
         Lista_Entidades ent;
         Colisoes GC;
