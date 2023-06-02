@@ -12,6 +12,8 @@ namespace Entidades{
             Sprite spr;
             text.loadFromFile("assets\\textures\\Player\\default.png");
             spr.setTexture(text);
+            Vector2f TAM =(Vector2f(40.f,56.f));
+            setPos(TAM);
            /*if(!text.loadFromFile("assets\\textures\\Others\\gato.png"))
                 exit(1);*/
             setSprite(spr);

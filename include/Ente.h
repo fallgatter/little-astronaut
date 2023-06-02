@@ -2,9 +2,11 @@
 #include<iostream>
 using namespace std;
 
+
 class Ente{
     protected:
         int id;
+
     public:
         Ente(int ID);
         ~Ente();

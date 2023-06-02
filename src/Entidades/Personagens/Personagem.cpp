@@ -11,7 +11,7 @@ namespace Entidades{
 
         Personagem::Personagem(Vector2f Pos): Entidade(){
             cout<<"entrou"<<endl;
-            Vector2f TAM =(Vector2f(30.f,30.f)), VEL = Vector2f(0.f,0.f), ACEL = Vector2f(0.f,0.f);
+            Vector2f TAM =(Vector2f(40.f,56.f)), VEL = Vector2f(0.f,0.f), ACEL = Vector2f(0.f,0.f);
             pos = Pos;
             tam = TAM;
             vel = VEL;

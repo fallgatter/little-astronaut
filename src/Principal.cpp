@@ -25,7 +25,7 @@ void Principal::executar(){
     txt.loadFromFile("assets\\textures\\Player\\default.png");
     spr.setTexture(txt);
     jogador->setPos(Vector2f(0.f,100.f));
-    jogador->setTam(Vector2f(40.f,48.f));
+    //jogador->setTam(Vector2f(40.f,48.f));
     jogador->setSprite(spr);
     ent.EL.push(jogador);
 
@@ -36,7 +36,6 @@ void Principal::executar(){
     for(int i=0; i<quant_inim; i++){
         enem = new Inimigo(Vector2f(100.f * (i+1), 100.f));
         inim.push_back(enem);
-        inim[i]->setTam(Vector2f(40.f,48.f));
         ent.EL.push(inim[i]);
     }
 
@@ -48,21 +47,26 @@ void Principal::executar(){
     Texture txt_obs;
     txt_obs.loadFromFile("assets\\textures\\World\\moon_ground1.png");
     spr_obs.setTexture(txt_obs);
-    for(int i=0; i<quant_obs; i++){
-        obs = new Obstaculo();
-        obsts.push_back(obs);
-        obsts[i]->setSprite(spr_obs);
-        obsts[i]->setPos(Vector2f(48.f * (i), 300.f));
-        obsts[i]->setTam(Vector2f(48.f,48.f));
-        ent.EL.push(obsts[i]);
-    }/*
-    obs = new Obstaculo();
+    for(int i=0; i<quant_obs+1; i++){
+            obs = new Obstaculo();
+            obsts.push_back(obs);
+            obsts[i]->setSprite(spr_obs);
+            if(i != quant_obs)
+                obsts[i]->setPos(Vector2f(96.f * (i), 300.f));
+            else
+                 obsts[i]->setPos(Vector2f(96.f * (i), 150.f));
+            //obsts[i]->setTam(Vector2f(96.f,48.f));
+            obsts[i]->setscale(Vector2f(6.f,4.f));
+            ent.EL.push(obsts[i]);
+    }
+    /*obs = new Obstaculo();
     obsts.push_back(obs);
     obsts[0]->setPos(Vector2f(48.f, 300.f));
     obsts[0]->setTam(Vector2f(48.f,48.f));
     obsts[0]->setSprite(spr_obs);
-    ent.EL.push(obsts[0]);*/
-
+    ent.EL.push(obsts[0]);
+    moon.criarMapa();
+    moon.executar();*/
     GC.setList(ent);
 
     while(janela.isOpen()){
@@ -82,7 +86,7 @@ void Principal::executar(){
             inim[i]->desacelerar();
             inim[i]->mover_se();
         }
-        for(int i=0;i<quant_obs;i++){
+        for(int i=0;i<quant_obs+1;i++){
             Ga.drawn(obsts[i]->getSprite());
         }
         GC.gerenciar();

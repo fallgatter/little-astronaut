@@ -7,6 +7,7 @@
 #include"../include/Lista/Lista_de_entidades.h"
 #include"../include/Gerenciadores/Colisoes.h"
 #include"../include/Entidades/Obstaculos/Obstaculo.h"
+#include"../include/Fases/Lua.h"
 
 class Principal{
     private:
@@ -17,6 +18,7 @@ class Principal{
         Jogador* jogador;
         Lista_Entidades ent;
         Colisoes GC;
+        Lua moon;
     public:
         Principal();
         ~Principal();

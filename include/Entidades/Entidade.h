@@ -14,8 +14,9 @@ namespace Entidades{
             Texture text;
             Sprite sprt;
         public:
-            Entidade(Vector2f TAM=Vector2f(3.f, 3.f), Vector2f POS=Vector2f(0.f, 0.f), Vector2f VEL=Vector2f(0.f, 0.f), Vector2f ACEL=Vector2f(0.f, 0.f), Texture TEXT=Texture(), Sprite SPRT=Sprite(), int ID=0);
+            Entidade(Vector2f TAM=Vector2f(40.f, 56.f), Vector2f POS=Vector2f(0.f, 0.f), Vector2f VEL=Vector2f(0.f, 0.f), Vector2f ACEL=Vector2f(0.f, 0.f), Texture TEXT=Texture(), Sprite SPRT=Sprite(), int ID=0);
             ~Entidade();
+            Entidade(Vector2f POS);
             void setSprite(Sprite sprtaux);
             void setTam(Vector2f TAM);
             void setPos(Vector2f POS);
