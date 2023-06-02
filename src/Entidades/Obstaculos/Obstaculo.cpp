@@ -1,19 +1,22 @@
 #include"../../../include/Entidades/Obstaculos/Obstaculo.h"
-#include<math.h>
 
 namespace Obstaculos{
-    Obstaculo::Obstaculo(Vector2f TAM, Vector2f POS, Vector2f VEL, Vector2f ACEL, Texture TEXT, Sprite SPRT, int ID)  : Entidade(TAM, POS,  VEL, ACEL,TEXT, SPRT,ID){}
-    Obstaculo::~Obstaculo(){}
-    Obstaculo::Obstaculo(Vector2f POs){
-        Vector2f TAM =(Vector2f(96.f,48.f)), VEL = Vector2f(0.f,0.f), ACEL = Vector2f(0.f,0.f);
-            pos = POs;
-            tam = TAM;
-            vel = VEL;
-            text =Texture();
-            id = 'o';
+    Obstaculo::Obstaculo(Vector2f POS, int TIPO_TEXT) : 
+        Entidade(Vector2f(48.f, 48.f), POS, 'o'), tipo_text(TIPO_TEXT)
+    {
+        Sprite sprtemp;
+        if(tipo_text<7)
+            text.loadFromFile("assets\\textures\\World\\moon_ground3.png");
+        else if(tipo_text>=7 && tipo_text<=9)
+            text.loadFromFile("assets\\textures\\World\\moon_ground1.png");
+        else if(tipo_text==10)
+            text.loadFromFile("assets\\textures\\World\\moon_ground2.png");
+        sprtemp.setTexture(text);
+        setSprite(sprtemp);
     }
+    Obstaculo::~Obstaculo(){}
     void Obstaculo::colidir(Entidade* outro, Vector2f ds){
-        cout<<"COLISAO OBS"<<endl;
+        //cout<<"COLISAO OBS"<<endl;
         if(outro->getId()!='o'){
             Vector2f posAux=outro->getPos();  
             if(ds.x>ds.y){

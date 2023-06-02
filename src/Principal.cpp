@@ -18,19 +18,14 @@ Principal::~Principal(){
 }
 
 void Principal::executar(){
+    srand(time(NULL));
+    
     //Personagem:
-    jogador = new Jogador();
-    Sprite spr;
-    Texture txt;
-    txt.loadFromFile("assets\\textures\\Player\\default.png");
-    spr.setTexture(txt);
-    jogador->setPos(Vector2f(0.f,100.f));
-    //jogador->setTam(Vector2f(40.f,48.f));
-    jogador->setSprite(spr);
-    ent.EL.push(jogador);
+    jogador = new Jogador(Vector2f(0.f,100.f));
+    
 
     //Inimigos:
-    int quant_inim=4;
+    int quant_inim=5;
     Inimigo* enem;
     vector<Inimigo*> inim;
     for(int i=0; i<quant_inim; i++){
@@ -38,35 +33,20 @@ void Principal::executar(){
         inim.push_back(enem);
         ent.EL.push(inim[i]);
     }
-
+    
     //Obstaculos:
-    int quant_obs=20;
+    int quant_obs=15;
     Obstaculo* obs;
     vector<Obstaculo*> obsts;
-    Sprite spr_obs;
-    Texture txt_obs;
-    txt_obs.loadFromFile("assets\\textures\\World\\moon_ground1.png");
-    spr_obs.setTexture(txt_obs);
-    for(int i=0; i<quant_obs+1; i++){
-            obs = new Obstaculo();
-            obsts.push_back(obs);
-            obsts[i]->setSprite(spr_obs);
-            if(i != quant_obs)
-                obsts[i]->setPos(Vector2f(96.f * (i), 300.f));
-            else
-                 obsts[i]->setPos(Vector2f(96.f * (i), 150.f));
-            //obsts[i]->setTam(Vector2f(96.f,48.f));
-            obsts[i]->setscale(Vector2f(6.f,4.f));
-            ent.EL.push(obsts[i]);
+
+    for(int i=0; i<quant_obs; i++){
+        obs = new Obstaculo(Vector2f(48.f * (i), 300.f), rand()%11);
+        obsts.push_back(obs);
+        ent.EL.push(obsts[i]);
     }
-    /*obs = new Obstaculo();
-    obsts.push_back(obs);
-    obsts[0]->setPos(Vector2f(48.f, 300.f));
-    obsts[0]->setTam(Vector2f(48.f,48.f));
-    obsts[0]->setSprite(spr_obs);
-    ent.EL.push(obsts[0]);
-    moon.criarMapa();
+    /*moon.criarMapa();
     moon.executar();*/
+    ent.EL.push(jogador);
     GC.setList(ent);
 
     while(janela.isOpen()){
@@ -86,7 +66,7 @@ void Principal::executar(){
             inim[i]->desacelerar();
             inim[i]->mover_se();
         }
-        for(int i=0;i<quant_obs+1;i++){
+        for(int i=0;i<quant_obs;i++){
             Ga.drawn(obsts[i]->getSprite());
         }
         GC.gerenciar();

@@ -3,21 +3,13 @@
 
 namespace Entidades{
     namespace Personagens{
-        Jogador::Jogador(float VIDA, float DANO, Vector2f TAM, Vector2f POS, Vector2f VEL, Vector2f ACEL, Texture TEXT, Sprite SPRT, int ID): 
-            Personagem(VIDA, DANO, TAM, POS, VEL, ACEL, TEXT, SPRT, ID)
+        Jogador::Jogador(Vector2f POS): 
+            Personagem(5.0, 1.0, Vector2f(40.f, 48.f), POS, 'j')
         {
-        }
-
-        Jogador::Jogador(Vector2f POS) : Personagem(POS){
-            Sprite spr;
+            Sprite sprtemp;
             text.loadFromFile("assets\\textures\\Player\\default.png");
-            spr.setTexture(text);
-            Vector2f TAM =(Vector2f(40.f,56.f));
-            setPos(TAM);
-           /*if(!text.loadFromFile("assets\\textures\\Others\\gato.png"))
-                exit(1);*/
-            setSprite(spr);
-            id = 'j';
+            sprtemp.setTexture(text);
+            setSprite(sprtemp);
         }
 
         Jogador::~Jogador(){
@@ -37,17 +29,26 @@ namespace Entidades{
 
         void Jogador::colidir(Entidade* outro, Vector2f ds){
             if(outro->getId()=='o'){//objeto
-                
+                Vector2f posAux=getPos();  
+                if(ds.x>ds.y){
+                    if(getPos().x<outro->getPos().x)//colisão em x
+                        posAux.x+=ds.x;
+                    else
+                        posAux.x-=ds.x;
+                    setVel(Vector2f(0.f, getVel().y));
+                }
+                else{
+                    if(getPos().y<outro->getPos().y)
+                        posAux.y+=ds.y;
+                    else
+                        posAux.y-=ds.y;
+                    setVel(Vector2f(getVel().x, 0.f));
+                }
+                setPos(posAux);
             }
             else if(outro->getId()=='i'){//inimigo
                 cout<<"COLISAO"<<endl;
                 Vector2f vjog = outro->getVel(), voutro=getVel(), posAux=getPos(), posAux_outro=outro->getPos();
-                /*vjog.x = -vjog.x/2 + 0.0001;
-                vjog.y = -vjog.y/2 + 0.0001;
-                setVel(vjog);
-                vjog.x = -vjog.x - 0.0001;
-                vjog.y = -vjog.y - 0.0001;
-                outro->setVel(vjog);*/
 
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){

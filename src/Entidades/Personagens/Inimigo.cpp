@@ -3,19 +3,13 @@
 
 namespace Entidades{
     namespace Personagens{
-        Inimigo::Inimigo(float VIDA, float DANO, Vector2f TAM, Vector2f POS, Vector2f VEL, Vector2f ACEL, Texture TEXT, Sprite SPRT, int ID): 
-            Personagem(VIDA, DANO, TAM, POS, VEL, ACEL, TEXT, SPRT, ID)
+        Inimigo::Inimigo(Vector2f POS): 
+            Personagem(5.0, 1.0, Vector2f(38.f, 48.f), POS, 'i')
         {
-        }
-
-        Inimigo::Inimigo(Vector2f POs) : Personagem(POs){
-            Sprite spr;
+            Sprite sprtemp;
             text.loadFromFile("assets\\textures\\Enemies\\green_alien.png");
-            spr.setTexture(text);
-           /*if(!text.loadFromFile("assets\\textures\\Others\\gato.png"))
-                exit(1);*/
-            setSprite(spr);
-            id = 'i';
+            sprtemp.setTexture(text);
+            setSprite(sprtemp);
         }
         
         Inimigo::~Inimigo(){
@@ -62,9 +56,6 @@ namespace Entidades{
             else if(outro->getId()=='i'){//inimigo
 
             }
-        }
-        void Inimigo::testemov(){
-            vel.x = vel.x - 0.0000;
         }
     };
 };

@@ -2,12 +2,9 @@
 #include"../../include/Entidades/Entidade.h"
 
 namespace Entidades{
-    Entidade::Entidade(Vector2f TAM, Vector2f POS, Vector2f VEL, Vector2f ACEL, Texture TEXT, Sprite SPRT, int ID): 
-        Ente(ID), tam(TAM), pos(POS), text(TEXT), sprt(SPRT), vel(VEL), acel(ACEL)
+    Entidade::Entidade(Vector2f TAM, Vector2f POS, int ID): 
+        Ente(ID), tam(TAM), pos(POS), vel(Vector2f(0.f, 0.f)), acel(Vector2f(0.f, 0.f))
     {
-        sprt.setTexture(text);
-        //sprt.setPosition(pos);
-        //sprt.setScale(tam);
     }
 
     Entidade::~Entidade(){
@@ -17,6 +14,7 @@ namespace Entidades{
         sprt = sprtaux;
         sprt.setTextureRect(IntRect(0,0,16,16));
         sprt.setScale(Vector2f(3.0f,3.0f));
+        sprt.setPosition(pos);
     }
 
     void Entidade::setTam(Vector2f TAM)

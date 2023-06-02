@@ -2,8 +2,8 @@
 #include"../include/Ente.h"
 
 
-Ente::Ente(int ID){
-    id = ID;
+Ente::Ente(int ID): id(ID){
+    
 }
 
 Ente::~Ente(){

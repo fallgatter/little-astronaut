@@ -6,7 +6,7 @@ using namespace sf;
 using namespace std;
 
 //Cabeçalhos Próprios:
-#include"../Entidades/Personagens/Jogador.h"
+//#include"../Entidades/Personagens/Jogador.h"
 #include<list>
 
 

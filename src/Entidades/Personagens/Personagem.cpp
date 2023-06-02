@@ -4,17 +4,9 @@
 
 namespace Entidades{
     namespace Personagens{
-        Personagem::Personagem(float Vida, float Dano, Vector2f Tam, Vector2f Pos, Vector2f Vel, Vector2f Acel, Texture Text, Sprite Sprt, int id): 
-            Entidade(Tam, Pos, Vel, Acel, Text, Sprt, id), vida(Vida), dano(Dano)
+        Personagem::Personagem(float VIDA, float DANO, Vector2f TAM, Vector2f POS, int ID): 
+            Entidade(TAM, POS, ID), vida(VIDA), dano(DANO)
         {
-        }
-
-        Personagem::Personagem(Vector2f Pos): Entidade(){
-            cout<<"entrou"<<endl;
-            Vector2f TAM =(Vector2f(40.f,56.f)), VEL = Vector2f(0.f,0.f), ACEL = Vector2f(0.f,0.f);
-            pos = Pos;
-            tam = TAM;
-            vel = VEL;
         }
 
         Personagem::~Personagem(){
