@@ -4,13 +4,14 @@
 
 
 Principal::Principal() : janela(sf::VideoMode(800.0f, 600.0f), "little astronaut"){
-    Vw = new sf::View(sf::FloatRect(0.f, 0.f, 1000.f, 1000.f));
-    //janela.setView(*Vw);
-    Ge = new Gerenciadores::Eventos();
-    Ge->setWindow(&janela);
-    Ga.setWindow(&janela);
-    Ga.setView(Vw);
-    executar();
+    // Vw = new sf::View(sf::FloatRect(0.f, 0.f, 1000.f, 1000.f));
+    // //janela.setView(*Vw);
+    // Ge = new Gerenciadores::Eventos();
+    // Ge->setWindow(&janela);
+    Ga = Ga->Singleton();
+    // Ga->setWindow(&janela);
+    // Ga->setView(Vw);
+     executar();
 }
 
 Principal::~Principal(){
@@ -19,9 +20,13 @@ Principal::~Principal(){
 
 void Principal::executar(){
     srand(time(NULL));
-    
+    moon.criarMapa();
+    moon.criarEntidade();
+    moon.executar();
+    moon.setGrafico(Ga);
+    }
     //Personagem:
-    jogador = new Jogador(Vector2f(0.f,100.f));
+    /*jogador = new Jogador(Vector2f(0.f,100.f));
     
 
     //Inimigos:
@@ -46,7 +51,7 @@ void Principal::executar(){
     }
     /*moon.criarMapa();
     moon.executar();*/
-    ent.EL.push(jogador);
+    /*ent.EL.push(jogador);
     GC.setList(ent);
 
     while(janela.isOpen()){
@@ -73,7 +78,7 @@ void Principal::executar(){
         Ga.display();
         Ga.clear();
     }
-}
+}*/
 /*void Principal::executar(){
     //jogador = new Jogador(Vector2f(0.f,0.f));
     jogador=new Jogador();

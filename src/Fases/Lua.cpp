@@ -15,9 +15,10 @@ namespace Fases{
         ifstream arquivo;
         string linha;
         int j=0, i=0;
-        arquivo.open("../../assets/levels/lua.txt");
+        arquivo.open("assets/levels/lua.txt"); 
+        cout<<"funcionou aqui"<<endl;
         if(!arquivo.is_open()){
-            exit;
+            cout<<'1'<<endl;
         }
         while(getline(arquivo, linha)){
             for(i=0; i<linha.size(); i++){
@@ -29,4 +30,5 @@ namespace Fases{
         }
         arquivo.close();
     }
+    
 }

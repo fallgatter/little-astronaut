@@ -10,14 +10,16 @@ namespace Fases{
 
     }
 
-    void Fase::criarEntidade(char letra, const Vector2f POS){
+    void Fase::criarEntidade(int letra, const Vector2f POS){ //fuck char
         Vector2f base=Vector2f(POS.x*48.0f, POS.y*48.0f);
         Entidade* ent;
+        cout<<'a'<<letra<<endl;
         switch(letra){
-            case('i')://inimigo
-                
+            case('i')://inimigo 
+                LE.EL.push(new Inimigo(Vector2f(base)));
                 break;
             case('j')://jogador
+                LE.EL.push(new Jogador(Vector2f(base)));
                 break;
             case('o')://obstaculo
 
@@ -26,33 +28,21 @@ namespace Fases{
     }
 
     void Fase::executar(){
-        sf::RenderWindow window(sf::VideoMode(600, 600), "SFML works!");
-        //sf::CircleShape shape(100.f);
-        //shape.setFillColor(sf::Color::Green);
-
-        while (window.isOpen())
-        {
-            sf::Event event;
-            while (window.pollEvent(event))
-            {
-                if (event.type == sf::Event::Closed)
-                    window.close();
+        int i,j=0;
+        while(pga->isopen()){
+            for(i = 0;i<LE.EL.get_size();i++){
+                pga->drawn(LE.EL[i]->getSprite());
             }
+            pga->display();
+            pga->clear();
+        }
+    }
 
-            window.clear();
-            //window.draw(shape);
-            window.draw(LE.EL[0]->getSprite());
-            window.display();
-        }
-        
-        
-        }
-
-        void Fases::Fase::setGrafico(Grafico *Pg)
-        {
-            Pga = Pg;
-        }
-        void Fase::setColisoes(Colisoes* Pc){
-            Pco = Pc;
-        }
+    void Fases::Fase::setGrafico(Grafico *Pg)
+    {
+        pga = Pg;
+    }
+    void Fase::setColisoes(Colisoes* Pc){
+        Pco = Pc;
+    }
 }

@@ -1,13 +1,20 @@
 #include"../../include/Gerenciadores/Grafico.h"
 
 namespace Gerenciadores{
+    Grafico* Grafico::P = NULL;
+
     Grafico::Grafico(){
     }
 
     Grafico::~Grafico(){
         
     }
-    
+    Grafico* Grafico::Singleton(){
+        if(P == NULL){
+            P = new Grafico();
+        }
+        return P;
+    }
     
     void Grafico::display(){
         if(window->isOpen()){
