@@ -3,33 +3,21 @@
 
 namespace Entidades{
     namespace Personagens{
-        Inimigo::Inimigo(Vector2f POS): 
-            Personagem(5.0, 1.0, Vector2f(38.f, 48.f), POS, 'i')
+        Inimigo::Inimigo(Vector2f POS, int ID): 
+            Personagem(5.0, 1.0, Vector2f(38.f, 48.f), POS, ID)
         {
-            Sprite sprtemp;
-            text.loadFromFile("assets\\textures\\Enemies\\green_alien.png");
-            sprtemp.setTexture(text);
-            setSprite(sprtemp);
+            
         }
         
         Inimigo::~Inimigo(){
         }
         
         void Inimigo::colidir(Entidade* outro, Vector2f ds){
-            if(outro->getId()=='o'){//objeto
+            if(outro->getId()=='b'){//objeto
                 
             }
             else if(outro->getId()=='j'){//jogador
-                cout<<"COLISAOi->j"<<endl;
                 Vector2f vjog = getVel(), voutro=outro->getVel();
-                
-                /*vjog.x = vjog.x/2 + 0.0001;
-                vjog.y = vjog.y/2 + 0.0001;
-                setVel(vjog);
-                vjog.x = -vjog.x - 0.0001;
-                vjog.y = -vjog.y - 0.0001;
-                outro->setVel(vjog);*/
-
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
                         vjog.x-=0.0001;
@@ -53,7 +41,7 @@ namespace Entidades{
                 setVel(voutro);
                 outro->setVel(vjog);
             }
-            else if(outro->getId()=='i'){//inimigo
+            else if(outro->getId()=='a'){//inimigo
 
             }
         }

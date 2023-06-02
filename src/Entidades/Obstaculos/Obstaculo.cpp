@@ -1,23 +1,14 @@
 #include"../../../include/Entidades/Obstaculos/Obstaculo.h"
 
 namespace Obstaculos{
-    Obstaculo::Obstaculo(Vector2f POS, int TIPO_TEXT) : 
-        Entidade(Vector2f(48.f, 48.f), POS, 'o'), tipo_text(TIPO_TEXT)
+    Obstaculo::Obstaculo(Vector2f POS, bool DANOSO, int ID) : 
+        Entidade(Vector2f(48.f, 48.f), POS, ID), danoso(DANOSO)
     {
-        Sprite sprtemp;
-        if(tipo_text<7)
-            text.loadFromFile("assets\\textures\\World\\moon_ground3.png");
-        else if(tipo_text>=7 && tipo_text<=9)
-            text.loadFromFile("assets\\textures\\World\\moon_ground1.png");
-        else if(tipo_text==10)
-            text.loadFromFile("assets\\textures\\World\\moon_ground2.png");
-        sprtemp.setTexture(text);
-        setSprite(sprtemp);
+
     }
     Obstaculo::~Obstaculo(){}
     void Obstaculo::colidir(Entidade* outro, Vector2f ds){
-        //cout<<"COLISAO OBS"<<endl;
-        if(outro->getId()!='o'){
+        if(outro->getId()!='b'){
             Vector2f posAux=outro->getPos();  
             if(ds.x>ds.y){
                 if(outro->getPos().x<getPos().x)//colisão em x
@@ -36,4 +27,4 @@ namespace Obstaculos{
             outro->setPos(posAux);
         }
     }
-} using namespace Obstaculos;
+}using namespace Obstaculos;

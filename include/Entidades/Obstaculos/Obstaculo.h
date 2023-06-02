@@ -2,13 +2,12 @@
 #include"../Entidade.h"
 
 namespace Obstaculos{
-    class Obstaculo : public Entidade{
+    class Obstaculo: public Entidade{
         private:
-            int tipo_text;
+            bool danoso;
         public:
-            Obstaculo(Vector2f POS=Vector2f(0.f, 0.f), int TIPO_TEXT=0);
+            Obstaculo(Vector2f POS=Vector2f(0.f, 0.f), bool DANOSO=0, int ID='o');
             ~Obstaculo();
             void colidir(Entidade* outro, Vector2f ds);
-            void mover_se();
     };
-} using namespace Obstaculos;
+}using namespace Obstaculos;

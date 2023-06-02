@@ -4,7 +4,7 @@
 namespace Entidades{
     namespace Personagens{
         Jogador::Jogador(Vector2f POS): 
-            Personagem(5.0, 1.0, Vector2f(40.f, 48.f), POS, 'j')
+            Personagem(5.0, 1.0, Vector2f(40.f, 48.f), POS, 'j'), energia(100)
         {
             Sprite sprtemp;
             text.loadFromFile("assets\\textures\\Player\\default.png");
@@ -28,7 +28,7 @@ namespace Entidades{
         }
 
         void Jogador::colidir(Entidade* outro, Vector2f ds){
-            if(outro->getId()=='o'){//objeto
+            if(outro->getId()=='b'){//objeto
                 Vector2f posAux=getPos();  
                 if(ds.x>ds.y){
                     if(getPos().x<outro->getPos().x)//colisão em x
@@ -46,9 +46,8 @@ namespace Entidades{
                 }
                 setPos(posAux);
             }
-            else if(outro->getId()=='i'){//inimigo
-                cout<<"COLISAO"<<endl;
-                Vector2f vjog = outro->getVel(), voutro=getVel(), posAux=getPos(), posAux_outro=outro->getPos();
+            else if(outro->getId()=='a'){//inimigo
+                Vector2f vjog = outro->getVel(), voutro=getVel();
 
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){

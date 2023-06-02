@@ -9,7 +9,7 @@ namespace Entidades{
             private:
 
             public:
-                Inimigo(Vector2f POS=Vector2f(0.f, 0.f));
+                Inimigo(Vector2f POS=Vector2f(0.f, 0.f), int ID='i');
                 ~Inimigo();
                 void colidir(Entidade* outro, Vector2f ds);
         };
