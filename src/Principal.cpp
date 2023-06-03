@@ -1,17 +1,18 @@
-#include"..\include\Principal.h"
+//Cabeçalhos Padrões:
 #include<math.h>
-#include<vector>
 
+//Cabeçalhos Próprios:
+#include"..\include\Principal.h"
 
 Principal::Principal() : janela(sf::VideoMode(800.0f, 600.0f), "little astronaut"){
-     Vw = new sf::View(sf::FloatRect(0.f, 0.f, 1000.f, 1000.f));
+    Vw = new sf::View(sf::FloatRect(0.f, 0.f, 1000.f, 1000.f));
     janela.setView(*Vw);
-    Ge = new Gerenciadores::Eventos();
+    Ge = new Gerenciador_Eventos();
     Ge->setWindow(&janela);
     Ga = Ga->Singleton();
     Ga->setWindow(&janela);
     Ga->setView(Vw);
-     executar();
+    executar();
 }
 
 Principal::~Principal(){
@@ -21,9 +22,9 @@ Principal::~Principal(){
 void Principal::executar(){
     srand(time(NULL));
     moon.criarMapa();
-    moon.setGrafico(Ga);
+    //moon.setGrafico(Ga);
     moon.executar();
-    }
+}
     //Personagem:
     /*jogador = new Jogador(Vector2f(0.f,100.f));
     

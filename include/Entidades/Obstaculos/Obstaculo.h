@@ -1,4 +1,6 @@
 #pragma once
+
+//Cabeçalhos Próprios:
 #include"../Entidade.h"
 
 namespace Obstaculos{

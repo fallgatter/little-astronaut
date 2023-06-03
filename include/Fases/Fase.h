@@ -1,33 +1,28 @@
 #pragma once
+
+//Cabeçalhos Próprios:
 #include"../Ente.h"
-#include"../Lista/Lista_de_entidades.h"
-#include"../Gerenciadores/Colisoes.h"
-#include"../Gerenciadores/Grafico.h"
-#include"../Entidades/Personagens/Inimigo.h"
+#include"../Listas/Lista_Entidades.h"
+#include"../Gerenciadores/Gerenciador_Colisoes.h"
+#include"../Gerenciadores/Gerenciador_Eventos.h"
+#include"../Gerenciadores/Gerenciador_Grafico.h"
 #include"../Entidades/Personagens/Jogador.h"
-#include"../Entidades/Personagens/Personagem.h"
 #include"../Entidades/Personagens/Alien.h"
 #include"../Entidades/Obstaculos/Bloco.h"
-#include"../Entidades/Obstaculos/Obstaculo.h"
-
-
-
-
 
 namespace Fases{
     class Fase: public Ente{
         protected:
             Lista_Entidades LE;
-            Colisoes* Pco;
+            Gerenciador_Colisoes Pco;
             RenderWindow* janela;
-            Grafico* pga;
         public:
-            Fase(int ID=0);
+            Fase(int ID='F');
             ~Fase();
-            void criarEntidade(int letra='0', const Vector2f POS=Vector2f(0.f, 0.f));
+            void criarEntidade(int letra='0', Vector2f POS=Vector2f(0.f, 0.f), int tipo_text=0);
             void executar();
-            void setGrafico(Grafico* Pg);
-            void setColisoes(Colisoes* Pc);
+            void setGrafico(Gerenciador_Grafico* Pg);
+            void setColisoes(Gerenciador_Colisoes Pc);
             void setJanelas(RenderWindow* JNL);
     };
 }using namespace Fases;

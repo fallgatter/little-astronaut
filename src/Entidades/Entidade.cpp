@@ -5,9 +5,11 @@ namespace Entidades{
     Entidade::Entidade(Vector2f TAM, Vector2f POS, int ID): 
         Ente(ID), tam(TAM), pos(POS), vel(Vector2f(0.f, 0.f)), acel(Vector2f(0.f, 0.f))
     {
+
     }
 
     Entidade::~Entidade(){
+        
     }
 
     void Entidade::setSprite(Sprite sprtaux){
@@ -17,8 +19,7 @@ namespace Entidades{
         sprt.setPosition(pos);
     }
 
-    void Entidade::setTam(Vector2f TAM)
-    {
+    void Entidade::setTam(Vector2f TAM){
         tam=TAM;
     }
 
@@ -35,6 +36,10 @@ namespace Entidades{
         acel=ACEL;
     }
 
+    void Entidade::setscale(Vector2f SCL){
+        sprt.setScale(SCL);
+    }
+
     Vector2f Entidade::getTam() const{
         return tam;
     }
@@ -43,11 +48,11 @@ namespace Entidades{
         return pos;
     }
 
-    const Vector2f Entidade::getVel() const{
+    Vector2f Entidade::getVel() const{
         return vel;
     }
 
-    const Vector2f Entidade::getAcel() const{
+    Vector2f Entidade::getAcel() const{
         return acel;
     }
 
@@ -73,10 +78,12 @@ namespace Entidades{
         //}
         //printf("%f\n",pos.y);
     }
+
     void Entidade::gravidade(){
         if(id != 'o')
             vel.y += 0.1;
     }
+    
     void Entidade::mover_se(){
         if(id != 'o'){
             pos.x += vel.x;
@@ -85,8 +92,5 @@ namespace Entidades{
         }
         if(id == 'o')
             cout<<"yeah"<<endl;
-    }
-    void Entidade::setscale(Vector2f SCL){
-        sprt.setScale(SCL);
     }
 };

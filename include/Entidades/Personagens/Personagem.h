@@ -1,14 +1,7 @@
 #pragma once
 
-//Cabeçalhos Padrões:
-#include<math.h>
-#include<SFML/Graphics.hpp>
-using namespace sf;
-
 //Cabeçalhos Próprios:
 #include"../Entidade.h"
-
-
 
 namespace Entidades{
     namespace Personagens{
@@ -17,7 +10,6 @@ namespace Entidades{
                 float vida, dano;
             public:
                 Personagem(float VIDA=0, float DANO=0, Vector2f TAM=Vector2f(0.f,0.f), Vector2f POS=Vector2f(0.f, 0.f), int ID=0);
-                //Personagem(Vector2f POS);
                 ~Personagem();
                 void setVida(float VIDA);
                 void setDano(float DANO);

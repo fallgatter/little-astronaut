@@ -1,7 +1,8 @@
+//Cabeçalhos Próprios:
 #include"../../../include/Entidades/Obstaculos/Bloco.h"
 
 namespace Obstaculos{
-    Bloco::Bloco(Vector2f POS, int TIPO_TEXT) : 
+    Bloco::Bloco(Vector2f POS, int TIPO_TEXT): 
         Obstaculo(POS, 0, 'b'), tipo_text(TIPO_TEXT)
     {
         Sprite sprtemp;
@@ -12,9 +13,10 @@ namespace Obstaculos{
         else if(tipo_text==10)
             text.loadFromFile("assets\\textures\\World\\moon_ground2.png");
         sprtemp.setTexture(text);
-        setSprite(sprtemp);
+        setSprite(sprtemp); //seta scale, rect e pos
     }
+
     Bloco::~Bloco(){
 
     }
-}using namespace Obstaculos;
+};

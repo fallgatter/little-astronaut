@@ -1,19 +1,18 @@
 //Cabeçalhos Próprios:
 #include"../../../include/Entidades/Personagens/Personagem.h"
-//#include "Jogador.h"
 
 namespace Entidades{
     namespace Personagens{
         Personagem::Personagem(float VIDA, float DANO, Vector2f TAM, Vector2f POS, int ID): 
             Entidade(TAM, POS, ID), vida(VIDA), dano(DANO)
         {
+            
         }
 
         Personagem::~Personagem(){
         }
         
-        void Personagem::setVida(float VIDA)
-        {
+        void Personagem::setVida(float VIDA){
             vida=VIDA;
         }
 

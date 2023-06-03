@@ -1,9 +1,5 @@
 #pragma once
 
-//Cabeçalhos Padrões:
-#include<SFML/Graphics.hpp>
-using namespace sf;
-
 //Cabeçalhos Próprios:
 #include"../Ente.h"
 
@@ -21,15 +17,15 @@ namespace Entidades{
             void setPos(Vector2f POS);
             void setVel(Vector2f VEL);
             void setAcel(Vector2f ACEL);
+            void setscale(Vector2f scale);
             Sprite getSprite() const;
             Vector2f getTam() const;
             Vector2f getPos() const;
-            const Vector2f getVel() const;
-            const Vector2f getAcel() const;
+            Vector2f getVel() const;
+            Vector2f getAcel() const;
             void desacelerar();
             void gravidade();
             void mover_se();
             virtual void colidir(Entidade* outro, Vector2f ds)=0;
-            void setscale(Vector2f scale);
     };
 }using namespace Entidades;

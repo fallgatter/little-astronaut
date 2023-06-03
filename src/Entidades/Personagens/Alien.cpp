@@ -7,12 +7,12 @@ namespace Entidades{
             Inimigo(POS, 'a'), tipo_text(TIPO_TEXT)
         {
             Sprite sprtemp;
-            if(tipo_text<4)
+            if(tipo_text<8)
                 text.loadFromFile("assets\\textures\\Enemies\\green_alien.png");
             else
                 text.loadFromFile("assets\\textures\\Enemies\\grey_alien.png");
             sprtemp.setTexture(text);
-            setSprite(sprtemp);
+            setSprite(sprtemp); //seta scale, rect e pos
         }
         
         Alien::~Alien(){

@@ -1,17 +1,23 @@
 #pragma once
+
+//Cabeçalhos Padrões:
 #include<iostream>
+using namespace std;
+#include<SFML/Graphics.hpp>
+using namespace sf;
 #include<stdlib.h>
 #include<time.h>
-using namespace std;
-#include"Gerenciadores/Grafico.h"
+
+//Cabeçalhos Próprios:
+#include"Gerenciadores/Gerenciador_Grafico.h"
 
 class Ente{
     protected:
         int id;
-        Grafico* pga;
+        Gerenciador_Grafico* pga;
     public:
         Ente(int ID);
         ~Ente();
+        void setId(int ID);
         int getId() const;
-        void setId(int idaux);
 };

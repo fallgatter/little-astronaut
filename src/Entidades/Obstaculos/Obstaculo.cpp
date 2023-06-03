@@ -1,12 +1,17 @@
+//Cabeçalhos Próprios:
 #include"../../../include/Entidades/Obstaculos/Obstaculo.h"
 
 namespace Obstaculos{
-    Obstaculo::Obstaculo(Vector2f POS, bool DANOSO, int ID) : 
+    Obstaculo::Obstaculo(Vector2f POS, bool DANOSO, int ID): 
         Entidade(Vector2f(48.f, 48.f), POS, ID), danoso(DANOSO)
     {
 
     }
-    Obstaculo::~Obstaculo(){}
+
+    Obstaculo::~Obstaculo(){
+
+    }
+
     void Obstaculo::colidir(Entidade* outro, Vector2f ds){
         if(outro->getId()!='b'){
             Vector2f posAux=outro->getPos();  
@@ -27,4 +32,4 @@ namespace Obstaculos{
             outro->setPos(posAux);
         }
     }
-}using namespace Obstaculos;
+};

@@ -1,18 +1,19 @@
-//Game Libraries:
+//Cabeçalhos Próprios:
 #include"../include/Ente.h"
 
-
-Ente::Ente(int ID): id(ID){
+Ente::Ente(int ID): 
+    id(ID), pga(pga->Singleton())
+{
     
 }
 
 Ente::~Ente(){
 }
 
-int Ente::getId() const {
-    return id;
+void Ente::setId(int ID){
+    id = ID;
 }
 
-void Ente::setId(int idaux){
-    id = idaux;
+int Ente::getId() const{
+    return id;
 }

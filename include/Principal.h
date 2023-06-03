@@ -1,23 +1,28 @@
 #pragma once
+
+//Cabeçalhos Padrões:
 #include<SFML/Graphics.hpp>
-#include"../include/Gerenciadores/Eventos.h"
-#include"../include/Gerenciadores/Grafico.h"
+using namespace sf;
+
+//Cabeçalhos Próprios:
+#include"../include/Gerenciadores/Gerenciador_Eventos.h"
+#include"../include/Gerenciadores/Gerenciador_Grafico.h"
 #include"../include/Entidades/Personagens/Jogador.h"
 #include"../include/Entidades/Personagens/Inimigo.h"
-#include"../include/Lista/Lista_de_entidades.h"
-#include"../include/Gerenciadores/Colisoes.h"
+#include"../include/Listas/Lista_Entidades.h"
+#include"../include/Gerenciadores/Gerenciador_Colisoes.h"
 #include"../include/Entidades/Obstaculos/Obstaculo.h"
 #include"../include/Fases/Lua.h"
 
 class Principal{
     private:
-        sf::RenderWindow janela;
-        sf::View *Vw;
-        Eventos* Ge;
-        Grafico* Ga;
+        RenderWindow janela;
+        View *Vw;
+        Gerenciador_Eventos* Ge;
+        Gerenciador_Grafico* Ga;
         Jogador* jogador;
         Lista_Entidades ent;
-        Colisoes GC;
+        Gerenciador_Colisoes GC;
         Lua moon;
     public:
         Principal();
