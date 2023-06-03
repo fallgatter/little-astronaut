@@ -6,6 +6,12 @@
 #include"../Entidades/Personagens/Inimigo.h"
 #include"../Entidades/Personagens/Jogador.h"
 #include"../Entidades/Personagens/Personagem.h"
+#include"../Entidades/Personagens/Alien.h"
+#include"../Entidades/Obstaculos/Bloco.h"
+#include"../Entidades/Obstaculos/Obstaculo.h"
+
+
+
 
 
 namespace Fases{

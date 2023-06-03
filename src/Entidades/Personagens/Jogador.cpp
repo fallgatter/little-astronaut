@@ -51,22 +51,22 @@ namespace Entidades{
 
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
-                        vjog.x+=0.0001;
-                        voutro.x-=0.0001;
+                        vjog.x+=0.1;
+                        voutro.x-=0.1;
                     }
                     else{
-                        vjog.x-=0.0001;
-                        voutro.x+=0.0001;
+                        vjog.x-=0.1;
+                        voutro.x+=0.1;
                     }
                 }
                 else{
                     if(outro->getPos().y<getPos().y){
-                        vjog.y+=0.0001;
-                        voutro.y-=0.0001;
+                        vjog.y+=0.1;
+                        voutro.y-=0.1;
                     }
                     else{
-                        vjog.y-=0.0001;
-                        voutro.y+=0.0001;
+                        vjog.y-=0.1;
+                        voutro.y+=0.1;
                     } 
                 }
                 setVel(vjog);

@@ -37,5 +37,6 @@ namespace Gerenciadores{
             void render(Sprite* body);
             bool isopen();
             void setWindow(RenderWindow* wnd);
+            void setFps(int velocidade);
     };
 }using namespace Gerenciadores;

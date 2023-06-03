@@ -70,4 +70,8 @@ namespace Gerenciadores{
         view->setCenter(POS);
         window->setView(*view);
     }
+    void Grafico::setFps(int velocidade){
+        window->setFramerateLimit(velocidade);
+    }
+
 }using namespace Gerenciadores;

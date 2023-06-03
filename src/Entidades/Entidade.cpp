@@ -74,12 +74,17 @@ namespace Entidades{
         //printf("%f\n",pos.y);
     }
     void Entidade::gravidade(){
-        vel.y += 0.00001;
+        if(id != 'o')
+            vel.y += 0.1;
     }
     void Entidade::mover_se(){
-        pos.x += vel.x;
-        pos.y += vel.y;
-        setPos(pos);
+        if(id != 'o'){
+            pos.x += vel.x;
+            pos.y += vel.y;
+            setPos(pos);
+        }
+        if(id == 'o')
+            cout<<"yeah"<<endl;
     }
     void Entidade::setscale(Vector2f SCL){
         sprt.setScale(SCL);

@@ -16,7 +16,8 @@ namespace Fases{
         string linha;
         int j=0, i=0;
         arquivo.open("assets/levels/lua.txt"); 
-        cout<<"funcionou aqui"<<endl;
+        if(arquivo.is_open())
+            cout<<"funcionou aqui"<<endl;
         if(!arquivo.is_open()){
             cout<<'1'<<endl;
         }
