@@ -21,7 +21,8 @@ namespace Fases{
                 break;
             case('j')://jogador
                 cout<<letra<<endl;
-                LE.incluir(new Jogador(Vector2f(base)));
+                jog = new Jogador(Vector2f(base));
+                LE.incluir(jog);
                 break;
             case('b')://obstaculo
                 LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), tipo_text));
@@ -35,6 +36,7 @@ namespace Fases{
         //LE.EL.push(new Jogador(Vector2f(100.f,0.f)));
         //LE.EL.push(new Alien(Vector2f(200.f,0.f)));
         //LE.EL.push(new Obstaculo(Vector2f(100.f,400.f)));
+        Ge.setWindow(pga->getWindow());
         Pco.setList(LE);
         if(pga==NULL){
             exit(1);
@@ -43,6 +45,13 @@ namespace Fases{
         else{
             cout<<"aqui3  "<<endl;
             while(pga->isopen()){
+                Event event;
+                while (pga->getWindow()->pollEvent(event))
+                {
+                    Ge.gerenciarInput(&event);
+                }
+                Keyboard tecl;
+                jog->interacao(&tecl);
                 pga->setFps(100);
                 for(i = 0;i<LE.tamanho();i++){
                     pga->drawn(LE[i]->getSprite());
@@ -54,6 +63,11 @@ namespace Fases{
                 Pco.gerenciar();
                 pga->display();
                 pga->clear();
+                //Event event;
+                //while (janela->pollEvent(event))
+                //{
+                    //Ge.gerenciarInput(&event);
+                //}
             }
         }
     }

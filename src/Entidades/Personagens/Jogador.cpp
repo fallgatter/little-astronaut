@@ -17,13 +17,13 @@ namespace Entidades{
         
         void Jogador::interacao(Keyboard* tecla){
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-                vel.y += -0.00003;
+                vel.y += -0.3;
             }
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-                vel.x += 0.00002;
+                vel.x += 0.1;
             }
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-                vel.x -= 0.00002;
+                vel.x -= 0.21;
             }
         }
 

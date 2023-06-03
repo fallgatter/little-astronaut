@@ -10,6 +10,15 @@ namespace Gerenciadores{
     Gerenciador_Grafico::~Gerenciador_Grafico(){
         
     }
+    RenderWindow* Gerenciador_Grafico::getWindow() const{
+        if(window){
+            return window;
+        }
+        else
+            exit;
+        return NULL;
+    }
+
     Gerenciador_Grafico* Gerenciador_Grafico::Singleton(){
         if(P == NULL){
             P = new Gerenciador_Grafico();

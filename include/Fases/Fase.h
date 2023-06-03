@@ -15,7 +15,9 @@ namespace Fases{
         protected:
             Lista_Entidades LE;
             Gerenciador_Colisoes Pco;
+            Gerenciador_Eventos Ge;
             RenderWindow* janela;
+            Jogador* jog;
         public:
             Fase(int ID='F');
             ~Fase();

@@ -63,10 +63,10 @@ namespace Entidades{
     void Entidade::desacelerar(){
         if(vel.x != 0){
             if(vel.x < 0){
-                vel.x += 0.00001;
+                vel.x += 0.01;
             }
             else{
-                vel.x -= 0.00001;
+                vel.x -= 0.01;
             }
         }
         /*if(pos.y >= 400){

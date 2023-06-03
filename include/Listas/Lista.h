@@ -34,16 +34,16 @@ namespace Listas{
           }
         }
         
-        bool search(T val) {
+        T* search(T val) {
           Node<T> *temp = head;
           while(temp->next) {
-            if(temp->data == val) return true;
+            if(temp->data == val) return temp;
             else temp = temp->next;
           }
-          delete temp;
-          return false;
+          //delete temp;
+          return NULL;
         }
-
+        
         int get_size(){
             Node<T> *temp = head;
             int i;

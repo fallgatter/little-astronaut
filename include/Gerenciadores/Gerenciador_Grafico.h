@@ -22,6 +22,7 @@ namespace Gerenciadores{
             RenderWindow* getWindow() const;
             View getView() const;
             //void loadTexture();
+            
             void setView(View* VW);
             void setViewPos(Vector2f PO);
             void display();
