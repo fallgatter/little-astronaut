@@ -55,14 +55,12 @@ namespace Fases{
                 pga->setFps(100);
                 for(i = 0;i<LE.tamanho();i++){
                     pga->drawn(LE[i]->getSprite());
-                    if(LE[i]->getId() != 'b'){
-                        LE[i]->mover_se();
-                        LE[i]->desacelerar();
-                    } 
+                    LE[i]->mover_se();
                 }
                 Pco.gerenciar();
                 pga->display();
                 pga->clear();
+                pga->setViewPos(Vector2f(jog->getPos().x, jog->getPos().y/10 - 150));
                 //Event event;
                 //while (janela->pollEvent(event))
                 //{

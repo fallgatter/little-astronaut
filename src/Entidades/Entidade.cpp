@@ -5,7 +5,7 @@ namespace Entidades{
     Entidade::Entidade(Vector2f TAM, Vector2f POS, int ID): 
         Ente(ID), tam(TAM), pos(POS), vel(Vector2f(0.f, 0.f)), acel(Vector2f(0.f, 0.f))
     {
-
+        
     }
 
     Entidade::~Entidade(){
@@ -63,10 +63,10 @@ namespace Entidades{
     void Entidade::desacelerar(){
         if(vel.x != 0){
             if(vel.x < 0){
-                vel.x += 0.01;
+                vel.x += 0.04;
             }
             else{
-                vel.x -= 0.01;
+                vel.x -= 0.04;
             }
         }
         /*if(pos.y >= 400){
@@ -83,9 +83,32 @@ namespace Entidades{
         if(id != 'o')
             vel.y += 0.1;
     }
-    
+    void Entidade::confere_vel(){
+        Vector2f Vel_Max;
+        if(id == 'b'){
+            setVel(Vector2f(0.f,0.f));
+        }
+        else if(id == 'j' || id == 'i'){
+            if(id == 'j')
+                Vel_Max = Vector2f(3.f,3.f);
+            else 
+                Vel_Max = Vector2f(2.5f,2.5f);
+            
+            if(vel.x > Vel_Max.x)
+                vel.x = Vel_Max.x;
+            if(vel.y > Vel_Max.y)
+                 vel.y = Vel_Max.y;
+             if(vel.x < -Vel_Max.x)
+                 vel.x = -Vel_Max.x;
+             if(vel.y < -Vel_Max.y)
+                 vel.y = -Vel_Max.y;
+        }
+    }
     void Entidade::mover_se(){
-        if(id != 'o'){
+        confere_vel();
+        desacelerar();
+        
+        if(id != 'b'){
             pos.x += vel.x;
             pos.y += vel.y;
             setPos(pos);
