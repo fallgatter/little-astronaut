@@ -16,8 +16,12 @@ namespace Entidades{
         }
         
         void Jogador::interacao(Keyboard* tecla){
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-                vel.y += -0.3;
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && energia){
+                vel.y += -0.2;
+                energia--;
+            }
+            if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && energia<100){
+                energia++;
             }
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
                 vel.x += 0.1;
