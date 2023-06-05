@@ -16,6 +16,7 @@ namespace Entidades{
                 virtual void perseguir(Vector2f dist){};
                 virtual void mover_se(){};
                 void colidir(Entidade* outro, Vector2f ds);
+                void atacar_por_contato();
         };
     }using namespace Personagens;
 }using namespace Entidades;

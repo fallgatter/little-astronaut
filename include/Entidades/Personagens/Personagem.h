@@ -8,6 +8,7 @@ namespace Entidades{
         class Personagem: public Entidade{
             protected:
                 float vida, dano;
+                bool vivo;
             public:
                 Personagem(float VIDA=0, float DANO=0, Vector2f TAM=Vector2f(0.f,0.f), Vector2f POS=Vector2f(0.f, 0.f), int ID=0);
                 ~Personagem();

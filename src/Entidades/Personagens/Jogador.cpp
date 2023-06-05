@@ -51,7 +51,11 @@ namespace Entidades{
             }
             else if(outro->getId()=='a' || outro->getId()=='v'){//inimigos
                 Vector2f vjog = outro->getVel(), voutro=getVel();
-
+                vida--;
+                cout<<vida<<endl;
+                if(vida < 0){
+                    pga->closeWindow();
+                }
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
                         vjog.x+=1;
