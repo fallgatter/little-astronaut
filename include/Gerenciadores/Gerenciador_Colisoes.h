@@ -9,7 +9,8 @@
 namespace Gerenciadores{
     class Gerenciador_Colisoes{
         private:
-            Lista_Entidades LE;
+            Lista_Entidades personagens;
+            Lista_Entidades obstaculos;
         public:
             Gerenciador_Colisoes();
             ~Gerenciador_Colisoes();
