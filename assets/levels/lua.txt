@@ -2,8 +2,8 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bj                                       b
 b                a               a       b
 b                                        b
-b             b  bbb                     b
-b                                        b
+b             b  bbb     v               b
+b                            v           b
 b                                        b
 b                                        b
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb

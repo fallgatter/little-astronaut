@@ -49,27 +49,27 @@ namespace Entidades{
                 }
                 setPos(posAux);
             }
-            else if(outro->getId()=='a'){//inimigos
+            else if(outro->getId()=='a' || outro->getId()=='v'){//inimigos
                 Vector2f vjog = outro->getVel(), voutro=getVel();
 
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
-                        vjog.x+=0.5;
-                        voutro.x-=0.5;
+                        vjog.x+=1;
+                        voutro.x-=1;
                     }
                     else{
-                        vjog.x-=0.5;
-                        voutro.x+=0.5;
+                        vjog.x-=1;
+                        voutro.x+=1;
                     }
                 }
                 else{
                     if(outro->getPos().y<getPos().y){
-                        vjog.y+=0.5;
-                        voutro.y-=0.5;
+                        vjog.y+=1;
+                        voutro.y-=1;
                     }
                     else{
-                        vjog.y-=0.5;
-                        voutro.y+=0.5;
+                        vjog.y-=1;
+                        voutro.y+=1;
                     } 
                 }
                 setVel(vjog);

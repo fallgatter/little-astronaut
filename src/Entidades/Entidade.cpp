@@ -5,7 +5,7 @@ namespace Entidades{
     Entidade::Entidade(Vector2f TAM, Vector2f POS, int ID): 
         Ente(ID), tam(TAM), pos(POS), vel(Vector2f(0.f, 0.f)), acel(Vector2f(0.f, 0.f))
     {
-        
+
     }
 
     Entidade::~Entidade(){
@@ -65,7 +65,7 @@ namespace Entidades{
             if(vel.x < 0){
                 vel.x += 0.04;
             }
-            else{
+            else if(vel.x > 0){
                 vel.x -= 0.04;
             }
         }
@@ -81,7 +81,7 @@ namespace Entidades{
             vel_max = Vector2f(3.f,3.f);
         if(id == 'j')
             vel_max = Vector2f(3.f,3.f);
-        if(id == 'a')
+        if(id == 'a' || id == 'v')
             vel_max = Vector2f(2.5f,2.5f);
         
         if(vel.x > vel_max.x)

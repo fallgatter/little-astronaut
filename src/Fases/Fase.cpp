@@ -12,11 +12,14 @@ namespace Fases{
 
     }
 
-    void Fase::criarEntidade(int letra, Vector2f POS, int tipo_text){ //fuck char
+    void Fase::criarEntidade(int letra, Vector2f POS, int rand){ //fuck char
         Vector2f base=Vector2f(POS.x*48.0f, POS.y*48.0f);
         switch(letra){
             case('a')://alien 
-                LE.incluir(new Alien(Vector2f(base), tipo_text));
+                LE.incluir(new Alien(Vector2f(base), rand));
+                break;
+            case('v')://ovni 
+                LE.incluir(new OVNI(Vector2f(base), rand));
                 break;
             case('j')://jogador
                 jog = new Jogador(Vector2f(base));
@@ -24,7 +27,7 @@ namespace Fases{
                 Inimigo::setJog(jog);
                 break;
             case('b')://obstaculo
-                LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), tipo_text));
+                LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), rand));
                 break;
         }
     }

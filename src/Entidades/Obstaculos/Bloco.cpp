@@ -21,6 +21,6 @@ namespace Obstaculos{
     }
 
     void Bloco::mover_se(){
-        vel.y -= 0.1;
+        vel.y -= 0.1; //anula a gravidade
     }
 };

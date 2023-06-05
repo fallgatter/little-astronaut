@@ -16,34 +16,49 @@ namespace Entidades{
 
         void Inimigo::colidir(Entidade* outro, Vector2f ds){
             if(outro->getId()=='b'){//objeto
-                
+                Vector2f posAux=getPos();  
+                if(ds.x>ds.y){
+                    if(getPos().x<outro->getPos().x)//colisão em x
+                        posAux.x+=ds.x;
+                    else
+                        posAux.x-=ds.x;
+                    setVel(Vector2f(0.f, getVel().y));
+                }
+                else{
+                    if(getPos().y<outro->getPos().y)
+                        posAux.y+=ds.y;
+                    else
+                        posAux.y-=ds.y;
+                    setVel(Vector2f(getVel().x, 0.f));
+                }
+                setPos(posAux);
             }
             else if(outro->getId()=='j'){//jogador
                 Vector2f vjog = getVel(), voutro=outro->getVel();
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
-                        vjog.x-=0.5;
-                        voutro.x+=0.5;
+                        vjog.x-=1;
+                        voutro.x+=1;
                     }
                     else{
-                        vjog.x+=0.5;
-                        voutro.x-=0.5;
+                        vjog.x+=1;
+                        voutro.x-=1;
                     }
                 }
                 else{
                     if(outro->getPos().y<getPos().y){
-                        vjog.y-=0.5;
-                        voutro.y+=0.5;
+                        vjog.y-=1;
+                        voutro.y+=1;
                     }
                     else{
-                        vjog.y+=0.5;
-                        voutro.y-=0.5;
+                        vjog.y+=1;
+                        voutro.y-=1;
                     } 
                 }
                 setVel(voutro);
                 outro->setVel(vjog);
             }
-            else if(outro->getId()=='a'){//inimigo
+            else if(outro->getId()=='a' || outro->getId()=='v'){//inimigo
 
             }
         }
