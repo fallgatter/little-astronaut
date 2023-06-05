@@ -77,7 +77,7 @@ namespace Gerenciadores{
             if(listAux[i]->getId()=='j' || listAux[i]->getId()=='a' || listAux[i]->getId()=='v')
                 personagens.incluir(listAux[i]);
             else if(listAux[i]->getId()=='b')
-                obstaculos.incluir(listAux[i]);;
+                obstaculos.incluir(listAux[i]);
         }
     }
 };

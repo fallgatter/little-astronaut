@@ -34,7 +34,7 @@ namespace Fases{
 
     void Fase::executar(){
         int i=0, j=0;
-        Pco.setList(LE);
+        Gc.setList(LE);
         if(pga==NULL){
             exit(1);
             cout<<"aqui2  "<<endl;
@@ -53,7 +53,7 @@ namespace Fases{
                     LE[i]->atualizar();
                     //LE[i]->desacelerar();
                 }
-                Pco.gerenciar();
+                Gc.gerenciar();
                 pga->display();
                 pga->clear();
                 pga->setViewPos(Vector2f(jog->getPos().x, jog->getPos().y/10+500));
@@ -65,12 +65,5 @@ namespace Fases{
                 //}
             }
         }
-    }
-
-    void Fase::setGrafico(Gerenciador_Grafico* Pg){
-        pga = Pg;
-    }
-    void Fase::setColisoes(Gerenciador_Colisoes Pc){
-        Pco = Pc;
     }
 };

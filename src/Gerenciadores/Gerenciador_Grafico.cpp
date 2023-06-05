@@ -56,34 +56,35 @@ namespace Gerenciadores{
         clock.restart();
     }
 
-    void Gerenciador_Grafico::render(Sprite* thing){
-        window->draw(*thing);
-    }
-
     float Gerenciador_Grafico::getDt(){
         return dt;
     }
+
     bool Gerenciador_Grafico::isopen(){
         if(window)
             return window->isOpen();
         return 0;
     }
+
     void Gerenciador_Grafico::setWindow(RenderWindow* wnd){
         window = wnd;
     }
+
     void Gerenciador_Grafico::drawn(Sprite sprtaux){
         window->draw(sprtaux);
     }
+
     void Gerenciador_Grafico::setView(View* VW){
         view = VW;
         window->setView(*view);
     }
+
     void Gerenciador_Grafico::setViewPos(Vector2f POS){
         view->setCenter(POS);
         window->setView(*view);
     }
+
     void Gerenciador_Grafico::setFps(int velocidade){
         window->setFramerateLimit(velocidade);
     }
-
 }using namespace Gerenciadores;

@@ -16,17 +16,13 @@ namespace Fases{
     class Fase: public Ente{
         protected:
             Lista_Entidades LE;
-            Gerenciador_Colisoes Pco;
+            Gerenciador_Colisoes Gc;
             Gerenciador_Eventos* Ge;
-            RenderWindow* janela;
             Jogador* jog;
         public:
             Fase(int ID='F');
             ~Fase();
             void criarEntidade(int letra='0', Vector2f POS=Vector2f(0.f, 0.f), int tipo_text=0);
             void executar();
-            void setGrafico(Gerenciador_Grafico* Pg);
-            void setColisoes(Gerenciador_Colisoes Pc);
-            void setJanelas(RenderWindow* JNL);
     };
 }using namespace Fases;

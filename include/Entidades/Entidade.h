@@ -6,7 +6,7 @@
 namespace Entidades{
     class Entidade: public Ente{
         protected:
-            Vector2f tam, pos, vel, acel;
+            Vector2f tam, pos, vel;
             Texture text;
             Sprite sprt;
         public:
@@ -16,13 +16,11 @@ namespace Entidades{
             void setTam(Vector2f TAM);
             void setPos(Vector2f POS);
             void setVel(Vector2f VEL);
-            void setAcel(Vector2f ACEL);
             void setscale(Vector2f scale);
             Sprite getSprite() const;
             Vector2f getTam() const;
             Vector2f getPos() const;
             Vector2f getVel() const;
-            Vector2f getAcel() const;
             void desacelerar();
             void gravidade();
             void atualizar();

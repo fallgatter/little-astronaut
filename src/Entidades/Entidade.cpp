@@ -3,7 +3,7 @@
 
 namespace Entidades{
     Entidade::Entidade(Vector2f TAM, Vector2f POS, int ID): 
-        Ente(ID), tam(TAM), pos(POS), vel(Vector2f(0.f, 0.f)), acel(Vector2f(0.f, 0.f))
+        Ente(ID), tam(TAM), pos(POS), vel(Vector2f(0.f, 0.f))
     {
 
     }
@@ -32,10 +32,6 @@ namespace Entidades{
         vel=VEL;
     }
 
-    void Entidade::setAcel(Vector2f ACEL){
-        acel=ACEL;
-    }
-
     void Entidade::setscale(Vector2f SCL){
         sprt.setScale(SCL);
     }
@@ -52,9 +48,6 @@ namespace Entidades{
         return vel;
     }
 
-    Vector2f Entidade::getAcel() const{
-        return acel;
-    }
 
     Sprite Entidade::getSprite() const{
         return sprt;
