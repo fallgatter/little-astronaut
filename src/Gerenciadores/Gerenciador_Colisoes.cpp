@@ -30,7 +30,6 @@ namespace Gerenciadores{
                     ds.x = x_dist - x_hitbox;
                     ds.y = y_dist - y_hitbox;
                     LE.EL[i]->colidir(LE.EL[j], ds);
-                    //LE.EL[j]->colidir(LE.EL[i], ds);
                 }
             }
     }

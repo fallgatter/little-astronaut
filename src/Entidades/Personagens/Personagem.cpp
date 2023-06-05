@@ -4,7 +4,7 @@
 namespace Entidades{
     namespace Personagens{
         Personagem::Personagem(float VIDA, float DANO, Vector2f TAM, Vector2f POS, int ID): 
-            Entidade(TAM, POS, ID), vida(VIDA), dano(DANO)
+            Entidade(TAM, POS, ID), vida(VIDA), dano(DANO) , vivo(true)
         {
             
         }
