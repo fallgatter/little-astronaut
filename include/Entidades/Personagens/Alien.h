@@ -12,7 +12,7 @@ namespace Entidades{
                 Alien(Vector2f POS=Vector2f(0.f, 0.f), int TIPO_TEXT=0);
                 ~Alien();
                 void atirar();
-                void perseguir();
+                void perseguir(Vector2f dist);
                 void mover_se();
         };
     }using namespace Personagens;
