@@ -16,8 +16,6 @@ using namespace sf;
 
 class Principal{
     private:
-        RenderWindow janela;
-        View *Vw;
         Gerenciador_Eventos* Ge;
         Gerenciador_Grafico* Ga;
         Jogador* jogador;

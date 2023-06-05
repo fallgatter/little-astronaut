@@ -4,8 +4,9 @@
 namespace Gerenciadores{
     Gerenciador_Grafico* Gerenciador_Grafico::P = NULL;
 
-    Gerenciador_Grafico::Gerenciador_Grafico(): window(NULL){
-        cout<<"construtora"<<endl;
+    Gerenciador_Grafico::Gerenciador_Grafico(){
+        window = new RenderWindow(sf::VideoMode(800.0f, 600.0f), "little astronaut", Style::Close);
+        view = new View(sf::FloatRect(0.f, 0.f, 1000.f, 1000.f));
     }
 
     Gerenciador_Grafico::~Gerenciador_Grafico(){
