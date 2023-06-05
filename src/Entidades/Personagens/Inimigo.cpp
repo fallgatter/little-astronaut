@@ -66,6 +66,8 @@ namespace Entidades{
         void Inimigo::atacar_por_contato(){
             cout<<jog->getVida()<<endl;
             int Vida= jog->getVida();
+            if(Vida < 0)
+                pga->closeWindow();
             Vida--;
             jog->setVida(Vida);
         }
