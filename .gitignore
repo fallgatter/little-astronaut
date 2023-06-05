@@ -4,3 +4,5 @@ Makefile
 
 *.o
 Makefile
+sfml-system-2.dll
+sfml-system-d-2.dll

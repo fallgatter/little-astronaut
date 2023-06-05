@@ -23,20 +23,20 @@ namespace Entidades{
 
         }
 
-        /*void Alien::perseguir(){
+        void Alien::perseguir(){
             if(jog!=NULL){
                 if(jog->getPos().x>getPos().x)
-                    setVel(Vector2f(0.2f, 0.f));
+                    setVel(Vector2f(1.f, vel.y));
                 else
-                    setVel(Vector2f(-0.2f, 0.f));
+                    setVel(Vector2f(-1.f, vel.y));
             }   
         }
 
         void Alien::mover_se(){
             if(jog!=NULL){
-                if(fabs(jog->getPos().x-getPos().x)<100.0 && fabs(jog->getPos().y-getPos().y)<100.0)
+                if(fabs(jog->getPos().x-getPos().x)<300.0 && fabs(jog->getPos().y-getPos().y)<300.0)
                     perseguir();
             }
-        }*/
+        }
     };
 };

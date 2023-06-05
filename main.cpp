@@ -80,8 +80,7 @@ class Gerenciador_de_Eventos{
 };
 */
 int main(){
-    Principal objPrincipal;
-    
+    Principal objPrincipal;  
 }
 
 /*sf::RenderWindow window(sf::VideoMode(600, 500), "SFML works!");
@@ -111,3 +110,5 @@ int main(){
         gf.gerenciar_input();
     }
 */
+
+//g++ main.o -o main -L"C:\Users\Dell\Desktop\sfml\SFML-2.5.1\lib" -lsfml-graphics -lsfml-window -lsfml-system

@@ -4,7 +4,7 @@
 namespace Gerenciadores{
     Gerenciador_Eventos* Gerenciador_Eventos::P=NULL;
 
-    Gerenciador_Eventos::Gerenciador_Eventos(Jogador *JOG): jog(JOG)
+    Gerenciador_Eventos::Gerenciador_Eventos()
     {
         Ga=Ga->Singleton();
     }
@@ -17,35 +17,33 @@ namespace Gerenciadores{
     }
 
     Gerenciador_Eventos::~Gerenciador_Eventos(){
-        jog=NULL;
+        
     }
 
-    void Gerenciador_Eventos::setJog(Jogador* JOG){
-        jog=JOG;
+    void Gerenciador_Eventos::controlarJog(Jogador* jog){
+        Vector2f vel=jog->getVel();
+        int energ=jog->getEnerg();
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && energ){
+            vel.y += -0.2;
+            energ--;
+        }
+        if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && energ<100){
+            energ++;
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+            vel.x += 0.1;
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+            vel.x -= 0.21;
+        }
+        jog->setVel(vel);
+        jog->setEnerg(energ);
     }
 
     void Gerenciador_Eventos::executar(){
         Event evento;
 
         while(Ga->getWindow()->pollEvent(evento)){
-            Vector2f vel=jog->getVel();
-            int energ=jog->getEnerg();
-            if(jog){
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && jog->getEnerg()){
-                    vel.y += -0.2;
-                    jog->setEnerg(energ--);
-                }
-                if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && jog->getEnerg()<100){
-                    jog->setEnerg(energ++);
-                }
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-                    vel.x += 0.1;
-                }
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-                    vel.x -= 0.21;
-                }
-                jog->setVel(vel);
-            }
             if(Ga->getWindow()){
                 if(Ga->isopen()){}
                     if (evento.type == sf::Event::Closed)

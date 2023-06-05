@@ -1,5 +1,6 @@
 //Cabeçalhos Próprios:
 #include"../../../include/Entidades/Personagens/Jogador.h"
+#include"../../../include/Gerenciadores/Gerenciador_Eventos.h"
 
 namespace Entidades{
     namespace Personagens{
@@ -23,20 +24,10 @@ namespace Entidades{
             return energia;
         }
 
-        void Jogador::interacao(Keyboard* tecla){
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && energia){
-                vel.y += -0.2;
-                energia--;
-            }
-            if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && energia<100){
-                energia++;
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-                vel.x += 0.1;
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-                vel.x -= 0.21;
-            }
+        void Jogador::mover_se(){
+            Gerenciador_Eventos* Ge;
+            Ge=Ge->Singleton();
+            Ge->controlarJog(this);
         }
 
         void Jogador::colidir(Entidade* outro, Vector2f ds){
@@ -63,22 +54,22 @@ namespace Entidades{
 
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
-                        vjog.x+=0.1;
-                        voutro.x-=0.1;
+                        vjog.x+=0.5;
+                        voutro.x-=0.5;
                     }
                     else{
-                        vjog.x-=0.1;
-                        voutro.x+=0.1;
+                        vjog.x-=0.5;
+                        voutro.x+=0.5;
                     }
                 }
                 else{
                     if(outro->getPos().y<getPos().y){
-                        vjog.y+=0.1;
-                        voutro.y-=0.1;
+                        vjog.y+=0.5;
+                        voutro.y-=0.5;
                     }
                     else{
-                        vjog.y-=0.1;
-                        voutro.y+=0.1;
+                        vjog.y-=0.5;
+                        voutro.y+=0.5;
                     } 
                 }
                 setVel(vjog);

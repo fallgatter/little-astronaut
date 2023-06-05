@@ -1,8 +1,8 @@
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bj                                       b
-b                  a             a       b
+b                a               a       b
 b                                        b
-b                 bbb                    b
+b             b  bbb                     b
 b                                        b
 b                                        b
 b                                        b

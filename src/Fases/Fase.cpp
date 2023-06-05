@@ -5,7 +5,7 @@ namespace Fases{
     Fase::Fase(int ID): 
         Ente(ID)
     {
-
+        Ge=Ge->Singleton();
     }
 
     Fase::~Fase(){
@@ -21,7 +21,7 @@ namespace Fases{
             case('j')://jogador
                 jog = new Jogador(Vector2f(base));
                 LE.incluir(jog);
-                //Inimigo::setJog(jog);
+                Inimigo::setJog(jog);
                 break;
             case('b')://obstaculo
                 LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), tipo_text));
@@ -30,10 +30,7 @@ namespace Fases{
     }
 
     void Fase::executar(){
-        Ge=Ge->Singleton();
         int i=0, j=0;
-
-        Ge->setJog(jog);
         Pco.setList(LE);
         if(pga==NULL){
             exit(1);

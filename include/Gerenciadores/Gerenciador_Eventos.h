@@ -12,16 +12,15 @@ using namespace sf;
 namespace Gerenciadores{
     class Gerenciador_Eventos{
         private:
-            Jogador* jog;
             Gerenciador_Grafico* Ga;
 
             //Padrão de Projeto Singleton:
             static Gerenciador_Eventos* P;
-            Gerenciador_Eventos(Jogador* JOG=NULL);
+            Gerenciador_Eventos();
         public:
             ~Gerenciador_Eventos();
             static Gerenciador_Eventos* Singleton();
-            void setJog(Jogador* JOG);
+            void controlarJog(Jogador* JOG);
             void executar();
     };
 }using namespace Gerenciadores;

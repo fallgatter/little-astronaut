@@ -13,7 +13,7 @@ namespace Entidades{
                 ~Jogador();
                 void setEnerg(int ENERGIA);
                 int getEnerg() const;
-                void interacao(Keyboard* tecla);
+                void mover_se();
                 void colidir(Entidade* outro, Vector2f ds);
         };
     }using namespace Personagens;
