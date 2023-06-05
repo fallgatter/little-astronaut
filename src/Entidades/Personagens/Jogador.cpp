@@ -15,6 +15,14 @@ namespace Entidades{
         Jogador::~Jogador(){
         }
         
+        void Jogador::setEnerg(int ENERGIA){
+            energia=ENERGIA;
+        }
+
+        int Jogador::getEnerg() const{
+            return energia;
+        }
+
         void Jogador::interacao(Keyboard* tecla){
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && energia){
                 vel.y += -0.2;
@@ -50,7 +58,7 @@ namespace Entidades{
                 }
                 setPos(posAux);
             }
-            else if(outro->getId()=='a'){//inimigo
+            else if(outro->getId()=='a'){//inimigos
                 Vector2f vjog = outro->getVel(), voutro=getVel();
 
                 if(ds.x>ds.y){

@@ -2,47 +2,55 @@
 #include"../../include/Gerenciadores/Gerenciador_Eventos.h"
 
 namespace Gerenciadores{
-    Gerenciador_Eventos::Gerenciador_Eventos(Jogador *JOG, Vector2f POS, Vector2f VEL) : jog(JOG), pos(POS), vel(VEL)
+    Gerenciador_Eventos* Gerenciador_Eventos::P=NULL;
+
+    Gerenciador_Eventos::Gerenciador_Eventos(Jogador *JOG): jog(JOG)
     {
-        if(jog){
-            pos=jog->getPos();
-            vel=jog->getVel();
-        }
+        Ga=Ga->Singleton();
     }
 
-    Gerenciador_Eventos::~Gerenciador_Eventos()
-    {
+    Gerenciador_Eventos* Gerenciador_Eventos::Singleton(){
+        if(P == NULL){
+            P = new Gerenciador_Eventos();
+        }
+        return P;
+    }
+
+    Gerenciador_Eventos::~Gerenciador_Eventos(){
         jog=NULL;
     }
 
-    void Gerenciador_Eventos::gerenciarInput(sf::Event* evento){
-        if(jog){
-            if(Keyboard::isKeyPressed(Keyboard::A)){
-                pos.x -= vel.x; 
-                jog->setPos(Vector2f(pos));
-            }
-            else if(Keyboard::isKeyPressed(Keyboard::D)){
-                pos.x += vel.x; 
-                jog->setPos(pos);
-            }
-            else if(Keyboard::isKeyPressed(Keyboard::S)){
-                pos.y += vel.y; 
-                jog->setPos(pos);
-            }
-            else if(Keyboard::isKeyPressed(Keyboard::W)){
-                pos.y -= vel.y; 
-                jog->setPos(pos);
-            }
-        }
-        if(Pjanela){
-            if(Pjanela->isOpen()){}
-                if (evento->type == sf::Event::Closed)
-                    Pjanela->close();
-                if (evento->type == sf::Event::Resized)
-                    std::cout << evento->size.width << evento->size.height << std::endl;
-        }
+    void Gerenciador_Eventos::setJog(Jogador* JOG){
+        jog=JOG;
     }
-    void Gerenciador_Eventos::setWindow(RenderWindow* jnl){
-        Pjanela = jnl;
+
+    void Gerenciador_Eventos::executar(){
+        Event evento;
+
+        while(Ga->getWindow()->pollEvent(evento)){
+            Vector2f vel=jog->getVel();
+            int energ=jog->getEnerg();
+            if(jog){
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && jog->getEnerg()){
+                    vel.y += -0.2;
+                    jog->setEnerg(energ--);
+                }
+                if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && jog->getEnerg()<100){
+                    jog->setEnerg(energ++);
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+                    vel.x += 0.1;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+                    vel.x -= 0.21;
+                }
+                jog->setVel(vel);
+            }
+            if(Ga->getWindow()){
+                if(Ga->isopen()){}
+                    if (evento.type == sf::Event::Closed)
+                        Ga->closeWindow();
+            }
+        }
     }
 };

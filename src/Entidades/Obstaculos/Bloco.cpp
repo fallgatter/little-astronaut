@@ -19,4 +19,8 @@ namespace Obstaculos{
     Bloco::~Bloco(){
 
     }
+
+    void Bloco::mover_se(){
+        vel.y -= 0.1;
+    }
 };

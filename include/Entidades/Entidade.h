@@ -25,8 +25,9 @@ namespace Entidades{
             Vector2f getAcel() const;
             void desacelerar();
             void gravidade();
-            void mover_se();
+            void atualizar();
             void confere_vel();
-            virtual void colidir(Entidade* outro, Vector2f ds)=0;
+            virtual void mover_se()=0;
+            virtual void colidir(Entidade* outro, Vector2f ds)=0; 
     };
 }using namespace Entidades;

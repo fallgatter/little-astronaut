@@ -7,6 +7,7 @@ using namespace std;
 using namespace sf;
 #include<stdlib.h>
 #include<time.h>
+#include<math.h>
 
 //Cabeçalhos Próprios:
 #include"Gerenciadores/Gerenciador_Grafico.h"

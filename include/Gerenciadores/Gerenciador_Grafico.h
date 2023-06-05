@@ -13,8 +13,10 @@ namespace Gerenciadores{
             View* view;
             //list <Texture*> texturas; por enquanto conhecimento do player
             Clock clock;
-            static Gerenciador_Grafico* P;
             float dt;
+            
+            //Padrão de Projeto Singleton:
+            static Gerenciador_Grafico* P;
             Gerenciador_Grafico();
         public:
             ~Gerenciador_Grafico();

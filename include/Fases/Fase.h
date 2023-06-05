@@ -7,6 +7,7 @@
 #include"../Gerenciadores/Gerenciador_Eventos.h"
 #include"../Gerenciadores/Gerenciador_Grafico.h"
 #include"../Entidades/Personagens/Jogador.h"
+#include"../Entidades/Personagens/Inimigo.h"
 #include"../Entidades/Personagens/Alien.h"
 #include"../Entidades/Obstaculos/Bloco.h"
 
@@ -15,7 +16,7 @@ namespace Fases{
         protected:
             Lista_Entidades LE;
             Gerenciador_Colisoes Pco;
-            Gerenciador_Eventos Ge;
+            Gerenciador_Eventos* Ge;
             RenderWindow* janela;
             Jogador* jog;
         public:

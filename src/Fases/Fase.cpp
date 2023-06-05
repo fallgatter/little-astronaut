@@ -14,15 +14,14 @@ namespace Fases{
 
     void Fase::criarEntidade(int letra, Vector2f POS, int tipo_text){ //fuck char
         Vector2f base=Vector2f(POS.x*48.0f, POS.y*48.0f);
-        cout<<"ahere"<<letra<<endl;
         switch(letra){
-            case('i')://inimigo 
+            case('a')://alien 
                 LE.incluir(new Alien(Vector2f(base), tipo_text));
                 break;
             case('j')://jogador
-                cout<<letra<<endl;
                 jog = new Jogador(Vector2f(base));
                 LE.incluir(jog);
+                //Inimigo::setJog(jog);
                 break;
             case('b')://obstaculo
                 LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), tipo_text));
@@ -31,12 +30,10 @@ namespace Fases{
     }
 
     void Fase::executar(){
+        Ge=Ge->Singleton();
         int i=0, j=0;
-        cout<<"aqui  "<<endl;
-        //LE.EL.push(new Jogador(Vector2f(100.f,0.f)));
-        //LE.EL.push(new Alien(Vector2f(200.f,0.f)));
-        //LE.EL.push(new Obstaculo(Vector2f(100.f,400.f)));
-        Ge.setWindow(pga->getWindow());
+
+        Ge->setJog(jog);
         Pco.setList(LE);
         if(pga==NULL){
             exit(1);
@@ -45,22 +42,22 @@ namespace Fases{
         else{
             cout<<"aqui3  "<<endl;
             while(pga->isopen()){
-                Event event;
-                while (pga->getWindow()->pollEvent(event))
-                {
-                    Ge.gerenciarInput(&event);
-                }
-                Keyboard tecl;
-                jog->interacao(&tecl);
+                
+                /*Keyboard tecl;
+                jog->interacao(&tecl);*/
+
                 pga->setFps(100);
+                
                 for(i = 0;i<LE.tamanho();i++){
-                    pga->drawn(LE[i]->getSprite());
-                    LE[i]->mover_se();
+                    //pga->drawn(LE[i]->getSprite());
+                    LE[i]->atualizar();
+                    //LE[i]->desacelerar();
                 }
                 Pco.gerenciar();
                 pga->display();
                 pga->clear();
-                pga->setViewPos(Vector2f(jog->getPos().x, jog->getPos().y/10 - 150));
+                pga->setViewPos(Vector2f(jog->getPos().x, jog->getPos().y/10+500));
+                Ge->executar();
                 //Event event;
                 //while (janela->pollEvent(event))
                 //{

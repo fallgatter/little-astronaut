@@ -11,7 +11,7 @@ namespace Entidades{
         
         Inimigo::~Inimigo(){
         }
-        
+
         void Inimigo::colidir(Entidade* outro, Vector2f ds){
             if(outro->getId()=='b'){//objeto
                 
@@ -45,5 +45,9 @@ namespace Entidades{
 
             }
         }
+        
+        /*void Inimigo::setJog(Jogador* JOG){
+            jog=JOG;
+        }*/
     };
 };

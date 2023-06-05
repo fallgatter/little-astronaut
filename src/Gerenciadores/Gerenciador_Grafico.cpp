@@ -5,6 +5,7 @@ namespace Gerenciadores{
     Gerenciador_Grafico* Gerenciador_Grafico::P = NULL;
 
     Gerenciador_Grafico::Gerenciador_Grafico(): window(NULL){
+        cout<<"construtora"<<endl;
     }
 
     Gerenciador_Grafico::~Gerenciador_Grafico(){

@@ -11,6 +11,8 @@ namespace Entidades{
             public:
                 Jogador(Vector2f POS=Vector2f(0.f, 0.f));
                 ~Jogador();
+                void setEnerg(int ENERGIA);
+                int getEnerg() const;
                 void interacao(Keyboard* tecla);
                 void colidir(Entidade* outro, Vector2f ds);
         };

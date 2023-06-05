@@ -69,51 +69,39 @@ namespace Entidades{
                 vel.x -= 0.04;
             }
         }
-        /*if(pos.y >= 400){
-            if(vel.y>0)
-                vel.y = 0;
-        }
-        else{*/
-            gravidade();
-        //}
-        //printf("%f\n",pos.y);
     }
 
     void Entidade::gravidade(){
-        if(id != 'o')
-            vel.y += 0.1;
+        vel.y += 0.1;
     }
     void Entidade::confere_vel(){
-        Vector2f Vel_Max;
-        if(id == 'b'){
-            setVel(Vector2f(0.f,0.f));
-        }
-        else if(id == 'j' || id == 'i'){
-            if(id == 'j')
-                Vel_Max = Vector2f(3.f,3.f);
-            else 
-                Vel_Max = Vector2f(2.5f,2.5f);
-            
-            if(vel.x > Vel_Max.x)
-                vel.x = Vel_Max.x;
-            if(vel.y > Vel_Max.y)
-                 vel.y = Vel_Max.y;
-             if(vel.x < -Vel_Max.x)
-                 vel.x = -Vel_Max.x;
-             if(vel.y < -Vel_Max.y)
-                 vel.y = -Vel_Max.y;
-        }
-    }
-    void Entidade::mover_se(){
-        confere_vel();
-        desacelerar();
+        Vector2f vel_max;
+
+        if(id == 'b')
+            vel_max = Vector2f(3.f,3.f);
+        if(id == 'j')
+            vel_max = Vector2f(3.f,3.f);
+        if(id == 'a')
+            vel_max = Vector2f(2.5f,2.5f);
         
-        if(id != 'b'){
-            pos.x += vel.x;
-            pos.y += vel.y;
-            setPos(pos);
-        }
-        if(id == 'o')
-            cout<<"yeah"<<endl;
+        if(vel.x > vel_max.x)
+            vel.x = vel_max.x;
+        else if(vel.x < -vel_max.x)
+            vel.x = -vel_max.x;
+        if(vel.y > vel_max.y)
+            vel.y = vel_max.y;
+        else if(vel.y < -vel_max.y)
+            vel.y = -vel_max.y;
+        
+    }
+    void Entidade::atualizar(){
+        confere_vel();
+        pga->drawn(getSprite());
+        pos.x += vel.x;
+        pos.y += vel.y;
+        setPos(pos);
+        mover_se();
+        desacelerar();
+        gravidade();
     }
 };

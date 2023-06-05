@@ -7,17 +7,21 @@ using namespace sf;
 
 //Cabeçalhos Próprios:
 #include"../Entidades/Personagens/Jogador.h"
+#include"Gerenciador_Grafico.h"
 
 namespace Gerenciadores{
     class Gerenciador_Eventos{
         private:
             Jogador* jog;
-            Vector2f pos, vel;
-            RenderWindow* Pjanela;
+            Gerenciador_Grafico* Ga;
+
+            //Padrão de Projeto Singleton:
+            static Gerenciador_Eventos* P;
+            Gerenciador_Eventos(Jogador* JOG=NULL);
         public:
-            Gerenciador_Eventos(Jogador* JOG=NULL, Vector2f POS=Vector2f(0.0f, 0.0f), Vector2f VEL=Vector2f(0.0f, 0.0f));
             ~Gerenciador_Eventos();
-            void gerenciarInput(Event* evento);
-            void setWindow(RenderWindow* wnd);
+            static Gerenciador_Eventos* Singleton();
+            void setJog(Jogador* JOG);
+            void executar();
     };
 }using namespace Gerenciadores;

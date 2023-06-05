@@ -10,6 +10,7 @@ namespace Obstaculos{
         public:
             Obstaculo(Vector2f POS=Vector2f(0.f, 0.f), bool DANOSO=0, int ID='o');
             ~Obstaculo();
+            virtual void mover_se(){};
             void colidir(Entidade* outro, Vector2f ds);
     };
 }using namespace Obstaculos;

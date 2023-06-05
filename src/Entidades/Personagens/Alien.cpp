@@ -16,10 +16,27 @@ namespace Entidades{
         }
         
         Alien::~Alien(){
+            
         }
         
         void Alien::atirar(){
 
         }
+
+        /*void Alien::perseguir(){
+            if(jog!=NULL){
+                if(jog->getPos().x>getPos().x)
+                    setVel(Vector2f(0.2f, 0.f));
+                else
+                    setVel(Vector2f(-0.2f, 0.f));
+            }   
+        }
+
+        void Alien::mover_se(){
+            if(jog!=NULL){
+                if(fabs(jog->getPos().x-getPos().x)<100.0 && fabs(jog->getPos().y-getPos().y)<100.0)
+                    perseguir();
+            }
+        }*/
     };
 };
