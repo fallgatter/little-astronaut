@@ -4,14 +4,8 @@
 //Cabeçalhos Próprios:
 #include"..\include\Principal.h"
 
-Principal::Principal() : janela(sf::VideoMode(800.0f, 600.0f), "little astronaut", Style::Close){
-    Vw = new sf::View(sf::FloatRect(0.f, 0.f, 1000.f, 1000.f));
-    janela.setView(*Vw);
-    /*Ge = new Gerenciador_Eventos();
-    Ge->setWindow(&janela);*/
+Principal::Principal(){
     Ga = Ga->Singleton();
-    Ga->setWindow(&janela);
-    Ga->setView(Vw);
     executar();
 }
 
