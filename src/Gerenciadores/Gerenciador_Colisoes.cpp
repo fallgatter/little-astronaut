@@ -19,24 +19,39 @@ namespace Gerenciadores{
 
         for(i=0; i<personagens.tamanho(); i++)
             for(j=i+1; j<personagens.tamanho(); j++){
-                    Personagem *p1, *p2;
-                    p1= static_cast<Personagem*>(personagens[i]);
-                    p2= static_cast<Personagem*>(personagens[j]);
-                    if(p1->getvivo() && p1->getvivo()){
-                        if(p1->getId()==p2->getId())
-                            continue;
-                        x_dist=fabs(p1->getPos().x-p2->getPos().x);
-                        y_dist=fabs(p1->getPos().y-p2->getPos().y);
-                        x_hitbox=p1->getTam().x/2+p2->getTam().x/2;
-                        y_hitbox=p1->getTam().y/2+p2->getTam().y/2;
+                        Personagem *p1, *p2;
+                        p1= static_cast<Personagem*>(personagens[i]);
+                        p2= static_cast<Personagem*>(personagens[j]);
+                        if(p1->getVida() < 0)
+                            p1->setVivo(0);
+                        if(p2->getVida() < 0)
+                            p2->setVivo(0);
+                        if(p1->getvivo()==1 && p1->getvivo()==1){
+                            x_dist=fabs(p1->getPos().x-p2->getPos().x);
+                            y_dist=fabs(p1->getPos().y-p2->getPos().y);
+                            x_hitbox=p1->getTam().x/2+p2->getTam().x/2;
+                            y_hitbox=p1->getTam().y/2+p2->getTam().y/2;
 
-                        if(x_dist<x_hitbox && y_dist<y_hitbox){
-                            ds.x = x_dist - x_hitbox;
-                            ds.y = y_dist - y_hitbox;
-                            p1->colidir(p2, ds);
-                            //LE.EL[j]->colidir(LE.EL[i], ds);
+                            if(x_dist<x_hitbox && y_dist<y_hitbox){
+                                ds.x = x_dist - x_hitbox;
+                                ds.y = y_dist - y_hitbox;
+                                if(p1->getvivo() == true && p1->getvivo()== true){
+                                    p1->colidir(p2, ds);
+                                    cout<<"aqui"<<endl;
+                                }
+                                else{
+                                    cout<<"catapimbas"<<endl;
+                                }
+                                //LE.EL[j]->colidir(LE.EL[i], ds);
+                            }
                         }
-                    }
+                        else{
+                            cout<<"alguem morreu"<<endl;
+                            if(!p1->getvivo())
+                                personagens.EL.destroy(p1);
+                            else if(!p2->getvivo())
+                                personagens.EL.destroy(p2);
+                        }
             }
         for(i=0; i<personagens.tamanho(); i++)
             for(j=0; j<obstaculos.tamanho(); j++){

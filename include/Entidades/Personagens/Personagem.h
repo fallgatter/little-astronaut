@@ -20,6 +20,7 @@ namespace Entidades{
                 virtual void colidir(Entidade* outro, Vector2f ds){};
                 bool getvivo();
                 void setVivo(bool viv);
+                void sofrerDano();
         };
     }using namespace Personagens;
 }using namespace Entidades;

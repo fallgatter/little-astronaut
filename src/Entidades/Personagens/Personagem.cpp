@@ -33,5 +33,11 @@ namespace Entidades{
         void Personagem::setVivo(bool viv){
             vivo = viv;
         }
+        void Personagem::sofrerDano(){
+            vida--;
+            if(vida < 0){
+                vivo = 0;
+            }
+        }
     };
 };

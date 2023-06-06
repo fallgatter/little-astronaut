@@ -37,7 +37,10 @@ namespace Entidades{
                 Vector2f vjog = getVel(), voutro=outro->getVel();
                 if(pos.y - 2 < outro->getPos().y)  //talvez de merda nesse -2
                     atacar_por_contato();
-                //static_cast<Jogador*>(outro)->setVida(-5);
+                else{
+                    sofrerDano();
+                }
+                cout<<jog->getVida()<<endl;
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
                         vjog.x-=1;

@@ -62,11 +62,10 @@ namespace Entidades{
             else if(outro->getId()=='a' || outro->getId()=='v'){//inimigos
                 Vector2f vjog = outro->getVel(), voutro=getVel();
                 if(pos.y  + 2> outro->getPos().y)  //talvez de merda nesse + 2
-                    vida--;
+                    sofrerDano();
+                else
+                    static_cast<Personagem*>(outro)->sofrerDano();
                 cout<<vida<<endl;
-                if(vida < 0){
-                    vivo = 0;
-                }
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
                         vjog.x+=1;

@@ -40,10 +40,20 @@ namespace Listas{
             if(temp->data == val) return temp;
             else temp = temp->next;
           }
-          //delete temp;
           return NULL;
         }
         
+        void destroy(T val){
+          Node<T> *temp = head;
+          Node<T> *aux;
+          while(temp->data != val) {
+            aux = temp;
+            temp = temp->next;
+          }
+          aux->next = temp->next;
+          temp = NULL;
+        }
+
         int get_size(){
             Node<T> *temp = head;
             int i;
