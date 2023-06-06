@@ -50,7 +50,13 @@ namespace Fases{
                 
                 for(i = 0;i<LE.tamanho();i++){
                     //pga->drawn(LE[i]->getSprite());
-                    LE[i]->atualizar();
+                    if(LE[i]->getId() != 'a' && LE[i]->getId() != 'j' && LE[i]->getId() != 'v')
+                        LE[i]->atualizar();
+                    else{
+                        if(static_cast<Personagem*>(LE[i])->getvivo()){
+                            LE[i]->atualizar();
+                        }
+                    }
                     //LE[i]->desacelerar();
                 }
                 Gc.gerenciar();

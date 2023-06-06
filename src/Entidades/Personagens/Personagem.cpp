@@ -27,5 +27,11 @@ namespace Entidades{
         float Personagem::getDano() const{
             return dano;
         }
+        bool Personagem::getvivo(){
+            return vivo;
+        }
+        void Personagem::setVivo(bool viv){
+            vivo = viv;
+        }
     };
 };

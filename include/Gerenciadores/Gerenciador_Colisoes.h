@@ -2,7 +2,7 @@
 
 //Cabeçalhos Próprios:
 #include"../Listas/Lista_Entidades.h"
-
+#include"../Entidades/Personagens/Personagem.h"
 //Cabeçalhos Padrões:
 #include<math.h>
 

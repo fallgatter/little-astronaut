@@ -35,7 +35,7 @@ namespace Entidades{
             }
             else if(outro->getId()=='j'){//jogador
                 Vector2f vjog = getVel(), voutro=outro->getVel();
-                if(pos.y < outro->getPos().y)
+                if(pos.y - 2 < outro->getPos().y)  //talvez de merda nesse -2
                     atacar_por_contato();
                 //static_cast<Jogador*>(outro)->setVida(-5);
                 if(ds.x>ds.y){
@@ -70,7 +70,7 @@ namespace Entidades{
             //cout<<jog->getVida()<<endl;
             int Vida= jog->getVida();
             if(Vida < 0)
-                pga->closeWindow();
+                jog->setVivo(false);
             Vida--;
             jog->setVida(Vida);
         }
