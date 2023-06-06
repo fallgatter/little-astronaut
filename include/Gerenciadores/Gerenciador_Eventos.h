@@ -6,7 +6,6 @@
 using namespace sf;
 
 //Cabeçalhos Próprios:
-#include"../Entidades/Personagens/Jogador.h"
 #include"Gerenciador_Grafico.h"
 
 namespace Gerenciadores{
@@ -20,7 +19,6 @@ namespace Gerenciadores{
         public:
             ~Gerenciador_Eventos();
             static Gerenciador_Eventos* Singleton();
-            void controlarJog(Jogador* JOG);
             void executar();
     };
 }using namespace Gerenciadores;

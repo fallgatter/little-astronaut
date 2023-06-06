@@ -5,7 +5,7 @@
 namespace Entidades{
     namespace Personagens{
         Jogador::Jogador(Vector2f POS): 
-            Personagem(5.0, 1.0, Vector2f(40.f, 48.f), POS, 'j'), energia(100)
+            Personagem(5.0, 1.0, Vector2f(40.f, 48.f), POS, 'j'), energia(100), pontuacao(0)
         {
             Sprite sprtemp;
             text.loadFromFile("assets\\textures\\Player\\default.png");
@@ -25,9 +25,19 @@ namespace Entidades{
         }
 
         void Jogador::mover_se(){
-            Gerenciador_Eventos* Ge;
-            Ge=Ge->Singleton();
-            Ge->controlarJog(this);
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && energia){
+                vel.y += -0.2;
+                energia--;
+            }
+            if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && energia<100){
+                energia++;
+            }
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+                vel.x += 0.1;
+            }
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+                vel.x -= 0.2;
+            }
         }
 
         void Jogador::colidir(Entidade* outro, Vector2f ds){

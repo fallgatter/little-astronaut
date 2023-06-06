@@ -50,6 +50,7 @@ namespace Entidades{
                     if(outro->getPos().y<getPos().y){
                         vjog.y-=1;
                         voutro.y+=1;
+                        //vida--;
                     }
                     else{
                         vjog.y+=1;
