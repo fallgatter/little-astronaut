@@ -5,7 +5,7 @@
 
 namespace Obstaculos{
     class Obstaculo: public Entidade{
-        private:
+        protected:
             bool danoso;
         public:
             Obstaculo(Vector2f POS=Vector2f(0.f, 0.f), bool DANOSO=0, int ID='o');

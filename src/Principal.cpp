@@ -5,18 +5,15 @@
 #include"..\include\Principal.h"
 
 Principal::Principal(){
-    Ga = Ga->Singleton();
     executar();
 }
 
 Principal::~Principal(){
-    delete(Ge);
+    
 }
 
 void Principal::executar(){
-    srand(time(NULL));
     moon.criarMapa();
-    //moon.setGrafico(Ga);
     moon.executar();
 }
     //Personagem:

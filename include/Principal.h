@@ -16,11 +16,6 @@ using namespace sf;
 
 class Principal{
     private:
-        Gerenciador_Eventos* Ge;
-        Gerenciador_Grafico* Ga;
-        Jogador* jogador;
-        Lista_Entidades ent;
-        Gerenciador_Colisoes GC;
         Lua moon;
     public:
         Principal();

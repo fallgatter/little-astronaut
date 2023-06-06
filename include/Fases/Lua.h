@@ -5,6 +5,9 @@
 
 namespace Fases{
     class Lua: public Fase{
+        private:
+            Sprite background;
+            Texture text;
         public:
             Lua(int ID='L');
             ~Lua();
