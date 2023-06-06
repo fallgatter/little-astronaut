@@ -20,21 +20,22 @@ namespace Gerenciadores{
         for(i=0; i<personagens.tamanho(); i++)
             for(j=i+1; j<personagens.tamanho(); j++){
                 Entidade *p1, *p2;
-                p1=personagens[i];
-                p2=personagens[j];
-                if(p1->getId()==p2->getId())
-                    continue;
-                x_dist=fabs(p1->getPos().x-p2->getPos().x);
-                y_dist=fabs(p1->getPos().y-p2->getPos().y);
-                x_hitbox=p1->getTam().x/2+p2->getTam().x/2;
-                y_hitbox=p1->getTam().y/2+p2->getTam().y/2;
+                
+                    p1=personagens[i];
+                    p2=personagens[j];
+                    if(p1->getId()==p2->getId())
+                        continue;
+                    x_dist=fabs(p1->getPos().x-p2->getPos().x);
+                    y_dist=fabs(p1->getPos().y-p2->getPos().y);
+                    x_hitbox=p1->getTam().x/2+p2->getTam().x/2;
+                    y_hitbox=p1->getTam().y/2+p2->getTam().y/2;
 
-                if(x_dist<x_hitbox && y_dist<y_hitbox){
-                    ds.x = x_dist - x_hitbox;
-                    ds.y = y_dist - y_hitbox;
-                    p1->colidir(p2, ds);
-                    //LE.EL[j]->colidir(LE.EL[i], ds);
-                }
+                    if(x_dist<x_hitbox && y_dist<y_hitbox){
+                        ds.x = x_dist - x_hitbox;
+                        ds.y = y_dist - y_hitbox;
+                        p1->colidir(p2, ds);
+                        //LE.EL[j]->colidir(LE.EL[i], ds);
+                    }
             }
         for(i=0; i<personagens.tamanho(); i++)
             for(j=0; j<obstaculos.tamanho(); j++){

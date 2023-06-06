@@ -35,7 +35,9 @@ namespace Entidades{
             }
             else if(outro->getId()=='j'){//jogador
                 Vector2f vjog = getVel(), voutro=outro->getVel();
-                atacar_por_contato();
+                if(pos.y < outro->getPos().y)
+                    atacar_por_contato();
+                //static_cast<Jogador*>(outro)->setVida(-5);
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
                         vjog.x-=1;
@@ -65,7 +67,7 @@ namespace Entidades{
             }
         }
         void Inimigo::atacar_por_contato(){
-            cout<<jog->getVida()<<endl;
+            //cout<<jog->getVida()<<endl;
             int Vida= jog->getVida();
             if(Vida < 0)
                 pga->closeWindow();
