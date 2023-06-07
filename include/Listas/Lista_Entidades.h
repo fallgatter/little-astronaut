@@ -12,6 +12,7 @@ namespace Listas{
             void incluir(Entidade* ent){
                 EL.push(ent);
             }
+            
             Entidade* operator[](int idx){
                 return EL[idx];
             }

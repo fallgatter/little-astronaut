@@ -7,6 +7,7 @@ namespace Entidades{
     class Projetil: public Entidade{
         protected:
             float dano;
+            float nivel_de_carga;
         public:
             Projetil();
             ~Projetil();

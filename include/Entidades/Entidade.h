@@ -11,6 +11,7 @@ namespace Entidades{
             bool vivo;
             Texture text;
             Sprite sprt;
+            static float gravid;
         public:
             Entidade(int DANO=0, bool VIVO=false, Vector2f TAM=Vector2f(0.f, 0.f), Vector2f POS=Vector2f(0.f, 0.f), int ID=0);
             ~Entidade();
@@ -33,5 +34,6 @@ namespace Entidades{
             void confere_vel();
             virtual void mover_se()=0;
             virtual void colidir(Entidade* outro, Vector2f ds)=0; 
+            void setGravidade(float g);
     };
 }using namespace Entidades;
