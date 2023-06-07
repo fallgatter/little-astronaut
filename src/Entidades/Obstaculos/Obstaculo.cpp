@@ -15,6 +15,7 @@ namespace Obstaculos{
 
     void Obstaculo::colidir(Entidade* outro, Vector2f ds){
         if(outro->getId()!='b' && outro->getId()!='p'){
+            
             Vector2f posAux=outro->getPos();  
             if(ds.x>ds.y){
                 if(outro->getPos().x<getPos().x)//colisão em x

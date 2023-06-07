@@ -78,7 +78,7 @@ namespace Gerenciadores{
         for(i=0; i<listAux.tamanho(); i++){
             if(listAux[i]->getId()=='j' || listAux[i]->getId()=='a' || listAux[i]->getId()=='v' || listAux[i]->getId()=='p')
                 dinamicos.incluir(listAux[i]);
-            else if(listAux[i]->getId()=='b')
+            else if(listAux[i]->getId()=='b' || listAux[i]->getId()=='e')
                 estaticos.incluir(listAux[i]);
         }
     }

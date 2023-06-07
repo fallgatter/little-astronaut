@@ -11,6 +11,8 @@
 #include"../Entidades/Personagens/Alien.h"
 #include"../Entidades/Personagens/OVNI.h"
 #include"../Entidades/Obstaculos/Bloco.h"
+#include"../Entidades/Obstaculos/Espinho.h"
+
 
 namespace Fases{
     class Fase: public Ente{

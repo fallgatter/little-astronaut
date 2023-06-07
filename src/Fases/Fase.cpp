@@ -38,6 +38,9 @@ namespace Fases{
             case('b')://obstaculo
                 LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), rand));
                 break;
+            case('e'):
+                LE.incluir(new Espinho(Vector2f(POS.x*48.f, POS.y*48.f), 1));
+                break;
         }
     }
 

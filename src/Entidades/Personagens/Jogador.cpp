@@ -2,6 +2,8 @@
 #include"../../../include/Entidades/Personagens/Jogador.h"
 #include"../../../include/Gerenciadores/Gerenciador_Eventos.h"
 #include"../../../include/Entidades/Obstaculos/Bloco.h"
+#include"../../../include/Entidades/Obstaculos/Espinho.h"
+
 
 namespace Entidades{
     namespace Personagens{
@@ -42,6 +44,11 @@ namespace Entidades{
         }
 
         void Jogador::colidir(Entidade* outro, Vector2f ds){
+            if(outro->getId() == 'e'){
+                if(vel.x != 0) //só sofre dano se estiver se movendo contra o espinho, parado nele não tem problema
+                    if(rand()%70 == 1)
+                        sofrerDano(static_cast<Espinho*>(outro)->getAfiacao());
+            }
             if(outro->getId()=='b'){//objeto
                 Vector2f posAux=getPos();  
                 if(ds.x>ds.y){
@@ -104,6 +111,6 @@ namespace Entidades{
                 cout<<"vidas do jogador: "<<getVidas()<<endl;
             }
             
-        }
+        }   
     };
 };
