@@ -3,7 +3,7 @@
 
 namespace Gerenciadores{
     Gerenciador_Colisoes::Gerenciador_Colisoes() : 
-        personagens(), obstaculos()
+        dinamicos(), estaticos()
     {
 
     }
@@ -17,47 +17,32 @@ namespace Gerenciadores{
         int i=0, j=0;
         Vector2f ds; 
 
-        for(i=0; i<personagens.tamanho(); i++)
-            for(j=i+1; j<personagens.tamanho(); j++){
-                        Personagem *p1, *p2;
-                        p1= static_cast<Personagem*>(personagens[i]);
-                        p2= static_cast<Personagem*>(personagens[j]);
-                        if(p1->getVida() < 0)
-                            p1->setVivo(0);
-                        if(p2->getVida() < 0)
-                            p2->setVivo(0);
-                        if(p1->getvivo()==1 && p1->getvivo()==1){
-                            x_dist=fabs(p1->getPos().x-p2->getPos().x);
-                            y_dist=fabs(p1->getPos().y-p2->getPos().y);
-                            x_hitbox=p1->getTam().x/2+p2->getTam().x/2;
-                            y_hitbox=p1->getTam().y/2+p2->getTam().y/2;
+        for(i=0; i<dinamicos.tamanho(); i++)
+            for(j=i+1; j<dinamicos.tamanho(); j++){
+                Entidade *p1, *p2;
+                p1=dinamicos[i];
+                p2=dinamicos[j];
+                if(p1->getId()==p2->getId() || (!(p1->getVivo()) || !(p2->getVivo())))
+                    continue;
+                x_dist=fabs(p1->getPos().x-p2->getPos().x);
+                y_dist=fabs(p1->getPos().y-p2->getPos().y);
+                x_hitbox=p1->getTam().x/2+p2->getTam().x/2;
+                y_hitbox=p1->getTam().y/2+p2->getTam().y/2;
 
-                            if(x_dist<x_hitbox && y_dist<y_hitbox){
-                                ds.x = x_dist - x_hitbox;
-                                ds.y = y_dist - y_hitbox;
-                                if(p1->getvivo() == true && p1->getvivo()== true){
-                                    p1->colidir(p2, ds);
-                                    cout<<"aqui"<<endl;
-                                }
-                                else{
-                                    cout<<"catapimbas"<<endl;
-                                }
-                                //LE.EL[j]->colidir(LE.EL[i], ds);
-                            }
-                        }
-                        else{
-                            cout<<"alguem morreu"<<endl;
-                            if(!p1->getvivo())
-                                personagens.EL.destroy(p1);
-                            else if(!p2->getvivo())
-                                personagens.EL.destroy(p2);
-                        }
-            }
-        for(i=0; i<personagens.tamanho(); i++)
-            for(j=0; j<obstaculos.tamanho(); j++){
+                if(x_dist<x_hitbox && y_dist<y_hitbox){
+                    ds.x = x_dist - x_hitbox;
+                    ds.y = y_dist - y_hitbox;
+                    p1->colidir(p2, ds);
+                    //LE.EL[j]->colidir(LE.EL[i], ds);
+                }
+            }   
+        for(i=0; i<dinamicos.tamanho(); i++)
+            for(j=0; j<estaticos.tamanho(); j++){
                 Entidade *p, *o;
-                p=personagens[i];
-                o=obstaculos[j];
+                p=dinamicos[i];
+                o=estaticos[j];
+                if(!(p->getVivo()))
+                    continue;
                 x_dist=fabs(p->getPos().x-o->getPos().x);
                 y_dist=fabs(p->getPos().y-o->getPos().y);
                 x_hitbox=p->getTam().x/2+o->getTam().x/2;
@@ -92,9 +77,9 @@ namespace Gerenciadores{
         int i=0;
         for(i=0; i<listAux.tamanho(); i++){
             if(listAux[i]->getId()=='j' || listAux[i]->getId()=='a' || listAux[i]->getId()=='v' || listAux[i]->getId()=='p')
-                personagens.incluir(listAux[i]);
+                dinamicos.incluir(listAux[i]);
             else if(listAux[i]->getId()=='b')
-                obstaculos.incluir(listAux[i]);
+                estaticos.incluir(listAux[i]);
         }
     }
 };

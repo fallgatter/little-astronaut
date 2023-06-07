@@ -2,8 +2,8 @@
 #include"../../include/Entidades/Entidade.h"
 
 namespace Entidades{
-    Entidade::Entidade(Vector2f TAM, Vector2f POS, int ID): 
-        Ente(ID), tam(TAM), pos(POS), vel(Vector2f(0.f, 0.f))
+    Entidade::Entidade(int DANO,bool VIVO, Vector2f TAM, Vector2f POS, int ID): 
+        Ente(ID), dano(DANO), vivo(VIVO), tam(TAM), pos(POS), vel(Vector2f(0.f, 0.f))
     {
 
     }
@@ -32,8 +32,20 @@ namespace Entidades{
         vel=VEL;
     }
 
-    void Entidade::setscale(Vector2f SCL){
+    void Entidade::setScale(Vector2f SCL){
         sprt.setScale(SCL);
+    }
+
+    void Entidade::setDano(int DANO){
+        dano=DANO;
+    }
+
+    void Entidade::setVivo(bool VIVO){
+        vivo=VIVO;
+    }
+
+    Sprite Entidade::getSprite() const{
+        return sprt;
     }
 
     Vector2f Entidade::getTam() const{
@@ -48,9 +60,12 @@ namespace Entidades{
         return vel;
     }
 
+    int Entidade::getDano() const{
+        return dano;
+    }
 
-    Sprite Entidade::getSprite() const{
-        return sprt;
+    bool Entidade::getVivo() const{
+        return vivo;
     }
     
     void Entidade::desacelerar(){
@@ -72,6 +87,8 @@ namespace Entidades{
             vel_max = Vector2f(3.f,3.f);
         if(id == 'j')
             vel_max = Vector2f(3.f,3.f);
+        if(id == 'p')
+            vel_max = Vector2f(3.5f,3.5f);
         if(id == 'a' || id == 'v')
             vel_max = Vector2f(2.5f,2.5f);
         
@@ -86,8 +103,7 @@ namespace Entidades{
         
     }
     void Entidade::atualizar(){
-        if(id!='p')
-            confere_vel();
+        confere_vel();
         pga->drawn(getSprite());
         pos.x += vel.x;
         pos.y += vel.y;

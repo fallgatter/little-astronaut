@@ -3,9 +3,10 @@
 
 namespace Obstaculos{
     Obstaculo::Obstaculo(Vector2f POS, bool DANOSO, int ID): 
-        Entidade(Vector2f(48.f, 48.f), POS, ID), danoso(DANOSO)
+        Entidade(0, true, Vector2f(48.f, 48.f), POS, ID), danoso(DANOSO)
     {
-
+        if(danoso)
+            setDano(10);
     }
 
     Obstaculo::~Obstaculo(){
@@ -32,7 +33,7 @@ namespace Obstaculos{
             outro->setPos(posAux);
         }
         if(outro->getId() == 'p'){
-            outro->setPos(Vector2f(0.f, 0.f));
+            outro->setVivo(false);
         }
     }
 };

@@ -5,7 +5,7 @@
 namespace Entidades{
     namespace Personagens{
         Jogador::Jogador(Vector2f POS): 
-            Personagem(5.0, 1.0, Vector2f(40.f, 48.f), POS, 'j'), energia(100), pontuacao(0)
+            Personagem(10, 2, true, Vector2f(40.f, 48.f), POS, 'j'), energia(100), pontuacao(0)
         {
             Sprite sprtemp;
             text.loadFromFile("assets\\textures\\Player\\default.png");
@@ -61,40 +61,45 @@ namespace Entidades{
             }
             else if(outro->getId()=='a' || outro->getId()=='v'){//inimigos
                 Vector2f vjog = outro->getVel(), voutro=getVel();
-                if(pos.y  + 2> outro->getPos().y)  //talvez de merda nesse + 2
-                    sofrerDano();
-                else
-                    static_cast<Personagem*>(outro)->sofrerDano();
-                cout<<vida<<endl;
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
-                        vjog.x+=1;
-                        voutro.x-=1;
+                        vjog.x+=1.5;
+                        voutro.x-=1.5;
+                        sofrerDano(outro->getDano());
                     }
                     else{
-                        vjog.x-=1;
-                        voutro.x+=1;
+                        vjog.x-=1.5;
+                        voutro.x+=1.5;
+                        sofrerDano(outro->getDano());
                     }
                 }
                 else{
                     if(outro->getPos().y<getPos().y){
-                        vjog.y+=1;
-                        voutro.y-=1;
+                        vjog.y+=1.5;
+                        voutro.y-=1.5;
+                        sofrerDano(outro->getDano());
                     }
                     else{
-                        vjog.y-=1;
-                        voutro.y+=1;
+                        vjog.y-=5;
+                        voutro.y+=1.5;
+                        static_cast<Personagem*>(outro)->sofrerDano(getDano());
                     } 
                 }
                 setVel(vjog);
                 outro->setVel(voutro);
+                cout<<"vidas do jogador: "<<getVidas()<<endl;
+                cout<<"vidas do outro: "<<static_cast<Personagem*>(outro)->getVidas()<<endl;
             }
             else if(outro->getId()=='j'){//jogador
 
             }
             else if(outro->getId()=='p'){//projéti
-                outro->setPos(Vector2f(0.f,0.f));
+                sofrerDano(outro->getDano());
+                //outro->setPos(Vector2f(0.f,0.f));
+                outro->setVivo(false);
+                cout<<"vidas do jogador: "<<getVidas()<<endl;
             }
+            
         }
     };
 };

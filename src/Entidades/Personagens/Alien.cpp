@@ -1,8 +1,8 @@
 //Cabeçalhos Próprios:
 #include"../../../include/Entidades/Personagens/Alien.h"
 
-#define RAIO_PERSEGUIR 300
-#define RAIO_ATIRAR 200
+#define RAIO_PERSEGUIR 400
+#define RAIO_ATIRAR 250
 
 namespace Entidades{
     namespace Personagens{
@@ -32,8 +32,7 @@ namespace Entidades{
         }
         
         void Alien::atirar(Vector2f dist){
-            cout<<"atirando"<<endl;
-            if((!municao || recarregando) && !(dt%25)){
+            if((!municao || recarregando) && !(dt%35)){
                 municao++;
                 recarregando=true;
                 if(municao==5)
@@ -41,11 +40,11 @@ namespace Entidades{
             }
             else if(!recarregando){
                 if(dist.x<0 && dist.x>-RAIO_ATIRAR && fabs(dist.y)<96 && municao && !(dt%200)){
-                    tiros[municao-1]->lancar(Vector2f (-3.5f, 0.f), Vector2f(getPos().x, getPos().y+25));
+                    tiros[municao-1]->lancar(Vector2f (-3.5f, 0.f), Vector2f(getPos().x, getPos().y));
                     municao--;
                 }
                 else if(dist.x>0 && dist.x<RAIO_ATIRAR && fabs(dist.y)<96 && municao && !(dt%200)){
-                    tiros[municao-1]->lancar(Vector2f (3.5f, 0.f), Vector2f(getPos().x, getPos().y+25));
+                    tiros[municao-1]->lancar(Vector2f (3.5f, 0.f), Vector2f(getPos().x, getPos().y));
                     municao--;
                 }
             }
@@ -55,7 +54,7 @@ namespace Entidades{
         }
 
         void Alien::perseguir(Vector2f dist){
-            if(jog!=NULL){
+            if(jog!=NULL && jog->getVivo()){
                 atirar(dist);
                 vel.x=0.0;
                 if(!recarregando){
@@ -71,7 +70,7 @@ namespace Entidades{
 
         void Alien::mover_se(){
             Vector2f dist;
-            if(jog!=NULL){
+            if(jog!=NULL && jog->getVivo()){
                 dist.x=jog->getPos().x-getPos().x;
                 dist.y=jog->getPos().y-getPos().y;
                 if(fabs(dist.x)<RAIO_PERSEGUIR && fabs(dist.y)<RAIO_PERSEGUIR)

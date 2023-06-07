@@ -4,10 +4,12 @@
 
 namespace Entidades{
     Projetil::Projetil(): 
-        Entidade(Vector2f(24.f, 4.f), Vector2f(0.f, 0.f), 'p'), dano(1)
+        Entidade(1, false, Vector2f(24.f, 4.f), Vector2f(-100.f, -100.f), 'p')
     {
         text.loadFromFile("assets\\textures\\Others\\laser.png");
+        sprt.setOrigin(Vector2f(0.f, -25.f));
         sprt.setTexture(text);
+        sprt.setTextureRect(IntRect(0,0,24,4));
         sprt.setPosition(pos);
     }
 
@@ -23,6 +25,7 @@ namespace Entidades{
     }
 
     void Projetil::lancar(Vector2f VEL, Vector2f POS){
+        setVivo(true);
         setVel(VEL);
         setPos(POS);
     }
@@ -39,10 +42,10 @@ namespace Entidades{
 
     void Projetil::colidir(Entidade* outro, Vector2f ds){
         if(outro->getId()=='j'){
-            static_cast<Personagem*>(outro)->sofrerDano();
-            setPos(Vector2f(0.f, 0.f));
+            static_cast<Personagem*>(outro)->sofrerDano(getDano());
+            setVivo(false);
         }
         else if(outro->getId()=='b')
-            setPos(Vector2f(0.f, 0.f));
+            setVivo(false);
     }
 };

@@ -8,7 +8,7 @@ b       b a     b v b   b  a             b
 b       b       bbbbb   bv bb            b
 b       bbbbb   b   b   bbbbb            b
 b                                        b
-b                 a       a              b
+b        v        a       a              b
 b                                        b 
 b                                        b 
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
