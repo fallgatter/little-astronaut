@@ -54,14 +54,12 @@ namespace Entidades{
     }
     
     void Entidade::desacelerar(){
-        if(vel.x != 0){
-            if(vel.x < 0){
-                vel.x += 0.04;
-            }
-            else if(vel.x > 0){
-                vel.x -= 0.04;
-            }
-        }
+        if(vel.x>-0.05 && vel.x<0.05)
+            vel.x=0.0;
+        else if(vel.x < -0.05)
+            vel.x += 0.04;
+        else if(vel.x > 0.05)
+            vel.x -= 0.04;
     }
 
     void Entidade::gravidade(){
@@ -88,7 +86,8 @@ namespace Entidades{
         
     }
     void Entidade::atualizar(){
-        confere_vel();
+        if(id!='p')
+            confere_vel();
         pga->drawn(getSprite());
         pos.x += vel.x;
         pos.y += vel.y;

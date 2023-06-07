@@ -15,9 +15,15 @@ namespace Fases{
     void Fase::criarEntidade(int letra, Vector2f POS, int rand){ //fuck char
         Vector2f base=Vector2f(POS.x*48.0f, POS.y*48.0f);
         switch(letra){
-            case('a')://alien 
-                LE.incluir(new Alien(Vector2f(base), rand));
+            case('a'):{//alien
+                Alien* alienAux;
+                alienAux=new Alien(Vector2f(base), rand);
+                LE.incluir(alienAux);
+                vector<Projetil*>::iterator it;
+                for(it=alienAux->getTiros()->begin(); it!=alienAux->getTiros()->end(); it++)
+                    LE.incluir(*(it));
                 break;
+            }
             case('v')://ovni 
                 LE.incluir(new OVNI(Vector2f(base), rand));
                 break;

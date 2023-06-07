@@ -13,7 +13,7 @@ namespace Obstaculos{
     }
 
     void Obstaculo::colidir(Entidade* outro, Vector2f ds){
-        if(outro->getId()!='b'){
+        if(outro->getId()!='b' && outro->getId()!='p'){
             Vector2f posAux=outro->getPos();  
             if(ds.x>ds.y){
                 if(outro->getPos().x<getPos().x)//colisão em x
@@ -27,9 +27,12 @@ namespace Obstaculos{
                     posAux.y+=ds.y;
                 else
                     posAux.y-=ds.y;
-                outro->setVel(Vector2f( outro->getVel().x, 0.f));
+                outro->setVel(Vector2f(outro->getVel().x, 0.f));
             }
             outro->setPos(posAux);
+        }
+        if(outro->getId() == 'p'){
+            outro->setPos(Vector2f(0.f, 0.f));
         }
     }
 };

@@ -93,7 +93,7 @@ namespace Entidades{
 
             }
             else if(outro->getId()=='p'){//projéti
-
+                outro->setPos(Vector2f(0.f,0.f));
             }
         }
     };

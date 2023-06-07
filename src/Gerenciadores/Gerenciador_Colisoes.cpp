@@ -91,7 +91,7 @@ namespace Gerenciadores{
     void Gerenciador_Colisoes::setList(Lista_Entidades listAux){
         int i=0;
         for(i=0; i<listAux.tamanho(); i++){
-            if(listAux[i]->getId()=='j' || listAux[i]->getId()=='a' || listAux[i]->getId()=='v')
+            if(listAux[i]->getId()=='j' || listAux[i]->getId()=='a' || listAux[i]->getId()=='v' || listAux[i]->getId()=='p')
                 personagens.incluir(listAux[i]);
             else if(listAux[i]->getId()=='b')
                 obstaculos.incluir(listAux[i]);
