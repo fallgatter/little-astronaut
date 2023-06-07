@@ -19,6 +19,7 @@ namespace Fases{
             Gerenciador_Colisoes Gc;
             Gerenciador_Eventos* Ge;
             Jogador* jog;
+            float gravidade;
         public:
             Fase(int ID='F');
             ~Fase();

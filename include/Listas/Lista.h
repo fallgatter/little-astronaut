@@ -18,7 +18,15 @@ namespace Listas{
         Lista(){
             head = NULL;
         }
-
+        /*~Lista(){
+          Node<T> *emp = head;
+          Node<T> *aux;
+          while(emp) {
+            aux = emp->next;
+            destroy *emp;
+            emp = aux;
+          }
+        }*/
         void push(T val){
             Node<T> *n = new Node<T>();   
             n->data = val;             
@@ -51,7 +59,7 @@ namespace Listas{
             temp = temp->next;
           }
           aux->next = temp->next;
-          temp = NULL;
+          destroy *temp;
         }
 
         int get_size(){

@@ -6,6 +6,9 @@ namespace Fases{
         Ente(ID)
     {
         Ge=Ge->Singleton();
+        gravidade = 0.12;
+        if(id == 'L')
+            gravidade = 0.1;
     }
 
     Fase::~Fase(){
@@ -41,6 +44,7 @@ namespace Fases{
     void Fase::executar(){
         int i=0, j=0;
         Gc.setList(LE);
+        LE[0]->setGravidade(gravidade);
         if(pga==NULL){
             exit(1);
             cout<<"aqui2  "<<endl;

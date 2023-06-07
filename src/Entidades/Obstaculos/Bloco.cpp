@@ -19,8 +19,11 @@ namespace Obstaculos{
     Bloco::~Bloco(){
 
     }
+    int Bloco::gettipo_text(){
+        return tipo_text;
+    }
 
     void Bloco::mover_se(){
-        vel.y -= 0.1; //anula a gravidade
+        vel.y -= gravid; //anula a gravidade
     }
 };

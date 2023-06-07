@@ -78,7 +78,7 @@ namespace Entidades{
     }
 
     void Entidade::gravidade(){
-        vel.y += 0.1;
+        vel.y += gravid;
     }
     void Entidade::confere_vel(){
         Vector2f vel_max;
@@ -112,4 +112,9 @@ namespace Entidades{
         desacelerar();
         gravidade();
     }
+    void Entidade::setGravidade(float g){
+        gravid = g;
+    }
+    float Entidade::gravid = 0.1;
 };
+

@@ -1,6 +1,7 @@
 //Cabeçalhos Próprios:
 #include"../../../include/Entidades/Personagens/Jogador.h"
 #include"../../../include/Gerenciadores/Gerenciador_Eventos.h"
+#include"../../../include/Entidades/Obstaculos/Bloco.h"
 
 namespace Entidades{
     namespace Personagens{
@@ -33,7 +34,7 @@ namespace Entidades{
                 energia++;
             }
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-                vel.x += 0.1;
+                vel.x += 0.2;
             }
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
                 vel.x -= 0.2;
@@ -57,6 +58,9 @@ namespace Entidades{
                         posAux.y-=ds.y;
                     setVel(Vector2f(getVel().x, 0.f));
                 }
+                if(static_cast<Bloco*>(outro)->gettipo_text() == 10)
+                    vel.x = 0;
+                    
                 setPos(posAux);
             }
             else if(outro->getId()=='a' || outro->getId()=='v'){//inimigos
