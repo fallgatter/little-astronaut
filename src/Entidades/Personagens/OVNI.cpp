@@ -3,7 +3,7 @@
 
 namespace Entidades{
     namespace Personagens{
-        OVNI::OVNI(Vector2f POS, int COEF_VEL): 
+        OVNI::OVNI(Vector2f POS, float COEF_VEL): 
             Inimigo(POS, 'v'), coef_vel(COEF_VEL/8)
         {
             text.loadFromFile("assets\\textures\\Enemies\\ufo.png");

@@ -76,7 +76,7 @@ namespace Gerenciadores{
     void Gerenciador_Colisoes::setList(Lista_Entidades listAux){
         int i=0;
         for(i=0; i<listAux.tamanho(); i++){
-            if(listAux[i]->getId()=='j' || listAux[i]->getId()=='a' || listAux[i]->getId()=='v' || listAux[i]->getId()=='p')
+            if(listAux[i]->getId()=='j' || listAux[i]->getId()=='a' || listAux[i]->getId()=='v' || listAux[i]->getId()=='p' || listAux[i]->getId()=='m')
                 dinamicos.incluir(listAux[i]);
             else if(listAux[i]->getId()=='b' || listAux[i]->getId()=='e')
                 estaticos.incluir(listAux[i]);

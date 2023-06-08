@@ -27,6 +27,9 @@ namespace Fases{
                     LE.incluir(*(it));
                 break;
             }
+            case('m'):
+                LE.incluir(new Meteoro(Vector2f(POS.x*48.f, POS.y*48.f), rand));
+                break;
             case('v')://ovni 
                 LE.incluir(new OVNI(Vector2f(base), rand));
                 break;
@@ -34,12 +37,13 @@ namespace Fases{
                 jog = new Jogador(Vector2f(base));
                 LE.incluir(jog);
                 Inimigo::setJog(jog);
+                Meteoro::setJog(jog);
                 break;
             case('b')://obstaculo
                 LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), rand));
                 break;
             case('e'):
-                LE.incluir(new Espinho(Vector2f(POS.x*48.f, POS.y*48.f), 1));
+                LE.incluir(new Espinho(Vector2f(POS.x*48.f, POS.y*48.f), rand));
                 break;
         }
     }

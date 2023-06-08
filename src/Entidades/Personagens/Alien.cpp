@@ -19,7 +19,7 @@ namespace Entidades{
 
             int i;
             for(i=0; i<municao; i++){
-                tiros.push_back(new Projetil());
+                tiros.push_back(new Projetil(TIPO_TEXT));
             }
         }   
         

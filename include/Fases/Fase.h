@@ -12,6 +12,7 @@
 #include"../Entidades/Personagens/OVNI.h"
 #include"../Entidades/Obstaculos/Bloco.h"
 #include"../Entidades/Obstaculos/Espinho.h"
+#include"../Entidades/Obstaculos/Meteoro.h"
 
 
 namespace Fases{

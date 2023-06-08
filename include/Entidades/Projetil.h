@@ -6,13 +6,10 @@
 namespace Entidades{
     class Projetil: public Entidade{
         protected:
-            float dano;
-            float nivel_de_carga;
+            float coef;
         public:
-            Projetil();
+            Projetil(float COEF=0);
             ~Projetil();
-            void setDano(float DANO);
-            float getDano() const;
             void lancar(Vector2f VEL, Vector2f POS);
             void mover_se();
             void colidir(Entidade* outro, Vector2f ds);

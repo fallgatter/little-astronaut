@@ -2,7 +2,7 @@
 #include"../../include/Entidades/Entidade.h"
 
 namespace Entidades{
-    Entidade::Entidade(int DANO,bool VIVO, Vector2f TAM, Vector2f POS, int ID): 
+    Entidade::Entidade(int DANO, bool VIVO, Vector2f TAM, Vector2f POS, int ID): 
         Ente(ID), dano(DANO), vivo(VIVO), tam(TAM), pos(POS), vel(Vector2f(0.f, 0.f))
     {
 
@@ -89,6 +89,8 @@ namespace Entidades{
             vel_max = Vector2f(3.f,3.f);
         if(id == 'p')
             vel_max = Vector2f(3.5f,3.5f);
+        if(id == 'm')
+            vel_max = Vector2f(10.f,10.f);
         if(id == 'a' || id == 'v')
             vel_max = Vector2f(2.5f,2.5f);
         

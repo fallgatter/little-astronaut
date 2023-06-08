@@ -3,7 +3,7 @@
 #include"../../../include/Gerenciadores/Gerenciador_Eventos.h"
 #include"../../../include/Entidades/Obstaculos/Bloco.h"
 #include"../../../include/Entidades/Obstaculos/Espinho.h"
-
+#include"../../../include/Entidades/Obstaculos/Meteoro.h"
 
 namespace Entidades{
     namespace Personagens{
@@ -44,12 +44,17 @@ namespace Entidades{
         }
 
         void Jogador::colidir(Entidade* outro, Vector2f ds){
-            if(outro->getId() == 'e'){
+            if(outro->getId() == 'm'){//meteoro
+                sofrerDano(static_cast<Meteoro*>(outro)->getDano());
+            }
+            else if(outro->getId() == 'e'){//espinho
                 if(vel.x != 0) //só sofre dano se estiver se movendo contra o espinho, parado nele não tem problema
                     if(rand()%70 == 1)
-                        sofrerDano(static_cast<Espinho*>(outro)->getAfiacao());
+                        sofrerDano(static_cast<Espinho*>(outro)->getDano());
+                    vel.x*=0.9;
+                    vel.y*=0.9;
             }
-            if(outro->getId()=='b'){//objeto
+            else if(outro->getId()=='b'){//bloco
                 Vector2f posAux=getPos();  
                 if(ds.x>ds.y){
                     if(getPos().x<outro->getPos().x)//colisão em x
@@ -65,8 +70,8 @@ namespace Entidades{
                         posAux.y-=ds.y;
                     setVel(Vector2f(getVel().x, 0.f));
                 }
-                if(static_cast<Bloco*>(outro)->gettipo_text() == 10)
-                    vel.x = 0;
+                if(static_cast<Bloco*>(outro)->getRugoso())
+                    vel.x*=0.5;
                     
                 setPos(posAux);
             }
