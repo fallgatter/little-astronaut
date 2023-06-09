@@ -17,6 +17,7 @@ namespace Entidades{
                 ~Meteoro();
                 static void setJog(Jogador* JOG, int ID);
                 void cair();
+                void cair(Vector2f pos_jog);
                 void mover_se();
                 void colidir(Entidade* outro, Vector2f ds);
         };

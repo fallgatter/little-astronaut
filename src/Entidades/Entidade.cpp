@@ -93,6 +93,8 @@ namespace Entidades{
             vel_max = Vector2f(10.f,10.f);
         if(id == 'a' || id == 'v')
             vel_max = Vector2f(2.5f,2.5f);
+        if(id == 'c')
+            vel_max = Vector2f(1.5f,1.5f);
         
         if(vel.x > vel_max.x)
             vel.x = vel_max.x;

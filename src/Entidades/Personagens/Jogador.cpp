@@ -97,7 +97,7 @@ namespace Entidades{
                     
                 setPos(posAux);
             }
-            else if(outro->getId()=='a' || outro->getId()=='v'){//inimigos
+            else if(outro->getId()=='a' || outro->getId()=='v' || outro->getId()=='c'){//inimigos
                 Vector2f vjog = outro->getVel(), voutro=getVel();
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){
@@ -125,7 +125,7 @@ namespace Entidades{
                 }
                 setVel(vjog);
                 outro->setVel(voutro);
-                cout<<"vidas do jogador: "<<getVidas()<<endl;
+                cout<<"vidas do jogador "<<(char)id<<" :"<<getVidas()<<endl;
                 cout<<"vidas do outro: "<<static_cast<Personagem*>(outro)->getVidas()<<endl;
             }
             else if(outro->getId()=='j'){//jogador
@@ -135,7 +135,7 @@ namespace Entidades{
                 sofrerDano(outro->getDano());
                 //outro->setPos(Vector2f(0.f,0.f));
                 outro->setVivo(false);
-                cout<<"vidas do jogador: "<<getVidas()<<endl;
+                cout<<"vidas do jogador "<<(char)id<<" :"<<getVidas()<<endl;
             }
             
         }   

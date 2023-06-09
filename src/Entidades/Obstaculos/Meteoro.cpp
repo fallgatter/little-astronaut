@@ -31,19 +31,24 @@ namespace Entidades{
             setVel(Vector2f(0.f, 4.f*coef_vel));
         }
 
+        void Meteoro::cair(Vector2f pos_jog){
+            setPos(Vector2f(pos_jog.x, pos_jog.y-1000));
+            setVel(Vector2f(0.f, 4.f*coef_vel));
+        }
+
         void Meteoro::mover_se(){
             if(!caindo)
                 setVel(Vector2f(0.f, -gravid));
 
-            float dist1=0, dist2=0;
+            float dist1=-1, dist2=-1;
             
             if(jog1!=NULL && jog1->getVivo())
-                dist1=jog1->getPos().x-getPos().x;
+                dist1=fabs(jog1->getPos().x-getPos().x);
 
             if(jog2!=NULL && jog2->getVivo())
-                dist2=jog2->getPos().x-getPos().x;
+                dist2=fabs(jog2->getPos().x-getPos().x);
 
-            if(fabs(dist1)<RAIO || fabs(dist2)<RAIO){
+            if((dist1<RAIO && dist1!=-1) || (dist2<RAIO && dist2!=-1)){
                 cair();
                 caindo=true;
             }
@@ -52,7 +57,7 @@ namespace Entidades{
         }
 
         void Meteoro::colidir(Entidade* outro, Vector2f ds){
-            if(outro->getId() == 'j' || outro->getId() == 'g'){//meteoro
+            if(outro->getId() == 'j' || outro->getId() == 'g'){//jogador
                 static_cast<Personagem*>(outro)->sofrerDano(getDano());
                 setVivo(false);
             }

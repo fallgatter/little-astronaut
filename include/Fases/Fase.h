@@ -10,6 +10,7 @@
 #include"../Entidades/Personagens/Inimigo.h"
 #include"../Entidades/Personagens/Alien.h"
 #include"../Entidades/Personagens/OVNI.h"
+#include"../Entidades/Personagens/Gato.h"
 #include"../Entidades/Obstaculos/Bloco.h"
 #include"../Entidades/Obstaculos/Espinho.h"
 #include"../Entidades/Obstaculos/Meteoro.h"

@@ -40,11 +40,11 @@ namespace Entidades{
             }
             else if(!recarregando){
                 if(dist.x<0 && dist.x>-RAIO_ATIRAR && fabs(dist.y)<96 && municao && !(dt%200)){
-                    tiros[municao-1]->lancar(Vector2f (-3.5f, 0.f), Vector2f(getPos().x, getPos().y));
+                    tiros[municao-1]->lancar(Vector2f(-3.5f, 0.f), Vector2f(getPos().x, getPos().y));
                     municao--;
                 }
                 else if(dist.x>0 && dist.x<RAIO_ATIRAR && fabs(dist.y)<96 && municao && !(dt%200)){
-                    tiros[municao-1]->lancar(Vector2f (3.5f, 0.f), Vector2f(getPos().x, getPos().y));
+                    tiros[municao-1]->lancar(Vector2f(3.5f, 0.f), Vector2f(getPos().x, getPos().y));
                     municao--;
                 }
             }
@@ -69,7 +69,7 @@ namespace Entidades{
         void Alien::mover_se(){
             Vector2f dist1=Vector2f(0.f, 0.f);
             Vector2f dist2=Vector2f(0.f, 0.f);
-            int norm1=0, norm2=0;
+            int norm1=RAIO_PERSEGUIR, norm2=RAIO_PERSEGUIR;
             
             if(jog1!=NULL && jog1->getVivo()){
                 dist1.x=jog1->getPos().x-getPos().x;
@@ -82,10 +82,10 @@ namespace Entidades{
                 norm2=sqrt(pow((fabs(dist2.x)), 2) + pow((fabs(dist2.y)), 2));
             }
 
-            if(norm1<norm2 && fabs(dist1.x)<RAIO_PERSEGUIR && fabs(dist1.y)<RAIO_PERSEGUIR)
+            if((jog1!=NULL && jog1->getVivo()) && norm1<norm2 && fabs(dist1.x)<RAIO_PERSEGUIR && fabs(dist1.y)<RAIO_PERSEGUIR)
                 perseguir(dist1);
             
-            else if(norm2<norm1 && fabs(dist2.x)<RAIO_PERSEGUIR && fabs(dist2.y)<RAIO_PERSEGUIR)
+            else if((jog2!=NULL && jog2->getVivo()) && norm2<norm1 && fabs(dist2.x)<RAIO_PERSEGUIR && fabs(dist2.y)<RAIO_PERSEGUIR)
                 perseguir(dist2);    
         }
     };

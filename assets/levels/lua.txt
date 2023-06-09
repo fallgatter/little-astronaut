@@ -13,9 +13,9 @@ b                                                                               
 b                                                                                  b               
 b                                                                                  b               
 b                                                                                  b                
-b j g                       a  a                       v          v                b                
-b                         bbbbbbbbb                                                b                                        
-b                                                            v                     b                                        
+b  jg                                                                              b                
+b                                      c                                           b                                        
+b               a                                            v                     b                                        
 b                                                                                  b                                         
-b           ee                e              bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+b                                                                                  b
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
