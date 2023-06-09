@@ -18,7 +18,7 @@ void Jogo::executar(){
     scanf("%d", &opcao);
     cout<<opcao<<endl;*/
     Menus::Menu mn;
-    opcao= mn.selecionar_fase() + 1;
+    opcao= mn.selecionar() + 1;
 
     if(opcao!=1 && opcao!=2){
         cout<<"Não há passagens disponíveis para esse planeta!"<<endl;

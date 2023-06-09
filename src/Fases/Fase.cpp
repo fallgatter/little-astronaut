@@ -77,7 +77,7 @@ namespace Fases{
         } 
         else{
             cout<<"aqui3  "<<endl;
-            while(pga->isopen()){
+            while(pga->isopen() && Ge->selecionado_da_pausa()){
 
                 pga->setFps(100);
                 
