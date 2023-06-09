@@ -87,4 +87,8 @@ namespace Gerenciadores{
     void Gerenciador_Grafico::setFps(int velocidade){
         window->setFramerateLimit(velocidade);
     }
+
+    void Gerenciador_Grafico::drawntext(Text txt){
+        window->draw(txt);
+    }
 }using namespace Gerenciadores;

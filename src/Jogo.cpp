@@ -17,8 +17,8 @@ void Jogo::executar(){
     /*cout<<"Para qual planeta deseja viajar?"<<endl<<"1 - Lua"<<endl<<"2 - Marte"<<endl;
     scanf("%d", &opcao);
     cout<<opcao<<endl;*/
-
-    opcao=2;
+    Menus::Menu mn;
+    opcao= mn.selecionar_fase() + 1;
 
     if(opcao!=1 && opcao!=2){
         cout<<"Não há passagens disponíveis para esse planeta!"<<endl;

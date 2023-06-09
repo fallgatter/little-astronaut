@@ -3,6 +3,7 @@
 //Cabeçalhos Próprios:
 #include"../include/Fases/Lua.h"
 #include"../include/Fases/Marte.h"
+#include"../include/Menu/Menu.h"
 
 class Jogo{
     private:
