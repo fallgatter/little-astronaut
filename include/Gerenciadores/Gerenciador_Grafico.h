@@ -33,5 +33,6 @@ namespace Gerenciadores{
             bool isopen();
             void setWindow(RenderWindow* wnd);
             void setFps(int velocidade);
+            void drawntext(Text txt);
     };
 }using namespace Gerenciadores;

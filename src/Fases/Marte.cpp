@@ -10,7 +10,7 @@ namespace Fases{
     Marte::Marte(int ID): 
         Fase(ID)
     {
-
+        gravidade = 0.12;
     }
 
     Marte::~Marte(){

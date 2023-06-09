@@ -10,7 +10,7 @@ namespace Fases{
     Lua::Lua(int ID): 
         Fase(ID)
     {
-
+        gravidade = 0.08;
     }
 
     Lua::~Lua(){
