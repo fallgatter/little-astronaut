@@ -21,7 +21,8 @@ namespace Fases{
             Lista_Entidades LE;
             Gerenciador_Colisoes Gc;
             Gerenciador_Eventos* Ge;
-            Jogador* jog;
+            Jogador* jog1;
+            Jogador* jog2;
             float gravidade;
         public:
             Fase(int ID='F');

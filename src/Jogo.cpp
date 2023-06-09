@@ -2,19 +2,38 @@
 #include<math.h>
 
 //Cabeçalhos Próprios:
-#include"..\include\Principal.h"
+#include"..\include\Jogo.h"
 
-Principal::Principal(){
+Jogo::Jogo(){
     executar();
 }
 
-Principal::~Principal(){
+Jogo::~Jogo(){
     
 }
 
-void Principal::executar(){
-    moon.criarMapa();
-    moon.executar();
+void Jogo::executar(){
+    int opcao;
+    /*cout<<"Para qual planeta deseja viajar?"<<endl<<"1 - Lua"<<endl<<"2 - Marte"<<endl;
+    scanf("%d", &opcao);
+    cout<<opcao<<endl;*/
+
+    opcao=2;
+
+    if(opcao!=1 && opcao!=2){
+        cout<<"Não há passagens disponíveis para esse planeta!"<<endl;
+        exit(1);
+    }
+    else{
+        if(opcao==1){
+            moon.criarMapa();
+            moon.executar();
+        }
+        else if(opcao==2){
+            mars.criarMapa();
+            mars.executar();
+        }
+    }
 }
     //Personagem:
     /*jogador = new Jogador(Vector2f(0.f,100.f));

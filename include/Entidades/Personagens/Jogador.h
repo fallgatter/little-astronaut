@@ -9,7 +9,7 @@ namespace Entidades{
             private:
                 int energia, pontuacao;
             public:
-                Jogador(Vector2f POS=Vector2f(0.f, 0.f));
+                Jogador(Vector2f POS=Vector2f(0.f, 0.f), int ID='j');
                 ~Jogador();
                 void setEnerg(int ENERGIA);
                 int getEnerg() const;

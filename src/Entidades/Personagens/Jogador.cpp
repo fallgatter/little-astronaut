@@ -7,13 +7,18 @@
 
 namespace Entidades{
     namespace Personagens{
-        Jogador::Jogador(Vector2f POS): 
-            Personagem(10, 2, true, Vector2f(40.f, 48.f), POS, 'j'), energia(100), pontuacao(0)
+        Jogador::Jogador(Vector2f POS, int ID): 
+            Personagem(10, 2, true, Vector2f(40.f, 48.f), POS, ID), energia(100), pontuacao(0)
         {
             Sprite sprtemp;
-            text.loadFromFile("assets\\textures\\Player\\default.png");
+            if(ID=='j')
+                text.loadFromFile("assets\\textures\\Players\\player1.png");
+            else if(ID=='g'){
+                text.loadFromFile("assets\\textures\\Players\\player2.png");
+            }
             sprtemp.setTexture(text);
             setSprite(sprtemp);
+
         }
 
         Jogador::~Jogador(){
@@ -28,18 +33,35 @@ namespace Entidades{
         }
 
         void Jogador::mover_se(){
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && energia){
-                vel.y += -0.2;
-                energia--;
+            if(id=='j'){
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) && energia){
+                    vel.y += -0.2;
+                    energia--;
+                }
+                if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && energia<100){
+                    energia++;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+                    vel.x += 0.2;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+                    vel.x -= 0.2;
+                }
             }
-            if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && energia<100){
-                energia++;
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-                vel.x += 0.2;
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-                vel.x -= 0.2;
+            if(id=='g'){
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && energia){
+                    vel.y += -0.2;
+                    energia--;
+                }
+                if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && energia<100){
+                    energia++;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+                    vel.x += 0.2;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+                    vel.x -= 0.2;
+                }
             }
         }
 

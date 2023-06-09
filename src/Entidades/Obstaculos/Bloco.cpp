@@ -3,17 +3,29 @@
 
 namespace Entidades{
     namespace Obstaculos{
-        Bloco::Bloco(Vector2f POS, int TIPO_TEXT): 
+        Bloco::Bloco(Vector2f POS, int TIPO_TEXT, int ID): 
             Obstaculo(POS, false, 'b'), tipo_text(TIPO_TEXT)
         {
             Sprite sprtemp;
-            if(tipo_text<7)
-                text.loadFromFile("assets\\textures\\World\\moon_ground3.png");
-            else if(tipo_text>=7 && tipo_text<=9)
-                text.loadFromFile("assets\\textures\\World\\moon_ground1.png");
-            else if(tipo_text==10){
-                text.loadFromFile("assets\\textures\\World\\moon_ground2.png");
-                rugoso=true;
+            if(ID=='L'){
+                if(tipo_text<7)
+                    text.loadFromFile("assets\\textures\\World\\Moon\\moon_ground3.png");
+                else if(tipo_text>=7 && tipo_text<=9)
+                    text.loadFromFile("assets\\textures\\World\\Moon\\moon_ground1.png");
+                else if(tipo_text==10){
+                    text.loadFromFile("assets\\textures\\World\\Moon\\moon_ground2.png");
+                    rugoso=true;
+                }
+            }
+            if(ID=='M'){
+                if(tipo_text<7)
+                    text.loadFromFile("assets\\textures\\World\\Mars\\mars_ground3.png");
+                else if(tipo_text>=7 && tipo_text<=9)
+                    text.loadFromFile("assets\\textures\\World\\Mars\\mars_ground1.png");
+                else if(tipo_text==10){
+                    text.loadFromFile("assets\\textures\\World\\Mars\\mars_ground2.png");
+                    rugoso=true;
+                }
             }
                 
             sprtemp.setTexture(text);

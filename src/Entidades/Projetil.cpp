@@ -33,7 +33,7 @@ namespace Entidades{
     }
 
     void Projetil::colidir(Entidade* outro, Vector2f ds){
-        if(outro->getId()=='j'){
+        if(outro->getId()=='j' || outro->getId()=='g'){
             static_cast<Personagem*>(outro)->sofrerDano(getDano() * coef);
             setVivo(false);
         }

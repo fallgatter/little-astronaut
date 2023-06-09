@@ -3,26 +3,26 @@
 using namespace std;
 
 //Cabeçalhos Próprios:
-#include"../../include/Fases/Lua.h"
+#include"../../include/Fases/Marte.h"
 
 
 namespace Fases{
-    Lua::Lua(int ID): 
+    Marte::Marte(int ID): 
         Fase(ID)
     {
 
     }
 
-    Lua::~Lua(){
+    Marte::~Marte(){
 
     }
 
-    void Lua::criarMapa(){
+    void Marte::criarMapa(){
         ifstream arquivo;
         srand(time(NULL));
         string linha;
         int j=0, i=0;
-        arquivo.open("assets/levels/lua.txt"); 
+        arquivo.open("assets/levels/marte.txt"); 
         if(!arquivo.is_open()){
             cout<<"Level nao abriu"<<endl;
         }

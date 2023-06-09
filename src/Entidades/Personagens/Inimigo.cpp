@@ -3,7 +3,8 @@
 
 namespace Entidades{
     namespace Personagens{
-        Jogador* Inimigo::jog(NULL);
+        Jogador* Inimigo::jog1(NULL);
+        Jogador* Inimigo::jog2(NULL);
         
         Inimigo::Inimigo(Vector2f POS, int ID): 
             Personagem(5, 1, true, Vector2f(38.f, 48.f), POS, ID)
@@ -14,8 +15,11 @@ namespace Entidades{
         Inimigo::~Inimigo(){
         }
 
-        void Inimigo::setJog(Jogador* JOG){
-            jog=JOG;
+        void Inimigo::setJog(Jogador* JOG, int ID){
+            if(ID=='j')
+                jog1=JOG;
+            else if(ID=='g')
+                jog2=JOG;
         }
 
         void Inimigo::colidir(Entidade* outro, Vector2f ds){
@@ -37,7 +41,7 @@ namespace Entidades{
                 }
                 setPos(posAux);
             }
-            else if(outro->getId()=='j'){//jogador
+            else if(outro->getId()=='j' || outro->getId()=='g'){//jogador
                 Vector2f vjog = getVel(), voutro=outro->getVel();
                 if(ds.x>ds.y){
                     if(outro->getPos().x<getPos().x){

@@ -9,6 +9,8 @@ namespace Fases{
         gravidade = 0.12;
         if(id == 'L')
             gravidade = 0.1;
+        if(id == 'M')
+            gravidade = 0.05;
     }
 
     Fase::~Fase(){
@@ -18,6 +20,18 @@ namespace Fases{
     void Fase::criarEntidade(int letra, Vector2f POS, int rand){ //fuck char
         Vector2f base=Vector2f(POS.x*48.0f, POS.y*48.0f);
         switch(letra){
+            case('j')://jogador
+                jog1 = new Jogador(Vector2f(base), letra);
+                LE.incluir(jog1);
+                Inimigo::setJog(jog1, letra);
+                Meteoro::setJog(jog1, letra);
+                break;
+            case('g')://jogador
+                jog2 = new Jogador(Vector2f(base), letra);
+                LE.incluir(jog2);
+                Inimigo::setJog(jog2, letra);
+                Meteoro::setJog(jog2, letra);
+                break;
             case('a'):{//alien
                 Alien* alienAux;
                 alienAux=new Alien(Vector2f(base), rand);
@@ -27,23 +41,17 @@ namespace Fases{
                     LE.incluir(*(it));
                 break;
             }
-            case('m'):
-                LE.incluir(new Meteoro(Vector2f(POS.x*48.f, POS.y*48.f), rand));
-                break;
             case('v')://ovni 
                 LE.incluir(new OVNI(Vector2f(base), rand));
                 break;
-            case('j')://jogador
-                jog = new Jogador(Vector2f(base));
-                LE.incluir(jog);
-                Inimigo::setJog(jog);
-                Meteoro::setJog(jog);
+            case('b')://bloco
+                LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), rand, id));
                 break;
-            case('b')://obstaculo
-                LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), rand));
-                break;
-            case('e'):
+            case('e')://espinho
                 LE.incluir(new Espinho(Vector2f(POS.x*48.f, POS.y*48.f), rand));
+                break;
+            case('m')://meteoro
+                LE.incluir(new Meteoro(Vector2f(POS.x*48.f, POS.y*48.f), rand));
                 break;
         }
     }
@@ -59,29 +67,19 @@ namespace Fases{
         else{
             cout<<"aqui3  "<<endl;
             while(pga->isopen()){
-                
-                /*Keyboard tecl;
-                jog->interacao(&tecl);*/
 
                 pga->setFps(100);
                 
                 for(i = 0;i<LE.tamanho();i++){
-                    //pga->drawn(LE[i]->getSprite());
                     if(LE[i]->getVivo()){
                         LE[i]->atualizar();
                     }
-                    //LE[i]->desacelerar();
                 }
                 Gc.gerenciar();
                 pga->display();
                 pga->clear();
-                pga->setViewPos(Vector2f(jog->getPos().x, jog->getPos().y/10+500));
+                pga->setViewPos(Vector2f(jog1->getPos().x, jog1->getPos().y/10+500));
                 Ge->executar();
-                //Event event;
-                //while (janela->pollEvent(event))
-                //{
-                    //Ge.gerenciarInput(&event);
-                //}
             }
         }
     }

@@ -1,5 +1,6 @@
 //Cabeçalhos Próprios:
 #include"../../../include/Entidades/Personagens/OVNI.h"
+#define RAIO_PERSEGUIR 300
 
 namespace Entidades{
     namespace Personagens{
@@ -20,7 +21,7 @@ namespace Entidades{
         }
     
         void OVNI::perseguir(Vector2f dist){
-            if(jog!=NULL && jog->getVivo()){
+            if(jog1!=NULL && jog1->getVivo()){
                 if(dist.x>0 && dist.y>0)
                     setVel(Vector2f(0.5f+coef_vel, 0.5f+coef_vel));
                 else if(dist.x<0 && dist.y>0)
@@ -33,15 +34,28 @@ namespace Entidades{
         }
 
         void OVNI::mover_se(){
-            if(jog!=NULL && jog->getVivo()){
-                Vector2f dist;
-                dist.x=jog->getPos().x-getPos().x;
-                dist.y=jog->getPos().y-getPos().y;
-                if(fabs(dist.x)<300.0 && fabs(dist.y)<300.0)
-                    perseguir(dist);
-                else
-                    setVel(Vector2f(0.f, -0.1f));
+            setVel(Vector2f(0.f, -gravid));
+
+            Vector2f dist1=Vector2f(0.f, 0.f);
+            Vector2f dist2=Vector2f(0.f, 0.f);
+            int norm1=0, norm2=0;
+            
+            if(jog1!=NULL && jog1->getVivo()){
+                dist1.x=jog1->getPos().x-getPos().x;
+                dist1.y=jog1->getPos().y-getPos().y;
+                norm1=sqrt(pow((fabs(dist1.x)), 2) + pow((fabs(dist1.y)), 2));
             }
+            if(jog2!=NULL && jog2->getVivo()){
+                dist2.x=jog2->getPos().x-getPos().x;
+                dist2.y=jog2->getPos().y-getPos().y;
+                norm2=sqrt(pow((fabs(dist2.x)), 2) + pow((fabs(dist2.y)), 2));
+            }
+
+            if(norm1<norm2 && fabs(dist1.x)<RAIO_PERSEGUIR && fabs(dist1.y)<RAIO_PERSEGUIR)
+                perseguir(dist1);
+            
+            else if(norm2<norm1 && fabs(dist2.x)<RAIO_PERSEGUIR && fabs(dist2.y)<RAIO_PERSEGUIR)
+                perseguir(dist2);
         }
     };
 };

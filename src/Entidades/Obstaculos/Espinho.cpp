@@ -6,7 +6,7 @@ namespace Entidades{
         Espinho::Espinho(Vector2f POS, int AFIACAO): 
             Obstaculo(POS, true, 'e')
         {
-            text.loadFromFile("assets\\textures\\World\\moon_thorns.png");
+            text.loadFromFile("assets\\textures\\World\\Moon\\moon_thorns.png");
             sprt.setTexture(text);
             dano=1+(AFIACAO/10);
         }
@@ -20,7 +20,7 @@ namespace Entidades{
         }
 
         void Espinho::colidir(Entidade* outro, Vector2f ds){
-            if(outro->getId() == 'j'){
+            if(outro->getId() == 'j' || outro->getId() == 'g'){
                 if(outro->getVel().x != 0){ //só sofre dano se estiver se movendo contra o espinho, parado nele não tem problema
                     if(rand()%70 == 1)
                         static_cast<Personagem*>(outro)->sofrerDano(getDano());
