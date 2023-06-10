@@ -45,8 +45,10 @@ namespace Fases{
     }
 
     bool Marte::terminada(){
-        if(!(chefao->getVivo()))
+        if(!(chefao->getVivo())){
             return true;
+            
+        }
         return false;
     }
 

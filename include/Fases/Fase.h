@@ -15,6 +15,7 @@
 #include"../Entidades/Obstaculos/Espinho.h"
 #include"../Entidades/Obstaculos/Meteoro.h"
 #include"../Entidades/Obstaculos/Bandeira.h"
+#include"../Menu/Game_Over.h"
 
 namespace Fases{
     class Fase: public Ente{
@@ -26,6 +27,7 @@ namespace Fases{
             static Jogador* jog2;
             float gravidade;
             int pontuacao;
+            Game_Over Go;
         public:
             Fase(int ID='F', float GRAVIDADE=0);
             ~Fase();

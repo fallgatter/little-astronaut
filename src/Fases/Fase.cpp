@@ -88,13 +88,17 @@ namespace Fases{
         } 
         else{
             cout<<"aqui3  "<<endl;
-            while(pga->isopen() && !(this->terminada()) && Ge->selecionado_da_pausa()){
+            while(pga->isopen() && !(this->terminada()) && Ge->selecionado_da_pausa() && !Go.getGame_Over()){
 
                 pga->setFps(100);
                 
                 for(i = 0;i<LE.tamanho();i++){
                     if(LE[i]->getVivo()){
                         LE[i]->atualizar();
+                    }
+                    else if(LE[i]->getId() == 'j'){
+                        pga->setViewPos(Vector2f(100.f,100.f));
+                        Go.derrota();
                     }
                 }
                 Gc.gerenciar();

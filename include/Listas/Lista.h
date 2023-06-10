@@ -6,9 +6,10 @@
 
 namespace Listas{
     template <typename T>
-      struct Node {
-        T data;
-        Node *next;
+      class Node {
+        public:
+          T data;
+          Node *next;
       };
 
   template <typename T> class Lista{

@@ -12,7 +12,6 @@ namespace Entidades{
         }
 
         Espinho::~Espinho(){
-
         }
 
         void Espinho::mover_se(){
