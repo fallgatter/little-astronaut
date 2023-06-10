@@ -22,6 +22,7 @@ namespace Menus{
             void colorir_selecionado();
             void drawn();
             bool next();
+            bool isWindowOpen();
 
     };
 }using namespace Menus;

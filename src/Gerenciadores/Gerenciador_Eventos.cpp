@@ -25,19 +25,22 @@ namespace Gerenciadores{
     void Gerenciador_Eventos::executar(){
         Event evento;
         Menu_de_pause mp;
-        while(Ga->getWindow()->pollEvent(evento)){
-            if(Ga->getWindow()){
-                if(Ga->isopen()){}
-                    if (evento.type == sf::Event::Closed)
-                        Ga->closeWindow();
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) ){
-                        Ga->setViewPos(Vector2f(100.f,200.f));
-                        if(mp.selecionar() == 2)
-                            pausa = 0;
+        if(Ga->getWindow() != NULL){
+            while(Ga->getWindow()->pollEvent(evento)){
+                if(Ga->getWindow()){
+                    if(Ga->isopen()){}
+                        if (evento.type == sf::Event::Closed)
+                            Ga->closeWindow();
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) ){
+                            Ga->setViewPos(Vector2f(100.f,200.f));
+                            if(mp.selecionar() == 2)
+                                pausa = 0;
+                            else if(mp.selecionar() == 0)
+                                return;
+                }
             }
         }
-        
     }
 
     int Gerenciador_Eventos::selecionado_da_pausa(){
