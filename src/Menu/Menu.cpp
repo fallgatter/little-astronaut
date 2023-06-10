@@ -24,12 +24,19 @@ namespace Menus{
             txt.setCharacterSize(50);
             txt.setPosition(Vector2f(100.f,300.f));
             textos.push_back(txt);
-            tam = 2;
+            txt.setFont(fonte);
+            txt.setFillColor(Color::White);
+            txt.setString("Sair");
+            txt.setCharacterSize(50);
+            txt.setPosition(Vector2f(100.f,400.f));
+            textos.push_back(txt);
+            cout<<tam<<endl;
+            tam = 3;
         }
         
     }
     Menu::~Menu(){
-
+        
     }
     void Menu::drawn(){
         Gerenciador_Eventos* Ge = Ge->Singleton();
@@ -74,9 +81,14 @@ namespace Menus{
             selecionado = 0;
         else if(selecionado < 0)
             selecionado = tam-1;
+        if(!nao_enter && selecionado == 2 && id == 'm')
+            pga->closeWindow();
     }
     bool Menu::next(){
         return nao_enter;
+    }
+    bool Menu::isWindowOpen(){
+        return pga->isopen();
     }
     
 }using namespace Menus;
