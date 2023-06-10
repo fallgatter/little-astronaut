@@ -2,15 +2,10 @@
 #include"../../include/Fases/Fase.h"
 
 namespace Fases{
-    Fase::Fase(int ID): 
-        Ente(ID)
+    Fase::Fase(int ID, float GRAVIDADE): 
+        Ente(ID), gravidade(GRAVIDADE)
     {
         Ge=Ge->Singleton();
-        gravidade = 0.12;
-        if(id == 'L')
-            gravidade = 0.1;
-        if(id == 'M')
-            gravidade = 0.05;
     }
 
     Fase::~Fase(){
@@ -77,7 +72,7 @@ namespace Fases{
         } 
         else{
             cout<<"aqui3  "<<endl;
-            while(pga->isopen()){
+            while(pga->isopen() && !(this->terminada()) && Ge->selecionado_da_pausa()){
 
                 pga->setFps(100);
                 
@@ -92,6 +87,9 @@ namespace Fases{
                 pga->setViewPos(Vector2f(jog1->getPos().x, jog1->getPos().y/10+500));
                 Ge->executar();
             }
+        }
+        if(this->terminada()){
+            this->terminar();
         }
     }
 };

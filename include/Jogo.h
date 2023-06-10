@@ -13,4 +13,6 @@ class Jogo{
         Jogo();
         ~Jogo();
         void executar();
+        /*void criarLua();
+        void criarMarte();*/
 };

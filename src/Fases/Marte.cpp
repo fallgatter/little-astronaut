@@ -8,9 +8,9 @@ using namespace std;
 
 namespace Fases{
     Marte::Marte(int ID): 
-        Fase(ID)
+        Fase(ID, 0.05)
     {
-        gravidade = 0.12;
+        
     }
 
     Marte::~Marte(){
@@ -35,5 +35,13 @@ namespace Fases{
             j++;
         }
         arquivo.close();
+    }
+
+    bool Marte::terminada(){
+        return false;
+    }
+
+    void Marte::terminar(){
+
     }
 };

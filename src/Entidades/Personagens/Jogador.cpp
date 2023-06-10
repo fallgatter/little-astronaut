@@ -4,6 +4,7 @@
 #include"../../../include/Entidades/Obstaculos/Bloco.h"
 #include"../../../include/Entidades/Obstaculos/Espinho.h"
 #include"../../../include/Entidades/Obstaculos/Meteoro.h"
+#include"../../../include/Entidades/Obstaculos/Bandeira.h"
 
 namespace Entidades{
     namespace Personagens{
@@ -128,8 +129,8 @@ namespace Entidades{
                 cout<<"vidas do jogador "<<(char)id<<" :"<<getVidas()<<endl;
                 cout<<"vidas do outro: "<<static_cast<Personagem*>(outro)->getVidas()<<endl;
             }
-            else if(outro->getId()=='j'){//jogador
-
+            else if(outro->getId()=='f'){//jogador
+                static_cast<Bandeira*>(outro)->setP1(1);
             }
             else if(outro->getId()=='p'){//projéti
                 sofrerDano(outro->getDano());

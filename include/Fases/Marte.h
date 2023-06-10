@@ -12,5 +12,7 @@ namespace Fases{
             Marte(int ID='M');
             ~Marte();
             void criarMapa();
+            bool terminada();
+            void terminar();
     };
 }using namespace Fases;

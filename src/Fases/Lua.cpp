@@ -8,9 +8,9 @@ using namespace std;
 
 namespace Fases{
     Lua::Lua(int ID): 
-        Fase(ID)
+        Fase(ID, 0.08)
     {
-        gravidade = 0.08;
+
     }
 
     Lua::~Lua(){
@@ -28,12 +28,30 @@ namespace Fases{
         }
         while(getline(arquivo, linha)){
             for(i=0; i<linha.size(); i++){
-                if(linha[i]!=' '){
+                if(linha[i]!=' ' && linha[i]!='f'){
                     criarEntidade(linha[i], Vector2f(i, j), rand()%11);
+                }
+                else if(linha[i]=='f'){
+                    flag=new Bandeira(Vector2f(i*48.0f, j*48.0f), rand()%11);
+                    LE.incluir(flag);
                 }
             }
             j++;
         }
         arquivo.close();
+    }
+
+    bool Lua::terminada(){
+        if(flag->getP1()){//&& flag.p2
+            return true;
+        }
+        return false;
+            
+    }
+
+    void Lua::terminar(){
+        Marte mars;
+        mars.criarMapa();
+        mars.executar();
     }
 };

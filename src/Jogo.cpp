@@ -35,6 +35,16 @@ void Jogo::executar(){
         }
     }
 }
+
+/*void Jogo::criarLua(){
+    moon.criarMapa();
+    moon.executar();
+}
+
+void Jogo::criarMarte(){
+    mars.criarMapa();
+    mars.executar();
+}*/
     //Personagem:
     /*jogador = new Jogador(Vector2f(0.f,100.f));
     

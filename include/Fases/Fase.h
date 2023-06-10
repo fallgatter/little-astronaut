@@ -14,7 +14,7 @@
 #include"../Entidades/Obstaculos/Bloco.h"
 #include"../Entidades/Obstaculos/Espinho.h"
 #include"../Entidades/Obstaculos/Meteoro.h"
-
+#include"../Entidades/Obstaculos/Bandeira.h"
 
 namespace Fases{
     class Fase: public Ente{
@@ -26,9 +26,11 @@ namespace Fases{
             Jogador* jog2;
             float gravidade;
         public:
-            Fase(int ID='F');
+            Fase(int ID='F', float GRAVIDADE=0);
             ~Fase();
             void criarEntidade(int letra='0', Vector2f POS=Vector2f(0.f, 0.f), int tipo_text=0);
+            virtual bool terminada(){return false;};
+            virtual void terminar(){};
             void executar();
     };
 }using namespace Fases;
