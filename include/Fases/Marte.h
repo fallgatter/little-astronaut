@@ -6,8 +6,7 @@
 namespace Fases{
     class Marte: public Fase{
         private:
-            Sprite background;
-            Texture text;
+            Gato* chefao;
         public:
             Marte(int ID='M');
             ~Marte();

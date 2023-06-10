@@ -8,7 +8,7 @@ using namespace std;
 
 namespace Fases{
     Lua::Lua(int ID): 
-        Fase(ID, 0.08)
+        Fase(ID, 0.08), flag(NULL)
     {
 
     }
@@ -51,6 +51,7 @@ namespace Fases{
 
     void Lua::terminar(){
         Marte mars;
+        mars.setPontuacao(pontuacao);
         mars.criarMapa();
         mars.executar();
     }

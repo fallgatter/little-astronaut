@@ -28,9 +28,17 @@ namespace Entidades{
         void Jogador::setEnerg(int ENERGIA){
             energia=ENERGIA;
         }
+        
+        void Jogador::setPontuacao(int PONTOS){
+            pontuacao+=PONTOS;
+        }
 
         int Jogador::getEnerg() const{
             return energia;
+        }
+
+        int Jogador::getPontuacao() const{
+            return pontuacao;
         }
 
         void Jogador::mover_se(){
@@ -126,6 +134,10 @@ namespace Entidades{
                 }
                 setVel(vjog);
                 outro->setVel(voutro);
+                if(!(outro->getVivo()) && outro->getId()=='c')
+                    setPontuacao(1000);
+                else if(!(outro->getVivo()) && outro->getId()!='c')
+                    setPontuacao(100);
                 cout<<"vidas do jogador "<<(char)id<<" :"<<getVidas()<<endl;
                 cout<<"vidas do outro: "<<static_cast<Personagem*>(outro)->getVidas()<<endl;
             }

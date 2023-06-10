@@ -22,12 +22,15 @@ namespace Fases{
             Lista_Entidades LE;
             Gerenciador_Colisoes Gc;
             Gerenciador_Eventos* Ge;
-            Jogador* jog1;
-            Jogador* jog2;
+            static Jogador* jog1;
+            static Jogador* jog2;
             float gravidade;
+            int pontuacao;
         public:
             Fase(int ID='F', float GRAVIDADE=0);
             ~Fase();
+            void setPontuacao(int PONTOS);
+            int getPontuacao() const;
             void criarEntidade(int letra='0', Vector2f POS=Vector2f(0.f, 0.f), int tipo_text=0);
             virtual bool terminada(){return false;};
             virtual void terminar(){};

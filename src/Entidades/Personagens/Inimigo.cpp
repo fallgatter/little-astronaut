@@ -69,6 +69,10 @@ namespace Entidades{
                 }
                 setVel(voutro);
                 outro->setVel(vjog);
+                if(!getVivo() && getId()=='c')
+                    static_cast<Jogador*>(outro)->setPontuacao(1000);
+                else if(!getVivo() && getId()!='c')
+                    static_cast<Jogador*>(outro)->setPontuacao(100);
             }
             else if(outro->getId()=='a' || outro->getId()=='v' || outro->getId()=='p'){//inimigo
 

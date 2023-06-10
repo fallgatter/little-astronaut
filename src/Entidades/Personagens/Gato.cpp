@@ -17,7 +17,7 @@ namespace Entidades{
             for(i=0; i<carga; i++){
                 meteoros.push_back(new Meteoro(Vector2f(-100, -100), 10));
             }
-            vidas=50;
+            vidas=1;
         }   
         
         Gato::~Gato(){
@@ -68,13 +68,11 @@ namespace Entidades{
             float norm1=RAIO_PERSEGUIR, norm2=RAIO_PERSEGUIR;
             
             if(jog1!=NULL && jog1->getVivo()){
-                cout<<"norma1"<<endl;
                 dist1.x=jog1->getPos().x-getPos().x;
                 dist1.y=jog1->getPos().y-getPos().y;
                 norm1=sqrt(pow((fabs(dist1.x)), 2) + pow((fabs(dist1.y)), 2));
             }
             if(jog2!=NULL && jog2->getVivo()){
-                cout<<"norma2"<<endl;
                 dist2.x=jog2->getPos().x-getPos().x;
                 dist2.y=jog2->getPos().y-getPos().y;
                 norm2=sqrt(pow((fabs(dist2.x)), 2) + pow((fabs(dist2.y)), 2));

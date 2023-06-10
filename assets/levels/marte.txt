@@ -1,4 +1,4 @@
-          m                                 m
+                                             
 b                                                                                  b
 b                                                                                  b
 b                                                                                  b
@@ -13,9 +13,9 @@ b                                                                               
 b                                                                                  b               
 b                                                                                  b               
 b                                                                                  b                
-b jg                        a  a                       v          v                b                
-b                         bbbbbbbbb                                                b                                        
-b                                                            v                     b                                        
+b j                                                                                b                
+b                                                                                  b                                        
+b                              c                                                   b                                        
 b                                                                                  b                                         
 b                                            bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb

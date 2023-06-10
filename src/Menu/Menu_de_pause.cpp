@@ -3,7 +3,7 @@
 namespace Menus{
     Menu_de_pause::Menu_de_pause(int id) : Menu(id){
         Text txt;
-        cout<<"aqui no pausa"<<endl;
+        //cout<<"aqui no pausa"<<endl;
             txt.setFont(fonte);
             txt.setFillColor(Color::White);
             txt.setString("Continuar");
