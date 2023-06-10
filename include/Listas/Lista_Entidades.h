@@ -9,10 +9,12 @@ namespace Listas{
         public:
             Lista<Entidade*> EL;
             Lista_Entidades(): EL(){}
+            ~Lista_Entidades(){
+                
+            }
             void incluir(Entidade* ent){
                 EL.push(ent);
             }
-            
             Entidade* operator[](int idx){
                 return EL[idx];
             }

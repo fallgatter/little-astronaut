@@ -10,7 +10,7 @@ namespace Entidades{
                 bool rugoso;
             public:
                 Obstaculo(Vector2f POS=Vector2f(0.f, 0.f), bool RUGOSO=0, int ID='o');
-                ~Obstaculo();
+                virtual ~Obstaculo();
                 bool getRugoso() const;
                 virtual void mover_se(){};
                 virtual void colidir(Entidade* outro, Vector2f ds){};

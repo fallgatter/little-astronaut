@@ -10,6 +10,7 @@ namespace Entidades{
         }
 
         Personagem::~Personagem(){
+            
         }
 
         void Personagem::setVidas(int VIDAS){

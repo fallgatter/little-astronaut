@@ -14,7 +14,7 @@ namespace Fases{
     }
 
     Marte::~Marte(){
-
+        chefao=NULL;
     }
 
     void Marte::criarMapa(){
@@ -45,24 +45,13 @@ namespace Fases{
     }
 
     bool Marte::terminada(){
-        if(!(chefao->getVivo())){
-            return true;
-            
-        }
+        if(chefao!=NULL)
+            if(!(chefao->getVivo()))
+                return true;
         return false;
     }
 
     void Marte::terminar(){
-        /*if(jog1!=NULL && jog1->getVivo()){
-            cout<<"Pontuação J1: "<<jog1->getPontuacao()<<endl;
-            pontuacao+=jog1->getPontuacao();
-        }
-            
-        if(jog2!=NULL && jog2->getVivo()){
-            cout<<"Pontuação J2: "<<jog2->getPontuacao()<<endl;
-            pontuacao+=jog2->getPontuacao();
-        }*/
-            
         cout<<"Pontuação Total: "<<pontuacao<<endl;
     }
 };

@@ -6,13 +6,13 @@ namespace Fases{
     Jogador* Fase::jog2(NULL);
 
     Fase::Fase(int ID, float GRAVIDADE): 
-        Ente(ID), gravidade(GRAVIDADE), pontuacao(0)
+        Ente(ID), gravidade(GRAVIDADE), pontuacao(0), Ge(Ge=Ge->Singleton())
     {
-        Ge=Ge->Singleton();
+        
     }
 
     Fase::~Fase(){
-
+        Ge=NULL;
     }
 
     void Fase::criarEntidade(int letra, Vector2f POS, int rand){ //fuck char
@@ -80,15 +80,15 @@ namespace Fases{
 
     void Fase::executar(){
         int i=0, j=0;
-        Gc.setList(LE);
+        Gc.setList(&LE);
         LE[0]->setGravidade(gravidade);
-        if(pga==NULL){
+        if(pga==NULL || Ge==NULL){
             exit(1);
             cout<<"aqui2  "<<endl;
         } 
         else{
             cout<<"aqui3  "<<endl;
-            while(pga->isopen() && !(this->terminada()) && Ge->selecionado_da_pausa() && !Go.getGame_Over()){
+            while(pga->isopen() && !terminada() && Ge->selecionado_da_pausa() && !Go.getGame_Over()){
 
                 pga->setFps(100);
                 
@@ -108,7 +108,7 @@ namespace Fases{
                 Ge->executar();
             }
         }
-        if(this->terminada()){
+        if(terminada()){
             if(jog1!=NULL && jog1->getVivo()){
                 cout<<"Pontuação J1: "<<jog1->getPontuacao()<<endl;
                 pontuacao+=jog1->getPontuacao();
@@ -118,7 +118,7 @@ namespace Fases{
                 cout<<"Pontuação J2: "<<jog2->getPontuacao()<<endl;
                 pontuacao+=jog2->getPontuacao();
             }
-            this->terminar();
+            terminar();
         }
     }
 };

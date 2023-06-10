@@ -7,7 +7,6 @@
 #include"../Gerenciadores/Gerenciador_Eventos.h"
 #include"../Gerenciadores/Gerenciador_Grafico.h"
 #include"../Entidades/Personagens/Jogador.h"
-#include"../Entidades/Personagens/Inimigo.h"
 #include"../Entidades/Personagens/Alien.h"
 #include"../Entidades/Personagens/OVNI.h"
 #include"../Entidades/Personagens/Gato.h"
@@ -30,11 +29,11 @@ namespace Fases{
             Game_Over Go;
         public:
             Fase(int ID='F', float GRAVIDADE=0);
-            ~Fase();
+            virtual ~Fase();
             void setPontuacao(int PONTOS);
             int getPontuacao() const;
             void criarEntidade(int letra='0', Vector2f POS=Vector2f(0.f, 0.f), int tipo_text=0);
-            virtual bool terminada(){return false;};
+            virtual bool terminada(){return false;}
             virtual void terminar(){};
             void executar();
     };

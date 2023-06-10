@@ -21,10 +21,12 @@ namespace Entidades{
         }
 
         void Meteoro::setJog(Jogador* JOG, int ID){
-            if(ID=='j')
-                jog1=JOG;
-            else if(ID=='g')
-                jog2=JOG;
+            if(JOG!=NULL){
+                if(ID=='j')//Jogador 1
+                    jog1=JOG;
+                else if(ID=='g')//Jogador 2
+                    jog2=JOG;
+            }
         }
 
         void Meteoro::cair(){
@@ -52,17 +54,17 @@ namespace Entidades{
                 cair();
                 caindo=true;
             }
-                
-
         }
 
         void Meteoro::colidir(Entidade* outro, Vector2f ds){
-            if(outro->getId() == 'j' || outro->getId() == 'g'){//jogador
-                static_cast<Personagem*>(outro)->sofrerDano(getDano());
-                setVivo(false);
+            if(outro!=NULL){
+                if(outro->getId() == 'j' || outro->getId() == 'g'){//jogadores
+                    static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                    setVivo(false);
+                }
+                else if(outro->getId()=='b')//bloco
+                    setVivo(false);
             }
-            else if(outro->getId()=='b')
-                setVivo(false);
         }
     };
 };

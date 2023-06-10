@@ -8,6 +8,7 @@ Ente::Ente(int ID):
 }
 
 Ente::~Ente(){
+    pga=NULL;
 }
 
 void Ente::setId(int ID){

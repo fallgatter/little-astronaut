@@ -1,5 +1,6 @@
 //Cabeçalhos Próprios:
 #include"../../../include/Entidades/Personagens/OVNI.h"
+
 #define RAIO_PERSEGUIR 300
 
 namespace Entidades{
@@ -43,12 +44,12 @@ namespace Entidades{
             if(jog1!=NULL && jog1->getVivo()){
                 dist1.x=jog1->getPos().x-getPos().x;
                 dist1.y=jog1->getPos().y-getPos().y;
-                norm1=sqrt(pow((fabs(dist1.x)), 2) + pow((fabs(dist1.y)), 2));
+                norm1=sqrt(pow((fabs(dist1.x)), 2) + pow((fabs(dist1.y)), 2));//norma da distancia 1
             }
             if(jog2!=NULL && jog2->getVivo()){
                 dist2.x=jog2->getPos().x-getPos().x;
                 dist2.y=jog2->getPos().y-getPos().y;
-                norm2=sqrt(pow((fabs(dist2.x)), 2) + pow((fabs(dist2.y)), 2));
+                norm2=sqrt(pow((fabs(dist2.x)), 2) + pow((fabs(dist2.y)), 2));//norma da distancia 2
             }
 
             if((jog1!=NULL && jog1->getVivo()) && fabs(dist1.x)<RAIO_PERSEGUIR && fabs(dist1.y)<RAIO_PERSEGUIR)
