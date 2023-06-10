@@ -19,11 +19,13 @@ namespace Entidades{
         }
 
         void Espinho::colidir(Entidade* outro, Vector2f ds){
-            if(outro->getId() == 'j' || outro->getId() == 'g'){
-                if(outro->getVel().x != 0){ //só sofre dano se estiver se movendo contra o espinho, parado nele não tem problema
-                    if(rand()%70 == 1)
-                        static_cast<Personagem*>(outro)->sofrerDano(getDano());
-                    outro->setVel(Vector2f(outro->getVel().x*0.9, outro->getVel().y*0.9));
+            if(outro!=NULL){
+                if(outro->getId() == 'j' || outro->getId() == 'g'){//jogadores
+                    if(outro->getVel().x != 0){//só sofre dano se estiver se movendo contra o espinho
+                        if(rand()%70 == 1)
+                            static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                        outro->setVel(Vector2f(outro->getVel().x*0.9, outro->getVel().y*0.9));
+                    }
                 }
             }
         }

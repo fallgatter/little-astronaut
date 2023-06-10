@@ -16,66 +16,67 @@ namespace Entidades{
         }
 
         void Inimigo::setJog(Jogador* JOG, int ID){
-            if(ID=='j')
-                jog1=JOG;
-            else if(ID=='g')
-                jog2=JOG;
+            if(JOG!=NULL){
+                if(ID=='j')//Jogador 1
+                    jog1=JOG;
+                else if(ID=='g')//Jogador 2
+                    jog2=JOG;
+            }
         }
 
         void Inimigo::colidir(Entidade* outro, Vector2f ds){
-            if(outro->getId()=='b'){//objeto
-                Vector2f posAux=getPos();  
-                if(ds.x>ds.y){
-                    if(getPos().x<outro->getPos().x)//colisão em x
-                        posAux.x+=ds.x;
-                    else
-                        posAux.x-=ds.x;
-                    setVel(Vector2f(0.f, getVel().y));
-                }
-                else{
-                    if(getPos().y<outro->getPos().y)
-                        posAux.y+=ds.y;
-                    else
-                        posAux.y-=ds.y;
-                    setVel(Vector2f(getVel().x, 0.f));
-                }
-                setPos(posAux);
-            }
-            else if(outro->getId()=='j' || outro->getId()=='g'){//jogador
-                Vector2f vjog = getVel(), voutro=outro->getVel();
-                if(ds.x>ds.y){
-                    if(outro->getPos().x<getPos().x){
-                        vjog.x-=1.5;
-                        voutro.x+=1.5;
-                        static_cast<Personagem*>(outro)->sofrerDano(getDano());
+            if(outro!=NULL){
+                if(outro->getId()=='b'){//bloco
+                    Vector2f posAux=getPos();  
+                    if(ds.x>ds.y){//colisão em x
+                        if(getPos().x<outro->getPos().x)
+                            posAux.x+=ds.x;
+                        else
+                            posAux.x-=ds.x;
+                        setVel(Vector2f(0.f, getVel().y));
                     }
-                    else{
-                        vjog.x+=1.5;
-                        voutro.x-=1.5;
-                        static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                    else{//colisão em y
+                        if(getPos().y<outro->getPos().y)
+                            posAux.y+=ds.y;
+                        else
+                            posAux.y-=ds.y;
+                        setVel(Vector2f(getVel().x, 0.f));
                     }
+                    setPos(posAux);
                 }
-                else{
-                    if(outro->getPos().y<getPos().y){
-                        vjog.y-=1.5;
-                        voutro.y+=1.5;
-                        static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                else if(outro->getId()=='j' || outro->getId()=='g'){//jogadores
+                    Vector2f vjog = getVel(), voutro=outro->getVel();
+                    if(ds.x>ds.y){//colisão em x
+                        if(outro->getPos().x<getPos().x){
+                            vjog.x-=1.5;
+                            voutro.x+=1.5;
+                            static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                        }
+                        else{
+                            vjog.x+=1.5;
+                            voutro.x-=1.5;
+                            static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                        }
                     }
-                    else{
-                        vjog.y+=1.5;
-                        voutro.y-=1.5;
-                        sofrerDano(outro->getDano());
-                    } 
+                    else{//colisão em y
+                        if(outro->getPos().y<getPos().y){
+                            vjog.y-=1.5;
+                            voutro.y+=1.5;
+                            static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                        }
+                        else{
+                            vjog.y+=1.5;
+                            voutro.y-=1.5;
+                            sofrerDano(outro->getDano());
+                        } 
+                    }
+                    setVel(voutro);
+                    outro->setVel(vjog);
+                    if(!getVivo() && getId()=='c')//neutralizou o chefao (gato)
+                        static_cast<Jogador*>(outro)->setPontuacao(1000);
+                    else if(!getVivo() && getId()!='c')//neutralizou alien/OVNI
+                        static_cast<Jogador*>(outro)->setPontuacao(100);
                 }
-                setVel(voutro);
-                outro->setVel(vjog);
-                if(!getVivo() && getId()=='c')
-                    static_cast<Jogador*>(outro)->setPontuacao(1000);
-                else if(!getVivo() && getId()!='c')
-                    static_cast<Jogador*>(outro)->setPontuacao(100);
-            }
-            else if(outro->getId()=='a' || outro->getId()=='v' || outro->getId()=='p'){//inimigo
-
             }
         }
     };

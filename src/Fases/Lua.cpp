@@ -14,7 +14,7 @@ namespace Fases{
     }
 
     Lua::~Lua(){
-
+        flag=NULL;
     }
 
     void Lua::criarMapa(){
@@ -42,11 +42,10 @@ namespace Fases{
     }
 
     bool Lua::terminada(){
-        if(flag->getP1()){//&& flag.p2
-            return true;
-        }
+        if(flag!=NULL)
+            if(flag->getP1())
+                return true;
         return false;
-            
     }
 
     void Lua::terminar(){

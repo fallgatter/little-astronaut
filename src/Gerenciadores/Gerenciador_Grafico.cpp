@@ -10,10 +10,12 @@ namespace Gerenciadores{
     }
 
     Gerenciador_Grafico::~Gerenciador_Grafico(){
-        
+        window=NULL;
+        view=NULL;
     }
+
     RenderWindow* Gerenciador_Grafico::getWindow() const{
-        if(window){
+        if(window!=NULL){
             return window;
         }
         else
@@ -29,25 +31,25 @@ namespace Gerenciadores{
     }
     
     void Gerenciador_Grafico::display(){
-        if(window->isOpen()){
-            window->display();
-        }
+        if(window!=NULL)
+            if(window->isOpen())
+                window->display();
     }
 
 
     void Gerenciador_Grafico::clear(){
-        if(window->isOpen()){
-            window->clear();
-        }
+        if(window!=NULL)
+            if(window->isOpen())
+                window->clear();
     }
 
     void Gerenciador_Grafico::closeWindow(){
-        if(window->isOpen()){
-            window->close();
-        }
+        if(window!=NULL)
+            if(window->isOpen())
+                window->close();
     }
 
-    View Gerenciador_Grafico::getView() const{
+    View Gerenciador_Grafico::getView() const{//erro
         return *view;
     }
 
@@ -61,34 +63,42 @@ namespace Gerenciadores{
     }
 
     bool Gerenciador_Grafico::isopen(){
-        if(window)
+        if(window!=NULL)
             return window->isOpen();
-        return 0;
+        return false;
     }
 
     void Gerenciador_Grafico::setWindow(RenderWindow* wnd){
-        window = wnd;
+        if(wnd!=NULL)
+            window = wnd;
     }
 
     void Gerenciador_Grafico::drawn(Sprite sprtaux){
-        window->draw(sprtaux);
+        if(window!=NULL)
+            window->draw(sprtaux);
     }
 
     void Gerenciador_Grafico::setView(View* VW){
-        view = VW;
-        window->setView(*view);
+        if(VW!=NULL){
+            view = VW;
+            window->setView(*view);
+        }
     }
 
     void Gerenciador_Grafico::setViewPos(Vector2f POS){
-        view->setCenter(POS);
-        window->setView(*view);
+        if(view!=NULL){
+            view->setCenter(POS);
+            window->setView(*view);
+        }
     }
 
     void Gerenciador_Grafico::setFps(int velocidade){
-        window->setFramerateLimit(velocidade);
+        if(window!=NULL)
+            window->setFramerateLimit(velocidade);
     }
 
     void Gerenciador_Grafico::drawntext(Text txt){
-        window->draw(txt);
+        if(window!=NULL)
+            window->draw(txt);
     }
 }using namespace Gerenciadores;

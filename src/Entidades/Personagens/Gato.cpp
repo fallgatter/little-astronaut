@@ -13,15 +13,21 @@ namespace Entidades{
             sprt.setTexture(text);
             sprt.setOrigin(Vector2f(0.f, -6.f));
             setTam(Vector2f(45.f, 36.f));
-            int i;
-            for(i=0; i<carga; i++){
+            
+            int i=0;
+            for(i=0; i<CARGA_MAX; i++)
                 meteoros.push_back(new Meteoro(Vector2f(-100, -100), 10));
-            }
             vidas=1;
         }   
         
         Gato::~Gato(){
-            
+            /*int i=0;
+            for(i=0; i<CARGA_MAX; i++){
+                if(meteoros[i]!=NULL)
+                    delete(meteoros[i]);
+            } 
+            meteoros.clear();*/
+            //a fase inclui os meteoros na lista de entidades, e a lista de entidades por sua efetua o delete.
         }
 
         vector<Meteoro*> *Gato::getMeteoros(){
@@ -70,12 +76,12 @@ namespace Entidades{
             if(jog1!=NULL && jog1->getVivo()){
                 dist1.x=jog1->getPos().x-getPos().x;
                 dist1.y=jog1->getPos().y-getPos().y;
-                norm1=sqrt(pow((fabs(dist1.x)), 2) + pow((fabs(dist1.y)), 2));
+                norm1=sqrt(pow((fabs(dist1.x)), 2) + pow((fabs(dist1.y)), 2));//norma da distancia 1
             }
             if(jog2!=NULL && jog2->getVivo()){
                 dist2.x=jog2->getPos().x-getPos().x;
                 dist2.y=jog2->getPos().y-getPos().y;
-                norm2=sqrt(pow((fabs(dist2.x)), 2) + pow((fabs(dist2.y)), 2));
+                norm2=sqrt(pow((fabs(dist2.x)), 2) + pow((fabs(dist2.y)), 2));//norma da distancia 2
             }
 
             if((jog1!=NULL && jog1->getVivo()) && norm1<norm2 && fabs(dist1.x)<RAIO_PERSEGUIR && fabs(dist1.y)<RAIO_PERSEGUIR){

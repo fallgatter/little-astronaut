@@ -12,7 +12,7 @@ namespace Entidades{
                 static Jogador* jog2;
             public:
                 Inimigo(Vector2f POS=Vector2f(0.f, 0.f), int ID='i');
-                ~Inimigo();
+                virtual ~Inimigo();
                 static void setJog(Jogador* JOG, int ID);
                 virtual void perseguir(Vector2f dist){};
                 virtual void mover_se(){};

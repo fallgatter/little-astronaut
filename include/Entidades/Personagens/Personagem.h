@@ -10,7 +10,7 @@ namespace Entidades{
                 int vidas;
             public:
                 Personagem(int VIDAS=0, int DANO=0, bool VIVO=false, Vector2f TAM=Vector2f(0.f,0.f), Vector2f POS=Vector2f(0.f, 0.f), int ID=0);
-                ~Personagem();
+                virtual ~Personagem();
                 void setVidas(int VIDAS);
                 int getVidas() const;
                 virtual void mover_se(){};

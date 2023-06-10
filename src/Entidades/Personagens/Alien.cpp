@@ -3,11 +3,12 @@
 
 #define RAIO_PERSEGUIR 400
 #define RAIO_ATIRAR 250
+#define MUN_MAX 5
 
 namespace Entidades{
     namespace Personagens{
         Alien::Alien(Vector2f POS, int TIPO_TEXT): 
-            Inimigo(POS, 'a'), tipo_text(TIPO_TEXT), municao(5), dt(0), recarregando(false)
+            Inimigo(POS, 'a'), tipo_text(TIPO_TEXT), municao(MUN_MAX), dt(0), recarregando(false)
         {
             Sprite sprtemp;
             if(tipo_text<8)
@@ -18,13 +19,18 @@ namespace Entidades{
             setSprite(sprtemp); //seta scale, rect e pos
 
             int i;
-            for(i=0; i<municao; i++){
+            for(i=0; i<MUN_MAX; i++)
                 tiros.push_back(new Projetil(TIPO_TEXT));
-            }
         }   
         
         Alien::~Alien(){
-            
+            /*int i=0;
+            for(i=0; i<MUN_MAX; i++){
+                if(tiros[i]!=NULL)
+                    delete(tiros[i]);
+            }
+            tiros.clear();*/
+            //a fase inclui os tiros na lista de entidades, e a lista de entidades por sua efetua o delete.
         }
 
         vector<Projetil*> *Alien::getTiros(){
@@ -35,7 +41,7 @@ namespace Entidades{
             if((!municao || recarregando) && !(dt%35)){
                 municao++;
                 recarregando=true;
-                if(municao==5)
+                if(municao==MUN_MAX)
                     recarregando=false;
             }
             else if(!recarregando){
@@ -74,12 +80,12 @@ namespace Entidades{
             if(jog1!=NULL && jog1->getVivo()){
                 dist1.x=jog1->getPos().x-getPos().x;
                 dist1.y=jog1->getPos().y-getPos().y;
-                norm1=sqrt(pow((fabs(dist1.x)), 2) + pow((fabs(dist1.y)), 2));
+                norm1=sqrt(pow((fabs(dist1.x)), 2) + pow((fabs(dist1.y)), 2));//norma da distancia 1
             }
             if(jog2!=NULL && jog2->getVivo()){
                 dist2.x=jog2->getPos().x-getPos().x;
                 dist2.y=jog2->getPos().y-getPos().y;
-                norm2=sqrt(pow((fabs(dist2.x)), 2) + pow((fabs(dist2.y)), 2));
+                norm2=sqrt(pow((fabs(dist2.x)), 2) + pow((fabs(dist2.y)), 2));//norma da distancia 2
             }
 
             if((jog1!=NULL && jog1->getVivo()) && norm1<norm2 && fabs(dist1.x)<RAIO_PERSEGUIR && fabs(dist1.y)<RAIO_PERSEGUIR)

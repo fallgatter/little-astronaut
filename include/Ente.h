@@ -18,7 +18,7 @@ class Ente{
         Gerenciador_Grafico* pga;
     public:
         Ente(int ID);
-        ~Ente();
+        virtual ~Ente();
         void setId(int ID);
         int getId() const;
 };

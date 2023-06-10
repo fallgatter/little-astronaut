@@ -10,6 +10,12 @@ namespace Listas{
         public:
           T data;
           Node *next;
+          Node():
+            data(NULL), next(NULL){}
+          ~Node(){
+            data=NULL;
+            next=NULL;
+          }
       };
 
   template <typename T> class Lista{
@@ -17,17 +23,19 @@ namespace Listas{
         Node<T> *head;
     public:
         Lista(){
-            head = NULL;
+          head = NULL;
         }
-        /*~Lista(){
-          Node<T> *emp = head;
-          Node<T> *aux;
-          while(emp) {
-            aux = emp->next;
-            destroy *emp;
-            emp = aux;
+
+        ~Lista(){
+          Node<T> *aux=head;
+
+          while(aux!=NULL){
+            head=head->next;
+            delete aux;
+            aux=head;
           }
-        }*/
+        }
+
         void push(T val){
             Node<T> *n = new Node<T>();   
             n->data = val;             
@@ -43,7 +51,7 @@ namespace Listas{
           }
         }
         
-        T* search(T val) {
+        /*T* search(T val) {
           Node<T> *temp = head;
           while(temp->next) {
             if(temp->data == val) return temp;
@@ -61,25 +69,29 @@ namespace Listas{
           }
           aux->next = temp->next;
           destroy *temp;
-        }
+        }*/
 
         int get_size(){
+          if(head!=NULL){
             Node<T> *temp = head;
             int i;
             if(temp)
                 i = 1;
             else return 0;
-            while(temp->next){
+            while(temp->next!=NULL){
                 temp = temp->next;
                 i++;
             }
             return i;
+          }
+          return 0;
         }
+
         T operator[] (int idx){
-          if(idx < get_size()){
+          if(idx < get_size() && head!=NULL){
             int i=0;
             Node<T> *temp = head;
-            while(i < idx){
+            while(i < idx && temp->next!=NULL){
               temp = temp->next;
               i++;
             }

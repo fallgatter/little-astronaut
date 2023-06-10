@@ -34,8 +34,10 @@ namespace Entidades{
         }
 
         void Bandeira::colidir(Entidade* outro, Vector2f ds){
-            if(outro->getId()=='j' || outro->getId()=='g')
-                p1=true;
+            if(outro!=NULL){
+                if(outro->getId()=='j' || outro->getId()=='g')//jogadores
+                    p1=true;
+            }
         }
     };
 };

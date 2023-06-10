@@ -8,7 +8,7 @@ namespace Entidades{
         class Bandeira: public Obstaculo{
             private:
                 int tipo_text;
-                bool p1;
+                bool p1;//se p1(true), algum jogador terminou a fase
             public:
                 Bandeira(Vector2f POS=Vector2f(0.f, 0.f), int TIPO_TEXT=0);
                 ~Bandeira();

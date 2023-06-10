@@ -14,6 +14,7 @@ namespace Entidades{
     }
 
     Projetil::~Projetil(){
+
     }
 
     void Projetil::lancar(Vector2f VEL, Vector2f POS){
@@ -33,11 +34,13 @@ namespace Entidades{
     }
 
     void Projetil::colidir(Entidade* outro, Vector2f ds){
-        if(outro->getId()=='j' || outro->getId()=='g'){
-            static_cast<Personagem*>(outro)->sofrerDano(getDano() * coef);
-            setVivo(false);
+        if(outro!=NULL){
+            if(outro->getId()=='j' || outro->getId()=='g'){//jogadores
+                static_cast<Personagem*>(outro)->sofrerDano(getDano() * coef);
+                setVivo(false);
+            }
+            else if(outro->getId()=='b')//bloco
+                setVivo(false);
         }
-        else if(outro->getId()=='b')
-            setVivo(false);
     }
 };

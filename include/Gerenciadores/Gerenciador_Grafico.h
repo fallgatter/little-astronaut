@@ -13,7 +13,6 @@ namespace Gerenciadores{
             View* view;
             Clock clock;
             float dt;
-            
             //Padrão de Projeto Singleton:
             static Gerenciador_Grafico* P;
             Gerenciador_Grafico();
