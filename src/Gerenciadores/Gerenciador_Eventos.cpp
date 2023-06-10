@@ -36,8 +36,7 @@ namespace Gerenciadores{
                             Ga->setViewPos(Vector2f(100.f,200.f));
                             if(mp.selecionar() == 2)
                                 pausa = 0;
-                            else if(mp.selecionar() == 0)
-                                return;
+                            return;
                 }
             }
         }

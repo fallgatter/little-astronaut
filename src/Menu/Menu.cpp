@@ -43,7 +43,7 @@ namespace Menus{
         interagir();
         colorir_selecionado();
         Ge->executar();
-        pga->setFps(7);
+        pga->setFps(20);
         for(int i = 0; i < tam;i++){
             pga->drawntext(textos[i]);
         }
