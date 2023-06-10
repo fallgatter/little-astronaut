@@ -15,7 +15,7 @@ Jogo::~Jogo(){
 void Jogo::executar(){
     int opcao;
     Menus::Menu mn;
-    opcao= mn.selecionar() + 1;
+    //opcao= mn.selecionar() + 1;
 
     //while(mn.isWindowOpen()){
         opcao= mn.selecionar() + 1;
