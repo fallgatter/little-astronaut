@@ -51,7 +51,7 @@ namespace Listas{
           }
         }
         
-        /*T* search(T val) {
+        T* search(T val) {
           Node<T> *temp = head;
           while(temp->next) {
             if(temp->data == val) return temp;
@@ -69,7 +69,7 @@ namespace Listas{
           }
           aux->next = temp->next;
           destroy *temp;
-        }*/
+        }
 
         int get_size(){
           if(head!=NULL){

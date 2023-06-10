@@ -32,6 +32,21 @@ namespace Fases{
                 }
                 break;
             }
+            case('B'):{
+                if(rand<=7)
+                    LE.incluir(new Bloco(Vector2f(POS.x*48.f, POS.y*48.f), rand, id));
+                break;
+            }
+            case('M'):{
+                if(rand<=5)
+                    LE.incluir(new Meteoro(Vector2f(POS.x*48.f, POS.y*48.f), rand));
+                break;
+            }
+            case('E'):{
+                if(rand<=5)
+                    LE.incluir(new Espinho(Vector2f(POS.x*48.f, POS.y*48.f), rand));
+                break;
+            }
             case('j'):{//jogador
                 jog1 = new Jogador(Vector2f(base), letra);
                 LE.incluir(jog1);
