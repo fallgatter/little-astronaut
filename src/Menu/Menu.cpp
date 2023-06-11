@@ -10,6 +10,8 @@ namespace Menus{
         nao_enter = 1;
         selecionado = 0;
         Text txt;
+        Texture text;
+        //text.loadFromFile("assets\\textures\\World\\Moon\\moon_ground.png");
         if(id == 'm'){    
             //textos = (Text*) malloc (2 * sizeof(Text));
             txt.setFont(fonte);
@@ -33,7 +35,9 @@ namespace Menus{
             cout<<tam<<endl;
             tam = 3;
         }
-        
+        sprt.setTexture(text);
+        sprt.setPosition(0.f,0.f);
+        sprt.setScale(10.f,10.f);
     }
     Menu::~Menu(){
         
@@ -47,6 +51,7 @@ namespace Menus{
         for(int i = 0; i < tam;i++){
             pga->drawntext(textos[i]);
         }
+        pga->drawn(sprt);
         pga->display();
         pga->clear();
         if(!pga->isopen())
