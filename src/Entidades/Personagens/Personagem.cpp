@@ -27,5 +27,8 @@ namespace Entidades{
                 vivo = false;
             }
         }
+        void Personagem::operator--(){
+            vidas--;
+        }
     };
 };
