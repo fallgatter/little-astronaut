@@ -16,24 +16,36 @@ namespace Menus{
             //textos = (Text*) malloc (2 * sizeof(Text));
             txt.setFont(fonte);
             txt.setFillColor(Color::White);
-            txt.setString("Lua");
+            txt.setString("Lua 1 Jogador");
+            txt.setCharacterSize(50);
+            txt.setPosition(Vector2f(100.f,100.f));
+            textos.push_back(txt);
+            txt.setFont(fonte);
+            txt.setFillColor(Color::White);
+            txt.setString("Lua 2 jogadores");
+            txt.setCharacterSize(50);
+            txt.setPosition(Vector2f(100.f,150.f));
+            textos.push_back(txt);
+            txt.setFont(fonte);
+            txt.setFillColor(Color::White);
+            txt.setString("Marte 1 Jogador");
             txt.setCharacterSize(50);
             txt.setPosition(Vector2f(100.f,200.f));
             textos.push_back(txt);
             txt.setFont(fonte);
             txt.setFillColor(Color::White);
-            txt.setString("Marte");
+            txt.setString("Marte 2 Jogadores");
             txt.setCharacterSize(50);
-            txt.setPosition(Vector2f(100.f,300.f));
+            txt.setPosition(Vector2f(100.f,250.f));
             textos.push_back(txt);
             txt.setFont(fonte);
             txt.setFillColor(Color::White);
             txt.setString("Sair");
             txt.setCharacterSize(50);
-            txt.setPosition(Vector2f(100.f,400.f));
+            txt.setPosition(Vector2f(100.f,300.f));
             textos.push_back(txt);
             cout<<tam<<endl;
-            tam = 3;
+            tam = 5;
         }
         sprt.setTexture(text);
         sprt.setPosition(0.f,0.f);
@@ -86,7 +98,7 @@ namespace Menus{
             selecionado = 0;
         else if(selecionado < 0)
             selecionado = tam-1;
-        if(!nao_enter && selecionado == 2 && id == 'm')
+        if(!nao_enter && selecionado == 4 && id == 'm')
             pga->closeWindow();
     }
     bool Menu::next(){

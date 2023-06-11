@@ -50,6 +50,7 @@ namespace Fases{
 
     void Lua::terminar(){
         Marte mars;
+        mars.setquantJog(quant_jogadores);
         mars.setPontuacao(pontuacao);
         mars.criarMapa();
         mars.executar();

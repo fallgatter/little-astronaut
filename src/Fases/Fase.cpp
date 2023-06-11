@@ -8,18 +8,14 @@ namespace Fases{
     Fase::Fase(int ID, float GRAVIDADE): 
         Ente(ID), gravidade(GRAVIDADE), pontuacao(0), Ge(Ge=Ge->Singleton())
     {
-        
+        quant_jogadores = 1;
     }
 
     Fase::~Fase(){
         Ge=NULL;
     }
 
-    void Fase::criarEntidade(int letra, Vector2f POS, int rand){ //fuck char
-        int quant_jog= 1;
-        if(id == 'L'){
-            quant_jog = mP.get_Personagens();
-        }
+    void Fase::criarEntidade(int letra, Vector2f POS, int rand){ 
         Vector2f base=Vector2f(POS.x*48.0f, POS.y*48.0f);
         switch(letra){
             case('i'):{
@@ -56,8 +52,7 @@ namespace Fases{
                 LE.incluir(jog1);
                 Inimigo::setJog(jog1, letra);
                 Meteoro::setJog(jog1, letra);
-                //cout<<quant_jog<<endl;
-                if(quant_jog == 2){
+                if(quant_jogadores == 2){
                     jog2 = new Jogador(Vector2f(base), 'g');
                     LE.incluir(jog2);
                     Inimigo::setJog(jog2, letra);
@@ -146,5 +141,8 @@ namespace Fases{
             }
             terminar();
         }
+    }
+    void Fase::setquantJog(int quant){
+        quant_jogadores = quant;
     }
 };
