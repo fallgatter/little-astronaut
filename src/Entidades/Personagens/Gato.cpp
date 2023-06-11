@@ -25,8 +25,8 @@ namespace Entidades{
             for(i=0; i<CARGA_MAX; i++){
                 if(meteoros[i]!=NULL)
                     delete(meteoros[i]);
-            } 
-            meteoros.clear();*/
+            } */
+            meteoros.clear();
             //a fase inclui os meteoros na lista de entidades, e a lista de entidades por sua efetua o delete.
         }
 

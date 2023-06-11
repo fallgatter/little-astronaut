@@ -28,8 +28,8 @@ namespace Entidades{
             for(i=0; i<MUN_MAX; i++){
                 if(tiros[i]!=NULL)
                     delete(tiros[i]);
-            }
-            tiros.clear();*/
+            }*/
+            tiros.clear();
             //a fase inclui os tiros na lista de entidades, e a lista de entidades por sua efetua o delete.
         }
 
