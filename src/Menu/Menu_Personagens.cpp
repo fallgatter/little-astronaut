@@ -5,13 +5,13 @@ namespace Menu{
         Text txt;
         txt.setFont(fonte);
         txt.setFillColor(Color::White);
-        txt.setString("1 Pernagem");
+        txt.setString("1 Jogador");
         txt.setCharacterSize(50);
         txt.setPosition(Vector2f(100.f,200.f));
         textos.push_back(txt);
         txt.setFont(fonte);
         txt.setFillColor(Color::White);
-        txt.setString("2 Personagem");
+        txt.setString("2 Jogadores");
         txt.setCharacterSize(50);
         txt.setPosition(Vector2f(100.f,300.f));
         textos.push_back(txt);
