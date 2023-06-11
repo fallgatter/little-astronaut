@@ -12,6 +12,16 @@ Jogo::~Jogo(){
     
 }
 
+void Jogo::criarLua(){
+    moon.criarMapa();
+    moon.executar();
+}
+
+void Jogo::criarMarte(){
+    mars.criarMapa();
+    mars.executar();
+}
+
 void Jogo::executar(){
     int opcao;
     Menus::Menu mn;
@@ -20,13 +30,11 @@ void Jogo::executar(){
     //while(mn.isWindowOpen()){
         opcao= mn.selecionar() + 1;
         if(opcao==1){
-            moon.criarMapa();
-            moon.executar();
+            criarLua();
         }
         cout<<"here"<<endl;
         if(opcao==2){
-            mars.criarMapa();
-            mars.executar();
+            criarMarte();
         }
     //}
 }
