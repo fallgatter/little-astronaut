@@ -15,6 +15,7 @@
 #include"../Entidades/Obstaculos/Meteoro.h"
 #include"../Entidades/Obstaculos/Bandeira.h"
 #include"../Menu/Game_Over.h"
+#include"../Menu/Menu_Personagens.h"
 
 namespace Fases{
     class Fase: public Ente{
@@ -27,6 +28,8 @@ namespace Fases{
             float gravidade;
             int pontuacao;
             Game_Over Go;
+            Menu_Personagens mP;
+
         public:
             Fase(int ID='F', float GRAVIDADE=0);
             virtual ~Fase();
