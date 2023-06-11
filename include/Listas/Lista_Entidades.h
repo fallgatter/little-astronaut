@@ -10,7 +10,6 @@ namespace Listas{
             Lista<Entidade*> EL;
             Lista_Entidades(): EL(){}
             ~Lista_Entidades(){
-                
             }
             void incluir(Entidade* ent){
                 EL.push(ent);

@@ -25,7 +25,7 @@ namespace Entidades{
             p1=P1;
         }
 
-        bool Bandeira::getP1(){
+        bool Bandeira::getP1() const{
             return p1;
         }
 

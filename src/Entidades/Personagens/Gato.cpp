@@ -1,7 +1,7 @@
 //Cabeçalhos Próprios:
 #include"../../../include/Entidades/Personagens/Gato.h"
 
-#define RAIO_PERSEGUIR 400
+#define RAIO_PERSEGUIR 500
 #define CARGA_MAX 10
 
 namespace Entidades{
@@ -17,7 +17,7 @@ namespace Entidades{
             int i=0;
             for(i=0; i<CARGA_MAX; i++)
                 meteoros.push_back(new Meteoro(Vector2f(-100, -100), 10));
-            vidas=1;
+            vidas=30;
         }   
         
         Gato::~Gato(){
@@ -38,8 +38,11 @@ namespace Entidades{
             if((!carga || recarregando) && !(dt%50)){
                 carga++;
                 recarregando=true;
-                if(carga==CARGA_MAX)
+                if(carga==CARGA_MAX){
                     recarregando=false;
+                    for(int i=0; i<CARGA_MAX; i++)
+                        meteoros[i]->reiniciar();
+                }
             }
             else if(!recarregando){
                 if(carga && !(dt%150)){

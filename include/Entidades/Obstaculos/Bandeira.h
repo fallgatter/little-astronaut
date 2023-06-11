@@ -13,7 +13,7 @@ namespace Entidades{
                 Bandeira(Vector2f POS=Vector2f(0.f, 0.f), int TIPO_TEXT=0);
                 ~Bandeira();
                 void setP1(bool P1);
-                bool getP1();
+                bool getP1() const;
                 void mover_se();
                 void colidir(Entidade* outro, Vector2f ds);
         };

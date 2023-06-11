@@ -4,7 +4,7 @@
 
 namespace Entidades{
     Projetil::Projetil(float COEF): 
-        Entidade(1, false, Vector2f(24.f, 4.f), Vector2f(-100.f, -100.f), 'p'), coef(1+COEF/10)
+        Entidade(1, false, Vector2f(24.f, 4.f), Vector2f(-100.f, -100.f), 'p'), coef_dano(1+COEF/10)
     {
         text.loadFromFile("assets\\textures\\Others\\laser.png");
         sprt.setOrigin(Vector2f(0.f, -25.f));
@@ -15,6 +15,10 @@ namespace Entidades{
 
     Projetil::~Projetil(){
 
+    }
+
+    float Projetil::getCoef() const{
+        return coef_dano;
     }
 
     void Projetil::lancar(Vector2f VEL, Vector2f POS){
@@ -36,7 +40,7 @@ namespace Entidades{
     void Projetil::colidir(Entidade* outro, Vector2f ds){
         if(outro!=NULL){
             if(outro->getId()=='j' || outro->getId()=='g'){//jogadores
-                static_cast<Personagem*>(outro)->sofrerDano(getDano() * coef);
+                static_cast<Personagem*>(outro)->sofrerDano(getDano() * coef_dano);
                 setVivo(false);
             }
             else if(outro->getId()=='b')//bloco

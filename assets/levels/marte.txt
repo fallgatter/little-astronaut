@@ -1,21 +1,22 @@
-                                             
-b                                                                                  b
-b                                                                                  b
-b                                                                                  b
-b                                                                                  b
-b                                                                                  b
-b                                                                                  b
-b                                                                                  b
-b                                                                                  b                                   
-b                                                                                  b                                        
-b                                                                                  b                                        
-b                                                                                  b                                         
-b                                                                                  b               
-b                                                                                  b               
-b                                                                                  b                
-b j                                                                                b                
-b                                                                                  b                                        
-b                              c                                                   b                                        
-b                                                                                  b                                         
-b                                            bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+b      m          M       M          m      M                 m                b
+b                                                                              b
+b                                                                              b
+b                                                                              b
+b                                                                              b
+b                                                                              b
+b                                                                              b
+b                                                                              b
+b                                                                              b
+b                                                                              b                                                                              
+b                                                                              b                                        
+b                                                                              b               
+b                                                                              b               
+b                                                                              b              
+b  j                                                                           b             
+b                                a       a    a                                b
+b                               bbbBBbbBbbbBBbb                                b                      
+b          v         v                                                         b
+b              v                                                               b  
+bbbbbbbbbbbbbbbbbbbbbbbbb      i    i      i        i     i                  c b
+                        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                             

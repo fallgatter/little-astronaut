@@ -13,9 +13,9 @@ namespace Entidades{
                 virtual ~Personagem();
                 void setVidas(int VIDAS);
                 int getVidas() const;
+                void sofrerDano(int DANO);
                 virtual void mover_se(){};
                 virtual void colidir(Entidade* outro, Vector2f ds){};
-                void sofrerDano(int DANO);
         };
     }using namespace Personagens;
 }using namespace Entidades;

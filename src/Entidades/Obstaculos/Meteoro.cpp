@@ -38,6 +38,12 @@ namespace Entidades{
             setVel(Vector2f(0.f, 4.f*coef_vel));
         }
 
+        void Meteoro::reiniciar(){
+            setVel(Vector2f(0.f, 0.f));
+            setPos(Vector2f(-100, -100));
+            setVivo(true);
+        }
+
         void Meteoro::mover_se(){
             if(!caindo)
                 setVel(Vector2f(0.f, -gravid));

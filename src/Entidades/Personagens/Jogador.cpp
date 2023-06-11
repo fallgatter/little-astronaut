@@ -4,6 +4,7 @@
 #include"../../../include/Entidades/Obstaculos/Bloco.h"
 #include"../../../include/Entidades/Obstaculos/Espinho.h"
 #include"../../../include/Entidades/Obstaculos/Meteoro.h"
+#include"../../../include/Entidades/Projetil.h"
 
 namespace Entidades{
     namespace Personagens{
@@ -144,7 +145,7 @@ namespace Entidades{
                         setPontuacao(100);
                 }
                 else if(outro->getId()=='p'){//projétil
-                    sofrerDano(outro->getDano());
+                    sofrerDano(outro->getDano() * static_cast<Projetil*>(outro)->getCoef());
                     outro->setVivo(false);
                 }
             }
