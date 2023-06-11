@@ -23,12 +23,12 @@ namespace Entidades{
             void setDano(int DANO);
             void setVivo(bool VIVO); 
             void setGravidade(float g);
-            Sprite getSprite() const;
-            Vector2f getTam() const;
-            Vector2f getPos() const;
+            const Sprite getSprite() const;
+            const Vector2f getTam() const;
+            const Vector2f getPos() const;
             Vector2f getVel() const;
             const int getDano() const;
-            bool getVivo() const;
+            const bool getVivo() const;
             void desacelerar();
             void gravidade();
             void atualizar();

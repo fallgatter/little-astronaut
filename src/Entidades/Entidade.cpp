@@ -50,15 +50,15 @@ namespace Entidades{
         gravid = g;
     }
 
-    Sprite Entidade::getSprite() const{
+    const Sprite Entidade::getSprite() const{
         return sprt;
     }
 
-    Vector2f Entidade::getTam() const{
+    const Vector2f Entidade::getTam() const{
         return tam;
     }
 
-    Vector2f Entidade::getPos() const{
+    const Vector2f Entidade::getPos() const{
         return pos;
     }
 
@@ -70,7 +70,7 @@ namespace Entidades{
         return dano;
     }
 
-    bool Entidade::getVivo() const{
+    const bool Entidade::getVivo() const{
         return vivo;
     }
     
