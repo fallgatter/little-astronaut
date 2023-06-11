@@ -27,7 +27,7 @@ namespace Entidades{
             Vector2f getTam() const;
             Vector2f getPos() const;
             Vector2f getVel() const;
-            int getDano() const;
+            const int getDano() const;
             bool getVivo() const;
             void desacelerar();
             void gravidade();

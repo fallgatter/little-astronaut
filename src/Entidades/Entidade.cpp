@@ -66,7 +66,7 @@ namespace Entidades{
         return vel;
     }
 
-    int Entidade::getDano() const{
+    const int Entidade::getDano() const{
         return dano;
     }
 

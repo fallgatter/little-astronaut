@@ -50,19 +50,19 @@ namespace Entidades{
                         if(outro->getPos().x<getPos().x){
                             vjog.x-=1.5;
                             voutro.x+=1.5;
-                            static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                            static_cast<Personagem*>(outro)->operator--();
                         }
                         else{
                             vjog.x+=1.5;
                             voutro.x-=1.5;
-                            static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                            static_cast<Personagem*>(outro)->operator--();
                         }
                     }
                     else{//colisão em y
                         if(outro->getPos().y<getPos().y){
                             vjog.y-=1.5;
                             voutro.y+=1.5;
-                            static_cast<Personagem*>(outro)->sofrerDano(getDano());
+                            static_cast<Personagem*>(outro)->operator--();
                         }
                         else{
                             vjog.y+=1.5;
