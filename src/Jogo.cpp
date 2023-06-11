@@ -12,26 +12,36 @@ Jogo::~Jogo(){
     
 }
 
+void Jogo::criarLua(){
+    moon.criarMapa();
+    moon.executar();
+}
+
+void Jogo::criarMarte(){
+    mars.criarMapa();
+    mars.executar();
+}
+
 void Jogo::executar(){
     int selecionador;
     Menus::Menu mn;
     //opcao= mn.selecionar() + 1;
 
     //while(mn.isWindowOpen()){
-        selecionador= mn.selecionar() + 1;
-        cout<<selecionador<<endl;
-        if(selecionador == 1 || selecionador == 2){
-            moon.setquantJog(selecionador);
-            moon.criarMapa();
-            moon.executar();
+
+        int opcao;
+        opcao= mn.selecionar() + 1;
+        if(opcao>=1 && opcao <= 2 ){
+            moon.setquantJog(opcao);
+            criarLua();
         }
-        else if(selecionador > 2 && selecionador < 5){
-            mars.setquantJog(selecionador - 2);
-            mars.criarMapa();
-            mars.executar();
+        cout<<"here"<<endl;
+        if(opcao> 2 && opcao <= 4){
+            mars.setquantJog(opcao-2);
+            criarMarte();
         }
-    //}
-}
+    }
+
 
 
     

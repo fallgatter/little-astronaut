@@ -12,5 +12,7 @@ class Jogo{
     public:
         Jogo();
         ~Jogo();
+        void criarLua();
+        void criarMarte();
         void executar();
 };
