@@ -55,8 +55,8 @@ namespace Fases{
                 if(quant_jogadores == 2){
                     jog2 = new Jogador(Vector2f(base), 'g');
                     LE.incluir(jog2);
-                    Inimigo::setJog(jog2, letra);
-                    Meteoro::setJog(jog2, letra);
+                    Inimigo::setJog(jog2, 'g');
+                    Meteoro::setJog(jog2, 'g');
                 }
                 break;
             }
