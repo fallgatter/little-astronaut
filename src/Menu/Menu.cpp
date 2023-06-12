@@ -44,7 +44,6 @@ namespace Menus{
             txt.setCharacterSize(50);
             txt.setPosition(Vector2f(100.f,300.f));
             textos.push_back(txt);
-            cout<<tam<<endl;
             tam = 5;
         }
         sprt.setTexture(text);

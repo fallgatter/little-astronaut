@@ -105,10 +105,8 @@ namespace Fases{
         LE[0]->setGravidade(gravidade);
         if(pga==NULL || Ge==NULL){
             exit(1);
-            cout<<"aqui2  "<<endl;
         } 
         else{
-            cout<<"aqui3  "<<endl;
             while(pga->isopen() && !terminada() && Ge->selecionado_da_pausa() && !Go.getGame_Over()){
 
                 pga->setFps(100);

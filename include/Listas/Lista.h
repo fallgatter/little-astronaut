@@ -5,10 +5,14 @@
 #include<iostream>
 
 namespace Listas{
-    template <typename T>
+  
+
+  template <typename T> class Lista{
+    public:
+      template <typename Tn>
       class Node {
         public:
-          T data;
+          Tn data;
           Node *next;
           Node():
             data(NULL), next(NULL){}
@@ -17,8 +21,6 @@ namespace Listas{
             next=NULL;
           }
       };
-
-  template <typename T> class Lista{
     private:
         Node<T> *head;
     public:

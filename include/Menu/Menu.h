@@ -16,7 +16,7 @@ namespace Menus{
             Texture textura;
         public:
             Menu(int id='m');
-            ~Menu();
+            virtual ~Menu();
             int selecionar();
             void interagir();
             void colorir_selecionado();

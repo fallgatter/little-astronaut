@@ -35,7 +35,6 @@ void Jogo::executar(){
             moon.setquantJog(opcao);
             criarLua();
         }
-        cout<<"here"<<endl;
         if(opcao> 2 && opcao <= 4){
             mars.setquantJog(opcao-2);
             criarMarte();
