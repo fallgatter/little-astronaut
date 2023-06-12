@@ -25,9 +25,6 @@ void Jogo::criarMarte(){
 void Jogo::executar(){
     int selecionador;
     Menus::Menu mn;
-    //opcao= mn.selecionar() + 1;
-
-    //while(mn.isWindowOpen()){
 
         int opcao;
         opcao= mn.selecionar() + 1;
