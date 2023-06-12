@@ -109,7 +109,7 @@ namespace Fases{
         else{
             while(pga->isopen() && !terminada() && Ge->selecionado_da_pausa() && !Go.getGame_Over()){
 
-                pga->setFps(100);
+                pga->setFps(90);
                 
                 for(i = 0;i<LE.tamanho();i++){
                     if(LE[i]->getVivo()){

@@ -25,7 +25,7 @@ namespace Fases{
             Gerenciador_Eventos* Ge;
             static Jogador* jog1;
             static Jogador* jog2;
-            float gravidade;
+            const float gravidade;
             int pontuacao, quant_jogadores;
             Game_Over Go;
 
