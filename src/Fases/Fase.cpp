@@ -5,7 +5,7 @@ namespace Fases{
     Jogador* Fase::jog1(NULL);
     Jogador* Fase::jog2(NULL);
 
-    Fase::Fase(int ID, float GRAVIDADE): 
+    Fase::Fase(int ID, const float GRAVIDADE): 
         Ente(ID), gravidade(GRAVIDADE), pontuacao(0), Ge(Ge=Ge->Singleton())
     {
         quant_jogadores = 1;

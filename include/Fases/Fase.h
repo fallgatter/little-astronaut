@@ -28,9 +28,8 @@ namespace Fases{
             const float gravidade;
             int pontuacao, quant_jogadores;
             Game_Over Go;
-
         public:
-            Fase(int ID='F', float GRAVIDADE=0);
+            Fase(int ID='F', const float GRAVIDADE=0);
             virtual ~Fase();
             void setPontuacao(int PONTOS);
             int getPontuacao() const;
